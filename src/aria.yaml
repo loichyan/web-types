@@ -1,39 +1,51 @@
 ARIA_ATTR:
-  $link: mdn:Web/Accessibility/ARIA/Attributes/%s
+  $default:
+    link: mdn:Web/Accessibility/ARIA/Attributes/%s
+    prop-type: string
   aria-activedescendant:
     type: id
   aria-atomic:
     type: [false, true]
+    prop: ariaAtomic
   aria-autocomplete:
     type: [none, inline, list, both]
+    prop: ariaAutoComplete
   aria-braillelabel:
     type: string
   aria-brailleroledescription:
     type: string
   aria-busy:
     type: [false, true]
+    prop: ariaBusy
   aria-checked:
-    type: [false, true, mixed]
+    type: [undefined, false, true, mixed]
+    prop: ariaChecked
   aria-colcount:
     type: integer
+    prop: ariaColCount
   aria-colindex:
     type: integer
+    prop: ariaColIndex
   aria-colindextext:
     type: string
   aria-colspan:
     type: integer
+    prop: ariaColSpan
   aria-controls:
     type: list<id>
   aria-current:
     type: [false, true, page, step, location, date, time]
+    prop: ariaCurrent
   aria-describedby:
     type: list<id>
   aria-description:
     type: string
+    prop: ariaDescription
   aria-details:
     type: list<id>
   aria-disabled:
     type: [false, true]
+    prop: ariaDisabled
   aria-dropeffect:
     type: [none, copy, execute, link, move, popup]
     deprecated: true
@@ -41,6 +53,7 @@ ARIA_ATTR:
     type: id
   aria-expanded:
     type: [undefined, false, true]
+    prop: ariaExpanded
   aria-flowto:
     type: list<id>
   aria-grabbed:
@@ -48,63 +61,90 @@ ARIA_ATTR:
     type: [undefined, false, true]
   aria-haspopup:
     type: [false, true, menu, listbox, tree, grid, dialog]
+    prop: ariaHasPopup
   aria-hidden:
     type: [undefined, false, true]
+    prop: ariaHidden
   aria-invalid:
     type: [false, true, grammar, spelling]
   aria-keyshortcuts:
     type: string
+    prop: ariaKeyShortcuts
   aria-label:
     type: string
+    prop: ariaLabel
   aria-labelledby:
     type: list<id>
   aria-level:
     type: integer
+    prop: ariaLevel
   aria-live:
     type: [off, assertive, polite]
+    prop: ariaLive
   aria-modal:
     type: [false, true]
+    prop: ariaModal
   aria-multiline:
     type: [false, true]
+    prop: ariaMultiLine
   aria-multiselectable:
     type: [false, true]
+    prop: ariaMultiSelectable
   aria-orientation:
     type: [undefined, horizontial, vertical]
+    prop: ariaOrientation
   aria-owns:
     type: list<id>
   aria-placeholder:
     type: string
+    prop: ariaPlaceholder
   aria-posinset:
     type: integer
+    prop: ariaPosInSet
   aria-pressed:
     type: [undefined, false, true, mixed]
+    prop: ariaPressed
   aria-readonly:
     type: [false, true]
+    prop: ariaReadOnly
   aria-relevant:
-    type: [additions, all, removals, text, "additions text"]
+    type: [additions, all, removals, text]
+    prop: ariaRelevant
   aria-required:
     type: [false, true]
+    prop: ariaRequired
   aria-roledescription:
     type: string
+    prop: ariaRoleDescription
   aria-rowcount:
     type: integer
+    prop: ariaRowCount
   aria-rowindex:
     type: integer
+    prop: ariaRowIndex
   aria-rowindextext:
     type: string
   aria-rowspan:
     type: integer
+    prop: ariaRowSpan
   aria-selected:
     type: [undefined, false, true]
+    prop: ariaSelected
   aria-setsize:
     type: integer
+    prop: ariaSetSize
   aria-sort:
     type: [none, ascending, descending, other]
+    prop: ariaSort
   aria-valuemax:
     type: number
+    prop: ariaValueMax
   aria-valuemin:
     type: number
+    prop: ariaValueMin
   aria-valuenow:
     type: number
+    prop: ariaValueNow
   aria-valuetext:
     type: string
+    prop: ariaValueText
