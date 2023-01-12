@@ -1,19 +1,17 @@
 ARIA_ATTR:
   $default:
     link: mdn:Web/Accessibility/ARIA/Attributes/%s
-    prop-type: string
-  aria-activedescendant:
-    type: id
+    prop:
+      type: string
+  aria-activedescendant: id
   aria-atomic:
     type: [false, true]
     prop: ariaAtomic
   aria-autocomplete:
     type: [none, inline, list, both]
     prop: ariaAutoComplete
-  aria-braillelabel:
-    type: string
-  aria-brailleroledescription:
-    type: string
+  aria-braillelabel: string
+  aria-brailleroledescription: string
   aria-busy:
     type: [false, true]
     prop: ariaBusy
@@ -26,55 +24,47 @@ ARIA_ATTR:
   aria-colindex:
     type: integer
     prop: ariaColIndex
-  aria-colindextext:
-    type: string
+  aria-colindextext: string
   aria-colspan:
     type: integer
     prop: ariaColSpan
-  aria-controls:
-    type: list<id>
+  aria-controls: list<id>
   aria-current:
     type: [false, true, page, step, location, date, time]
     prop: ariaCurrent
-  aria-describedby:
-    type: list<id>
+  aria-describedby: list<id>
   aria-description:
     type: string
     prop: ariaDescription
-  aria-details:
-    type: list<id>
+  aria-details: list<id>
   aria-disabled:
     type: [false, true]
     prop: ariaDisabled
   aria-dropeffect:
     type: [none, copy, execute, link, move, popup]
     deprecated: true
-  aria-errormessage:
-    type: id
+  aria-errormessage: id
   aria-expanded:
     type: [undefined, false, true]
     prop: ariaExpanded
-  aria-flowto:
-    type: list<id>
+  aria-flowto: list<id>
   aria-grabbed:
-    deprecated: true
     type: [undefined, false, true]
+    deprecated: true
   aria-haspopup:
     type: [false, true, menu, listbox, tree, grid, dialog]
     prop: ariaHasPopup
   aria-hidden:
     type: [undefined, false, true]
     prop: ariaHidden
-  aria-invalid:
-    type: [false, true, grammar, spelling]
+  aria-invalid: [false, true, grammar, spelling]
   aria-keyshortcuts:
     type: string
     prop: ariaKeyShortcuts
   aria-label:
     type: string
     prop: ariaLabel
-  aria-labelledby:
-    type: list<id>
+  aria-labelledby: list<id>
   aria-level:
     type: integer
     prop: ariaLevel
@@ -93,8 +83,7 @@ ARIA_ATTR:
   aria-orientation:
     type: [undefined, horizontial, vertical]
     prop: ariaOrientation
-  aria-owns:
-    type: list<id>
+  aria-owns: list<id>
   aria-placeholder:
     type: string
     prop: ariaPlaceholder
@@ -109,7 +98,9 @@ ARIA_ATTR:
     prop: ariaReadOnly
   aria-relevant:
     type: [additions, all, removals, text]
-    prop: ariaRelevant
+    prop:
+      name: ariaRelevant
+      nonstandard: true
   aria-required:
     type: [false, true]
     prop: ariaRequired
@@ -122,8 +113,7 @@ ARIA_ATTR:
   aria-rowindex:
     type: integer
     prop: ariaRowIndex
-  aria-rowindextext:
-    type: string
+  aria-rowindextext: string
   aria-rowspan:
     type: integer
     prop: ariaRowSpan
