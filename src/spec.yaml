@@ -1,0 +1,47 @@
+# == BEGIN TYPE DEFINITIONS == #
+# Patterns listed as follows will be replaced:
+# - `%s`: the name of the entry
+<template>: <string>
+
+<meta>:
+  link: <template>
+  # default: false
+  experimental: <boolean>
+  # default: false
+  deprecated: <boolean>
+  # default: false
+  nonstrandard: <boolean>
+
+# `<string>` will be converted to `attr.type`.
+<attr>:
+  type: <string>|<list<string>>
+  prop: <prop>
+  <keyof meta>: <typeof meta>
+
+# `<string>` will be converted to `prop.type`.
+<prop>:
+  type: <string>
+  <keyof meta>: <typeof meta>
+
+# `<string>` will be converted to `event.type`.
+<event>:
+  type: <string>
+  <keyof meta>: <typeof meta>
+
+<preset>:
+  # Default values of attribute entries.
+  $default: <attr>
+  # Extend attribute and event entries from other presets.
+  $extend: <list<string>>
+  # Events.
+  $event:
+    # Default values of event entries.
+    $default: <event>
+    # Event entries.
+    <string>: <event>
+  # Attribute entries.
+  <string>: <attr>
+# == END TYPE DEFINITIONS == #
+
+# Preset entries.
+<string>: <preset>
