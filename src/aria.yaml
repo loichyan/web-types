@@ -1,0 +1,110 @@
+ARIA_ATTR:
+  $link: mdn:Web/Accessibility/ARIA/Attributes/%s
+  aria-activedescendant:
+    type: id
+  aria-atomic:
+    type: [false, true]
+  aria-autocomplete:
+    type: [none, inline, list, both]
+  aria-braillelabel:
+    type: string
+  aria-brailleroledescription:
+    type: string
+  aria-busy:
+    type: [false, true]
+  aria-checked:
+    type: [false, true, mixed]
+  aria-colcount:
+    type: integer
+  aria-colindex:
+    type: integer
+  aria-colindextext:
+    type: string
+  aria-colspan:
+    type: integer
+  aria-controls:
+    type: list<id>
+  aria-current:
+    type: [false, true, page, step, location, date, time]
+  aria-describedby:
+    type: list<id>
+  aria-description:
+    type: string
+  aria-details:
+    type: list<id>
+  aria-disabled:
+    type: [false, true]
+  aria-dropeffect:
+    type: [none, copy, execute, link, move, popup]
+    deprecated: true
+  aria-errormessage:
+    type: id
+  aria-expanded:
+    type: [undefined, false, true]
+  aria-flowto:
+    type: list<id>
+  aria-grabbed:
+    deprecated: true
+    type: [undefined, false, true]
+  aria-haspopup:
+    type: [false, true, menu, listbox, tree, grid, dialog]
+  aria-hidden:
+    type: [undefined, false, true]
+  aria-invalid:
+    type: [false, true, grammar, spelling]
+  aria-keyshortcuts:
+    type: string
+  aria-label:
+    type: string
+  aria-labelledby:
+    type: list<id>
+  aria-level:
+    type: integer
+  aria-live:
+    type: [off, assertive, polite]
+  aria-modal:
+    type: [false, true]
+  aria-multiline:
+    type: [false, true]
+  aria-multiselectable:
+    type: [false, true]
+  aria-orientation:
+    type: [undefined, horizontial, vertical]
+  aria-owns:
+    type: list<id>
+  aria-placeholder:
+    type: string
+  aria-posinset:
+    type: integer
+  aria-pressed:
+    type: [undefined, false, true, mixed]
+  aria-readonly:
+    type: [false, true]
+  aria-relevant:
+    type: [additions, all, removals, text, "additions text"]
+  aria-required:
+    type: [false, true]
+  aria-roledescription:
+    type: string
+  aria-rowcount:
+    type: integer
+  aria-rowindex:
+    type: integer
+  aria-rowindextext:
+    type: string
+  aria-rowspan:
+    type: integer
+  aria-selected:
+    type: [undefined, false, true]
+  aria-setsize:
+    type: integer
+  aria-sort:
+    type: [none, ascending, descending, other]
+  aria-valuemax:
+    type: number
+  aria-valuemin:
+    type: number
+  aria-valuenow:
+    type: number
+  aria-valuetext:
+    type: string
