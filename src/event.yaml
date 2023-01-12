@@ -1,0 +1,150 @@
+WINDOWS_EVENT:
+  afterprint:
+  appinstalled:
+  beforeinstallprompt:
+  beforeprint:
+  beforeunload:
+  blur:
+  copy:
+  cut:
+  devicemotion:
+  deviceorientation:
+  deviceorientationabsolute:
+  error:
+  focus:
+  gamepadconnected:
+  gamepaddisconnected:
+  hashchange:
+  languagechange:
+  load:
+  message:
+  messageerror:
+  offline:
+  online:
+  orientationchange:
+  pagehide:
+  pageshow:
+  paste:
+  popstate:
+  rejectionhandled:
+  resize:
+  storage:
+  unhandledrejection:
+  unload:
+
+NODE_EVENT:
+  $default:
+    link: Web/API/Node/%s_event
+  ~selectstart: Event
+
+ELEMENT_EVENT:
+  $default:
+    link: Web/API/Element/%s_event
+  ~afterscriptexecute:
+  ~animationcancel:
+  ~animationend:
+  ~animationiteration:
+  ~animationstart:
+  ~auxclick:
+  ~beforematch:
+  ~beforescriptexecute:
+  ~beforexrselect:
+  ~blur:
+  ~click:
+  ~compositionend:
+  ~compositionstart:
+  ~compositionupdate:
+  ~contentvisibilityautostatechanged:
+  ~contextmenu:
+  ~copy:
+  ~cut:
+  ~dblclick:
+  ~error:
+  ~focus:
+  ~focusin:
+  ~focusout:
+  ~fullscreenchange:
+  ~fullscreenerror:
+  ~gesturechange:
+  ~gestureend:
+  ~gesturestart:
+  ~gotpointercapture:
+  ~keydown:
+  ~keypress:
+  ~keyup:
+  ~lostpointercapture:
+  ~mousedown:
+  ~mouseenter:
+  ~mouseleave:
+  ~mousemove:
+  ~mouseout:
+  ~mouseover:
+  ~mouseup:
+  ~mousewheel:
+  ~paste:
+  ~pointercancel:
+  ~pointerdown:
+  ~pointerenter:
+  ~pointerleave:
+  ~pointermove:
+  ~pointerout:
+  ~pointerover:
+  ~pointerup:
+  ~scroll:
+  ~scrollend:
+  ~securitypolicyviolation:
+  ~show:
+  ~touchcancel:
+  ~touchend:
+  ~touchmove:
+  ~touchstart:
+  ~transitioncancel:
+  ~transitionend:
+  ~transitionrun:
+  ~transitionstart:
+  ~wheel:
+
+HTML_ELEMENT_EVENT:
+  ~beforeinput:
+  ~change:
+  ~copy:
+  ~cut:
+  ~drag:
+  ~dragend:
+  ~dragenter:
+  ~dragleave:
+  ~dragover:
+  ~dragstart:
+  ~drop:
+  ~input:
+  ~paste:
+
+HTML_MEDIA_EVENT:
+  abort:
+  canplay:
+  canplaythrough:
+  durationchange:
+  emptied:
+  ended:
+  error:
+  loadeddata:
+  loadedmetadata:
+  loadstart:
+  pause:
+  play:
+  playing:
+  progress:
+  ratechange:
+  seeked:
+  seeking:
+  stalled:
+  suspend:
+  timeupdate:
+  volumechange:
+  waiting:
+
+EVENT:
+  $extend:
+    - NODE_EVENT
+    - ELEMENT_EVENT
+    - HTML_ELEMENT_EVENT
