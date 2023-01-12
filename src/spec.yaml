@@ -1,9 +1,9 @@
 # == BEGIN TYPE DEFINITIONS == #
 # Patterns listed as follows will be replaced:
 # - `%s`: the name of the entry
-<template>: <string>
+template: <string>
 
-<meta>:
+meta:
   link: <template>
   # default: false
   experimental: <boolean>
@@ -13,22 +13,24 @@
   nonstrandard: <boolean>
 
 # `<string>` will be converted to `attr.type`.
-<attr>:
+attr:
   type: <string>|<list<string>>
   prop: <prop>
   <keyof meta>: <typeof meta>
 
 # `<string>` will be converted to `prop.type`.
-<prop>:
+prop:
   type: <string>
   <keyof meta>: <typeof meta>
 
 # `<string>` will be converted to `event.type`.
-<event>:
+event:
   type: <string>
   <keyof meta>: <typeof meta>
+# == END TYPE DEFINITIONS == #
 
-<preset>:
+# Preset entries.
+<string>:
   # Default values of attribute entries.
   $default: <attr>
   # Extend attribute and event entries from other presets.
@@ -41,7 +43,3 @@
     <string>: <event>
   # Attribute entries.
   <string>: <attr>
-# == END TYPE DEFINITIONS == #
-
-# Preset entries.
-<string>: <preset>
