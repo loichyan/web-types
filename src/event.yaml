@@ -1,150 +1,192 @@
-WINDOWS_EVENT:
-  afterprint:
-  appinstalled:
-  beforeinstallprompt:
-  beforeprint:
-  beforeunload:
-  blur:
-  copy:
-  cut:
-  devicemotion:
-  deviceorientation:
-  deviceorientationabsolute:
-  error:
-  focus:
-  gamepadconnected:
-  gamepaddisconnected:
-  hashchange:
-  languagechange:
-  load:
-  message:
-  messageerror:
-  offline:
-  online:
-  orientationchange:
-  pagehide:
-  pageshow:
-  paste:
-  popstate:
-  rejectionhandled:
-  resize:
-  storage:
-  unhandledrejection:
-  unload:
+_WINDOW_EVENT:
+  $event:
+    $default:
+      link: mdn:Web/API/Window/%s_event
+    afterprint: Event
+    appinstalled: Event
+    beforeinstallprompt:
+      type: BeforeInstallPromptEvent
+      experimental: true
+    beforeprint: Event
+    beforeunload: BeforeUnloadEvent
+    blur: FocusEvent
+    copy: ClipboardEvent
+    cut: ClipboardEvent
+    devicemotion: DeviceMotionEvent
+    deviceorientation: DeviceOrientationEvent
+    deviceorientationabsolute: DeviceOrientationEvent
+    DOMContentLoaded: Event
+    error: UIEvent
+    focus: FocusEvent
+    gamepadconnected: GamepadEvent
+    gamepaddisconnected: GamepadEvent
+    hashchange: HashChangeEvent
+    languagechange: Event
+    load: Event
+    message: MessageEvent
+    messageerror: MessageEvent
+    offline: Event
+    online: Event
+    orientationchange:
+      type: Event
+      deprecated: true
+    pagehide: PageTransitionEvent
+    pageshow: PageTransitionEvent
+    paste: ClipboardEvent
+    popstate: PopStateEvent
+    rejectionhandled: PromiseRejectionEvent
+    resize: UIEvent
+    storage: StorageEvent
+    unhandledrejection: PromiseRejectionEvent
+    unload: Event
 
-NODE_EVENT:
-  $default:
-    link: Web/API/Node/%s_event
-  ~selectstart: Event
+_NODE_EVENT:
+  $event:
+    $default:
+      link: mdn:Web/API/Node/%s_event
+    selectstart: Event
 
-ELEMENT_EVENT:
-  $default:
-    link: Web/API/Element/%s_event
-  ~afterscriptexecute:
-  ~animationcancel:
-  ~animationend:
-  ~animationiteration:
-  ~animationstart:
-  ~auxclick:
-  ~beforematch:
-  ~beforescriptexecute:
-  ~beforexrselect:
-  ~blur:
-  ~click:
-  ~compositionend:
-  ~compositionstart:
-  ~compositionupdate:
-  ~contentvisibilityautostatechanged:
-  ~contextmenu:
-  ~copy:
-  ~cut:
-  ~dblclick:
-  ~error:
-  ~focus:
-  ~focusin:
-  ~focusout:
-  ~fullscreenchange:
-  ~fullscreenerror:
-  ~gesturechange:
-  ~gestureend:
-  ~gesturestart:
-  ~gotpointercapture:
-  ~keydown:
-  ~keypress:
-  ~keyup:
-  ~lostpointercapture:
-  ~mousedown:
-  ~mouseenter:
-  ~mouseleave:
-  ~mousemove:
-  ~mouseout:
-  ~mouseover:
-  ~mouseup:
-  ~mousewheel:
-  ~paste:
-  ~pointercancel:
-  ~pointerdown:
-  ~pointerenter:
-  ~pointerleave:
-  ~pointermove:
-  ~pointerout:
-  ~pointerover:
-  ~pointerup:
-  ~scroll:
-  ~scrollend:
-  ~securitypolicyviolation:
-  ~show:
-  ~touchcancel:
-  ~touchend:
-  ~touchmove:
-  ~touchstart:
-  ~transitioncancel:
-  ~transitionend:
-  ~transitionrun:
-  ~transitionstart:
-  ~wheel:
+_ELEMENT_EVENT:
+  $event:
+    $default:
+      link: mdn:Web/API/Element/%s_event
+    afterscriptexecute:
+      type: Event
+      nonstandard: true
+    animationcancel: AnimationEvent
+    animationend: AnimationEvent
+    animationiteration: AnimationEvent
+    animationstart: AnimationEvent
+    auxclick: MouseEvent
+    beforematch:
+      type: Event
+      experimental: true
+    beforescriptexecute:
+      type: Event
+      nonstandard: true
+    beforexrselect:
+      type: XRSessionEvent
+      experimental: true
+    blur: FocusEvent
+    click: MouseEvent
+    compositionend: CompositionEvent
+    compositionstart: CompositionEvent
+    compositionupdate: CompositionEvent
+    contentvisibilityautostatechanged:
+      type: ContentVisibilityAutoStateChangedEvent
+      experimental: true
+    contextmenu: MouseEvent
+    copy: ClipboardEvent
+    cut: ClipboardEvent
+    dblclick: MouseEvent
+    error: UIEvent
+    focus: FocusEvent
+    focusin: FocusEvent
+    focusout: FocusEvent
+    fullscreenchange: Event
+    fullscreenerror: Event
+    gesturechange:
+      type: GestureEvent
+      nonstandard: true
+    gestureend:
+      type: GestureEvent
+      nonstandard: true
+    gesturestart:
+      type: GestureEvent
+      nonstandard: true
+    gotpointercapture: PointerEvent
+    keydown: KeyboardEvent
+    keypress:
+      type: KeyboardEvent
+      deprecated: true
+    keyup: KeyboardEvent
+    lostpointercapture: PointerEvent
+    mousedown: MouseEvent
+    mouseenter: MouseEvent
+    mouseleave: MouseEvent
+    mousemove: MouseEvent
+    mouseout: MouseEvent
+    mouseover: MouseEvent
+    mouseup: MouseEvent
+    mousewheel:
+      type: WheelEvent
+      deprecated: true
+      nonstandard: true
+    paste: ClipboardEvent
+    pointercancel: PointerEvent
+    pointerdown: PointerEvent
+    pointerenter: PointerEvent
+    pointerleave: PointerEvent
+    pointermove: PointerEvent
+    pointerout: PointerEvent
+    pointerover: PointerEvent
+    pointerup: PointerEvent
+    scroll: Event
+    scrollend: Event
+    securitypolicyviolation: SecurityPolicyViolationEvent
+    show:
+      type: Event
+      deprecated: true
+      nonstandard: true
+    touchcancel: TouchEvent
+    touchend: TouchEvent
+    touchmove: TouchEvent
+    touchstart: TouchEvent
+    transitioncancel: TransitionEvent
+    transitionend: TransitionEvent
+    transitionrun: TransitionEvent
+    transitionstart: TransitionEvent
+    wheel: WheelEvent
 
-HTML_ELEMENT_EVENT:
-  ~beforeinput:
-  ~change:
-  ~copy:
-  ~cut:
-  ~drag:
-  ~dragend:
-  ~dragenter:
-  ~dragleave:
-  ~dragover:
-  ~dragstart:
-  ~drop:
-  ~input:
-  ~paste:
+_HTML_ELEMENT_EVENT:
+  $event:
+    beforeinput: InputEvent
+    change: Event
+    copy: ClipboardEvent
+    cut: ClipboardEvent
+    drag: DragEvent
+    dragend: DragEvent
+    dragenter: DragEvent
+    dragleave: DragEvent
+    dragover: DragEvent
+    dragstart: DragEvent
+    drop: DragEvent
+    input: Event
+    paste: ClipboardEvent
 
-HTML_MEDIA_EVENT:
-  abort:
-  canplay:
-  canplaythrough:
-  durationchange:
-  emptied:
-  ended:
-  error:
-  loadeddata:
-  loadedmetadata:
-  loadstart:
-  pause:
-  play:
-  playing:
-  progress:
-  ratechange:
-  seeked:
-  seeking:
-  stalled:
-  suspend:
-  timeupdate:
-  volumechange:
-  waiting:
+_HTML_MEDIA_ELEMENT_EVENT:
+  $event:
+    abort: Event
+    canplay: Event
+    canplaythrough: Event
+    durationchange: Event
+    emptied: Event
+    ended: Event
+    error: Event
+    loadeddata: Event
+    loadedmetadata: Event
+    loadstart: Event
+    pause: Event
+    play: Event
+    playing: Event
+    progress: Event
+    ratechange: Event
+    seeked: Event
+    seeking: Event
+    stalled: Event
+    suspend: Event
+    timeupdate: Event
+    volumechange: Event
+    waiting: Event
 
 EVENT:
   $extend:
-    - NODE_EVENT
-    - ELEMENT_EVENT
-    - HTML_ELEMENT_EVENT
+    - _WINDOW_EVENT
+    - _NODE_EVENT
+    - _ELEMENT_EVENT
+
+HTML_EVENT:
+  $extend:
+    - EVENT
+    - _HTML_ELEMENT_EVENT
+    - _HTML_MEDIA_ELEMENT_EVENT
