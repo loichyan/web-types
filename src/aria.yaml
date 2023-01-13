@@ -4,6 +4,7 @@ ARIA_ATTR:
   $default:
     link: mdn:Web/Accessibility/ARIA/Attributes/%s
     prop:
+      link: mdn:Web/API/Element/%s
       type: string
   aria-activedescendant: id
   aria-atomic:
