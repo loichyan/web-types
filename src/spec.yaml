@@ -31,7 +31,9 @@ attr: <string>|<attr_raw>
 
 prop_raw:
   name: <string>
+  # inherit: $default : attr.type
   type: <string>
+  # inherit: $default : attr.<meta>
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `prop.name`.
 prop: <string>|<prop_raw>
