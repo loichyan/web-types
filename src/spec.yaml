@@ -18,8 +18,9 @@ attr:
   prop: <prop>
   <keyof meta>: <typeof meta>
 
-# `<string>` will be converted to `prop.type`.
+# `<string>` will be converted to `prop.name`.
 prop:
+  name: <string>
   type: <string>
   <keyof meta>: <typeof meta>
 
