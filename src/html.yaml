@@ -1,0 +1,79 @@
+GLOBAL_ATTR:
+  $meta:
+    link: mdn:Web/HTML/Global_attributes
+  $default:
+    link: mdn:Web/HTML/Global_attributes/%s
+    prop:
+      link: mdn:Web/API/HTMLElement/%s
+  accesskey:
+    type: string
+    prop: accessKey
+  autocapitalize: [none, characters, off, on, sentences, words]
+  autofocus: boolean
+  class:
+    type: string
+    prop: className
+  contenteditable:
+    type: [false, true, inherit]
+    prop: contentEditable
+  contextmenu:
+    type: id
+    prop: contextmenu
+    deprecated: true
+    nonstandard: true
+  dir:
+    type: [auto, ltr, rtl]
+    prop: dir
+  draggable: [false, true]
+  enterkeyhint:
+    type: [enter, done, go, next, previous, search, send]
+    prop: enterKeyHint
+  exportparts: string
+  hidden:
+    type: [hidden, until-found]
+    prop:
+      name: hidden
+      type: [<false>, <true>, until-found]
+  id:
+    type: id
+    prop:
+      name: id
+      link: mdn:Web/API/Element/%s
+  inert:
+    type: boolean
+    prop: inert
+  inputmode:
+    type: [none, decimal, email, numeric, search, tel, text, url]
+    prop: inputMode
+  is: string
+  itemid: string
+  itemprop: string
+  itemref: string
+  itemscope: boolean
+  itemtype: string
+  lang:
+    type: string
+    prop: lang
+  nonce:
+    type: string
+    prop: nonce
+  part:
+    type: string
+    prop:
+      name: part
+      link: mdn:Web/API/Element/%s
+  slot:
+    type: string
+    prop:
+      name: slot
+      link: mdn:Web/API/Element/%s
+  spellcheck: [false, true]
+  style: string
+  tabindex:
+    type: integer
+    prop: tabIndex
+  title:
+    type: string
+    prop: title
+  translate: [no, yes]
+  virtualkeyboardpolicy: [auto, manual]
