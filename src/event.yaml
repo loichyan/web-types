@@ -80,6 +80,33 @@ _NODE_EVENT:
       link: mdn:Web/API/Node/%s_event
     selectstart: Event
 
+_DOCUMENT_EVENT:
+  $meta:
+    link: mdn:/Web/API/Document
+  $event:
+    $default:
+      link: mdn:Web/API/Document/%s_event
+    afterscriptexecute:
+      type: Event
+      experimental: true
+    beforescriptexecute:
+      type: Event
+      experimental: true
+    copy: ClipboardEvent
+    cut: ClipboardEvent
+    DOMContentLoaded: Event
+    fullscreenchange: Event
+    fullscreenerror: Event
+    lostpointercapture: PointerEvent
+    paste: ClipboardEvent
+    pointerlockchange: Event
+    pointerlockerror: Event
+    readystatechange: Event
+    scroll: Event
+    scrollend: Event
+    selectionchange: Event
+    visibilitychange: Event
+
 _ELEMENT_EVENT:
   $meta:
     link: mdn:Web/API/Element
@@ -230,7 +257,7 @@ _HTML_MEDIA_ELEMENT_EVENT:
     volumechange: Event
     waiting: Event
 
-EVENT:
+_EVENT:
   $extend:
     - _WINDOW_EVENT
     - _NODE_EVENT
@@ -238,6 +265,7 @@ EVENT:
 
 HTML_EVENT:
   $extend:
-    - EVENT
+    - _EVENT
+    - _DOCUMENT_EVENT
     - _HTML_ELEMENT_EVENT
     - _HTML_MEDIA_ELEMENT_EVENT
