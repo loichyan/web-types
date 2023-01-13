@@ -41,6 +41,36 @@ _WINDOW_EVENT:
     storage: StorageEvent
     unhandledrejection: PromiseRejectionEvent
     unload: Event
+    vrdisplayactivate:
+      type: VRDisplayEvent
+      deprecated: true
+      nonstandard: true
+    vrdisplayblur:
+      type: VRDisplayEvent
+      link: null
+      deprecated: true
+      nonstandard: true
+    vrdisplayconnect:
+      type: VRDisplayEvent
+      deprecated: true
+      nonstandard: true
+    vrdisplaydeactivate:
+      type: VRDisplayEvent
+      deprecated: true
+      nonstandard: true
+    vrdisplaydisconnect:
+      type: VRDisplayEvent
+      deprecated: true
+      nonstandard: true
+    vrdisplayfocus:
+      type: VRDisplayEvent
+      link: null
+      deprecated: true
+      nonstandard: true
+    vrdisplaypresentchange:
+      type: VRDisplayEvent
+      deprecated: true
+      nonstandard: true
 
 _NODE_EVENT:
   $meta:
@@ -85,6 +115,13 @@ _ELEMENT_EVENT:
     copy: ClipboardEvent
     cut: ClipboardEvent
     dblclick: MouseEvent
+    DOMActivate:
+      type: MouseEvent
+      deprecated: true
+    DOMMouseScroll:
+      type: WheelEvent
+      deprecated: true
+      nonstandard: true
     error: UIEvent
     focus: FocusEvent
     focusin: FocusEvent
