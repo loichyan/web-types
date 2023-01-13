@@ -47,6 +47,8 @@ event: <string>|<event_raw>
 
 # Preset entries.
 <string>:
+  # The DOM interface of this element preset.
+  $type: <string>
   # Metadata for this preset.
   $meta: <meta>
   # Default values of attribute entries.

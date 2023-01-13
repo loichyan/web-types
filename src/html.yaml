@@ -1,4 +1,6 @@
 GLOBAL_ATTR:
+  # $extend:
+  #   - ARIA_ATTR
   $meta:
     link: mdn:Web/HTML/Global_attributes
   $default:
@@ -77,3 +79,103 @@ GLOBAL_ATTR:
     prop: title
   translate: [no, yes]
   virtualkeyboardpolicy: [auto, manual]
+
+REFERRER_POLICY:
+  referrerpolicy:
+    type:
+      - no-referrer
+      - no-referrer-when-downgrade
+      - origin
+      - origin-when-cross-origin
+      - same-origin
+      - strict-origin
+      - strict-origin-when-cross-origin
+      - unsafe-url
+
+REL:
+  rel:
+    type:
+      $meta:
+        link: mdn:Web/HTML/Link_types
+      alternate:
+      archives:
+      author:
+      bookmark:
+      canonical:
+      dns-prefetch:
+        link: mdn:Web/HTML/Link_types/%s
+      external:
+      first:
+      help:
+      icon:
+      index:
+        deprecated: true
+      last:
+      license:
+      manifest:
+        link: mdn:Web/HTML/Link_types/%s
+      me:
+        link: mdn:Web/HTML/Link_types/%s
+      modulepreload:
+        link: mdn:Web/HTML/Link_types/%s
+      next:
+      nofollow:
+      noopener:
+        link: mdn:Web/HTML/Link_types/%s
+      noreferrer:
+        link: mdn:Web/HTML/Link_types/%s
+      opener:
+        experimental: true
+      pingback:
+      preconnect:
+        link: mdn:Web/HTML/Link_types/%s
+        experimental: true
+      prefetch:
+        link: mdn:Web/HTML/Link_types/%s
+      preload:
+        link: mdn:Web/HTML/Link_types/%s
+      prerender:
+        link: mdn:Web/HTML/Link_types/%s
+      prev:
+      search:
+      shortlink:
+      sidebar:
+      stylesheet:
+      tag:
+      up:
+        deprecated: true
+
+# HTML Elements
+# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+# All elements listed below should:
+# $extend:
+#   - GLOBAL_ATTR
+#   - HTML_EVENT
+a:
+  $type: HTMLAnchorElement
+  $default:
+    link: mdn:Web/HTML/Element/a#attr-%s
+  $extend:
+    - REFERRER_POLICY
+    - REL
+  charset:
+    type: string
+    deprecated: true
+  coords:
+    type: string
+    deprecated: true
+  download: string
+  href: url
+  hreflang: string
+  name:
+    type: id
+    deprecated: true
+  ping: list<url>
+  rev:
+    type: string
+    deprecated: true
+  shape:
+    type: string
+    deprecated: true
+  target: string
+  type: mime
