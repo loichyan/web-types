@@ -47,7 +47,6 @@ _WINDOW_EVENT:
       nonstandard: true
     vrdisplayblur:
       type: VRDisplayEvent
-      link: null
       deprecated: true
       nonstandard: true
     vrdisplayconnect:
@@ -64,7 +63,6 @@ _WINDOW_EVENT:
       nonstandard: true
     vrdisplayfocus:
       type: VRDisplayEvent
-      link: null
       deprecated: true
       nonstandard: true
     vrdisplaypresentchange:

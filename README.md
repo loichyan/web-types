@@ -2,6 +2,11 @@
 
 A collection of types for web development.
 
+## 📝 Todo
+
+- [ ] Specify whether an event bubbles.
+- [ ] Check the specification of each entry.
+
 ## ⚖️ License
 
 Licensed under either of

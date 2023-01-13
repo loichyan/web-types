@@ -10,8 +10,12 @@ GLOBAL_ATTR:
   accesskey:
     type: <string>
     prop: accessKey
-  autocapitalize: [none, characters, off, on, sentences, words]
-  autofocus: <boolean>
+  autocapitalize:
+    type: [none, characters, off, on, sentences, words]
+    prop: autocapitalize
+  autofocus:
+    type: <boolean>
+    prop: autofocus
   class:
     type: <string>
     prop: className
@@ -26,7 +30,11 @@ GLOBAL_ATTR:
   dir:
     type: [auto, ltr, rtl]
     prop: dir
-  draggable: [false, true]
+  draggable:
+    type: [false, true]
+    prop:
+      name: draggable
+      type: <boolean>
   enterkeyhint:
     type: [enter, done, go, next, previous, search, send]
     prop: enterKeyHint
@@ -69,7 +77,11 @@ GLOBAL_ATTR:
     prop:
       name: slot
       link: mdn:Web/API/Element/%s
-  spellcheck: [false, true]
+  spellcheck:
+    type: [false, true]
+    prop:
+      name: spellcheck
+      type: <boolean>
   style: <string>
   tabindex:
     type: <integer>
@@ -77,7 +89,11 @@ GLOBAL_ATTR:
   title:
     type: <string>
     prop: title
-  translate: [no, yes]
+  translate:
+    type: [no, yes]
+    prop:
+      name: translate
+      type: <boolean>
   virtualkeyboardpolicy: [auto, manual]
 
 <ReferrerPolicy>:
@@ -93,13 +109,14 @@ GLOBAL_ATTR:
 <Rel>:
   $meta:
     link: mdn:Web/HTML/Link_types
+  $default:
+    link: mdn:Web/HTML/Link_types/%s
   alternate:
   archives:
   author:
   bookmark:
   canonical:
   dns-prefetch:
-    link: mdn:Web/HTML/Link_types/%s
   external:
   first:
   help:
@@ -109,79 +126,538 @@ GLOBAL_ATTR:
   last:
   license:
   manifest:
-    link: mdn:Web/HTML/Link_types/%s
   me:
-    link: mdn:Web/HTML/Link_types/%s
   modulepreload:
-    link: mdn:Web/HTML/Link_types/%s
   next:
   nofollow:
   noopener:
-    link: mdn:Web/HTML/Link_types/%s
   noreferrer:
-    link: mdn:Web/HTML/Link_types/%s
   opener:
     experimental: true
   pingback:
   preconnect:
-    link: mdn:Web/HTML/Link_types/%s
     experimental: true
   prefetch:
-    link: mdn:Web/HTML/Link_types/%s
   preload:
-    link: mdn:Web/HTML/Link_types/%s
   prerender:
-    link: mdn:Web/HTML/Link_types/%s
   prev:
   search:
   shortlink:
   sidebar:
-    stylesheet:
-    tag:
-    up:
-      deprecated: true
-
-$default:
-  link: mdn:Web/HTML/Element/%s
-
-# HTML Elements
-# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
-# All elements listed below should:
-# $extend:
-#   - GLOBAL_ATTR
-#   - HTML_EVENT
-a:
-  $type: HTMLAnchorElement
-  $default:
-    link: mdn:Web/HTML/Element/a#attr-%s
-  charset:
-    type: <string>
+  stylesheet:
+  tag:
+  up:
     deprecated: true
-  coords:
-    type: <string>
-    deprecated: true
+
+  <Target>:
+    - <url>
+    - _self
+    - _blank
+    - _parent
+    - _top
+
+_HYPERLINK_ATTR:
   download:
     type: <url>
     prop: download
   href:
     type: <url>
     prop: href
-  hreflang: <string>
-  name:
-    type: <id>
-    deprecated: true
-  ping: list<url>
+  ping:
+    type: list<url>
+    prop: ping
   referrerpolicy:
     type: <ReferrerPolicy>
     prop: referrerPolicy
   rel:
-    type: <Rel>
+    type: list<Rel>
     prop: rel
+  target:
+    type: <Target>
+    prop: target
+
+<Controls>:
+  - nodownload
+  - nofullscreen
+  - noremoteplayback
+
+_MEDIA_ELEMENT_ATTR:
+  $default:
+    prop:
+      link: mdn:Web/API/HTMLMediaElement/%s
+  autoplay:
+    type: <boolean>
+    prop: autoplay
+  controls:
+    type: <boolean>
+    prop: controls
+  controlslist:
+    type: list<Controls>
+    prop: controlsList
+  crossorigin:
+    type: [anonymous, use-credentials]
+    prop: crossOrigin
+  disableremoteplayback:
+    type: <boolean>
+    prop: disableRemotePlayback
+  loop:
+    type: <boolean>
+    prop: loop
+  muted:
+    type: <boolean>
+    prop: muted
+  preload:
+    type: [none, metadata, auto]
+  src:
+    type: <url>
+    prop: src
+
+# HTML Elements
+# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+# All elements listed below implicitly:
+# $extend:
+#   - GLOBAL_ATTR
+#   - HTML_EVENT
+$default:
+  $meta:
+    link: mdn:Web/HTML/Element/%s
+  $default:
+    link: mdn:Web/HTML/Element/%s#attr-%%s
+    prop:
+      link: mdn:Web/API/%t/%%s
+  $event:
+    $default:
+      link: mdn:Web/API/%t/%%s_event
+
+a:
+  $type: HTMLAnchorElement
+  $extend:
+    - _HYPERLINK_ATTR
+  charset:
+    type: <string>
+    prop: charset
+    deprecated: true
+  coords:
+    type: <string>
+    prop: coords
+    deprecated: true
+  name:
+    type: <id>
+    prop: name
+    deprecated: true
+  hreflang:
+    type: <string>
+    prop: hrefLang
   rev:
     type: <string>
+    prop: rev
     deprecated: true
   shape:
     type: <string>
+    prop: shape
     deprecated: true
-  target: [<url>, _self, _blank, _parent, _top]
-  type: <mime>
+  type:
+    type: <mime>
+    prop: type
+
+abbr: HTMLElement
+
+acronym:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+
+address: HTMLElement
+
+applet:
+  $type: HTMLAppletElement
+  $meta:
+    deprecated: true
+  align: [bottom, left, middle, right, top]
+  alt: <string>
+  archive: <string>
+  code: <url>
+  codebase: <url>
+  datafld: <string>
+  datasrc: <string>
+  height: <string>
+  hspace: <string>
+  mayscript: <string>
+  name: <string>
+  object: <url>
+  src: <url>
+  vspace: <url>
+  width: <string>
+
+area:
+  $type: HTMLAreaElement
+  $extend:
+    - _HYPERLINK_ATTR
+  alt:
+    type: <string>
+    prop: alt
+  coords:
+    type: <string>
+    prop: coords
+  hreflang:
+    type: <string>
+    deprecated: true
+  name:
+    type: <string>
+    deprecated: true
+  nohref:
+    type: <boolean>
+    deprecated: true
+  shape:
+    type: [rect, circle, poly, default]
+    prop: shape
+  type:
+    type: <string>
+    deprecated: true
+
+article: HTMLElement
+
+aside: HTMLElement
+
+audio:
+  $type: HTMLAudioElement
+  $extend:
+    - _MEDIA_ELEMENT_ATTR
+
+b: HTMLElement
+
+base: HTMLBaseElement
+
+bdi: HTMLElement
+
+bdo: HTMLElement
+
+bgsound:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+  balance: <number>
+  loop: <boolean>
+  src: <url>
+  volume: <number>
+
+big:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+
+blink:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+
+blockquote:
+  $type: HTMLQuoteElement
+  cite:
+    type: <url>
+    prop: cite
+
+body:
+  $type: HTMLBodyElement
+  alink:
+    type: <string>
+    deprecated: true
+  background:
+    type: <url>
+    deprecated: true
+  bgcolor:
+    type: <string>
+    deprecated: true
+  bottommargin:
+    type: <string>
+    deprecated: true
+  leftmargin:
+    type: <string>
+    deprecated: true
+  link:
+    type: <string>
+    deprecated: true
+  rightmargin:
+    type: <string>
+    deprecated: true
+  text:
+    type: <string>
+    deprecated: true
+  topmargin:
+    type: <string>
+    deprecated: true
+  vlink:
+    type: <string>
+    deprecated: true
+
+br:
+  $type: HTMLBRElement
+  clear:
+    type: <string>
+    deprecated: true
+
+<FormEncType>:
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain
+<FormMethod>:
+  - dialog
+  - get
+  - post
+
+button:
+  $type: HTMLButtonElement
+  autofocus:
+    type: <boolean>
+    prop: autofocus
+  autocomplete:
+    type: [off, on]
+    nonstandard: true
+  disabled:
+    type: <boolean>
+    prop: disabled
+  form:
+    type: <id>
+    prop: form
+  formaction:
+    type: <url>
+    prop: formAction
+  formenctype:
+    type: <FormEncType>
+    prop: formEncType
+  formmethod:
+    # TODO: add `dialog` to MDN
+    type: <FormMethod>
+    prop: formMethod
+  formnovalidate:
+    type: <boolean>
+    prop: formNoValidate
+  formtarget:
+    type: <Target>
+    prop: formTarget
+  name:
+    type: <string>
+  type:
+    # TODO: remove `menu` from MDN
+    type: [submit, reset, button]
+    prop: type
+  value:
+    type: <string>
+    prop: value
+
+canvas:
+  $type: HTMLCanvasElement
+  height:
+    type: <integer>
+    prop: height
+  width:
+    type: <integer>
+    prop: width
+
+caption:
+  $type: HTMLTableCaptionElement
+  align:
+    type: [bottom, left, right, top]
+    deprecated: true
+
+center:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+
+cite: HTMLElement
+
+code: HTMLElement
+
+_COL_ATTR:
+  align:
+    type: [center, justify, left, center]
+    deprecated: true
+  bgcolor:
+    type: <string>
+    deprecated: true
+  char:
+    type: <string>
+    deprecated: true
+  charoff:
+    type: <integer>
+    deprecated: true
+  span:
+    type: <integer>
+    prop: span
+  valign:
+    type: [baseline, bottom, middle, top]
+    deprecated: true
+  width:
+    type: <integer>
+    deprecated: true
+
+col:
+  $type: HTMLTableColElement
+  $extend:
+    - _COL_ATTR
+
+colgroup:
+  $type: HTMLTableColElement
+  $extend:
+    - _COL_ATTR
+
+content:
+  $type: HTMLContentElement
+  $meta:
+    deprecated: true
+  select: <string>
+
+data:
+  $type: HTMLDataElement
+  value:
+    type: <string>
+    prop: value
+
+datalist: HTMLDataListElement
+
+dd:
+  $type: HTMLElement
+  nowrap: [no, yes]
+
+del:
+  $type: HTMLModElement
+  cite:
+    type: <url>
+    prop: cite
+  datetime:
+    type: <datetime>
+    prop: dateTime
+
+details:
+  $type: HTMLDetailsElement
+  open:
+    type: <boolean>
+    prop: open
+  # TODO: merge to HTML_EVENT?
+  $event:
+    toggle: Event
+
+dfn: HTMLElement
+
+dialog:
+  $type: HTMLDialogElement
+  open:
+    type: <boolean>
+    prop: open
+  $event:
+    cancel: Event
+    close: Event
+
+dir:
+  $type: HTMLDirectoryElement
+  $meta:
+    deprecated: true
+  compact: <boolean>
+
+div:
+  $type: HTMLDivElement
+  align: [center, justify, left, right]
+
+dl: HTMLDlistElement
+
+dt: HTMLElement
+
+em: HTMLElement
+
+embed:
+  $type: HTMLEmbedElement
+  align:
+    type: [center, justify, left, right]
+    deprecated: true
+  height:
+    type: <integer>
+    prop: height
+  name:
+    type: <string>
+    deprecated: true
+  src:
+    type: <url>
+    prop: src
+  type:
+    type: <mime>
+    prop: type
+  width:
+    type: <integer>
+    prop: width
+
+fieldset:
+  $type: HTMLFieldSetElement
+  disabled:
+    type: <boolean>
+    prop: disabled
+  form: <id>
+  name:
+    type: <string>
+    prop: name
+
+figcaption: HTMLElement
+
+figure: HTMLElement
+
+font:
+  $type: HTMLFontElement
+  $meta:
+    deprecated: true
+  color: <string>
+  face: <string>
+  size: <integer>
+
+footer: HTMLElement
+
+form:
+  $type: HTMLFormELement
+  accept:
+    type: <string>
+    deprecated: true
+  accept-charset:
+    type: <string>
+    prop: acceptCharset
+  autocomplete:
+    type: [off, on]
+    prop: autocomplete
+  name:
+    type: <string>
+    prop: name
+  rel:
+    type: list<Rel>
+    prop: rel
+  action:
+    type: <url>
+    prop: action
+  enctype:
+    type: <FormEncType>
+    prop: enctype
+  method:
+    type: <FormMethod>
+    prop: method
+  novalidate:
+    type: <boolean>
+    prop: noValidate
+  target:
+    type: <Target>
+    prop: target
+
+frame:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+  src: <url>
+  name: <string>
+  noresize: <boolean>
+  scrolling: [no, ues]
+  marginheight: <integer>
+  marginwidth: <integer>
+  frameborder: <string>
+
+frameset:
+  $type: HTMLElement
+  $meta:
+    deprecated: true
+  cols: <integer>
+  rows: <integer>

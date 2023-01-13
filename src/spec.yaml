@@ -1,6 +1,8 @@
 # == BEGIN TYPE DEFINITIONS == #
 # Patterns listed as follows will be replaced:
 # - `%s`: the name of the entry
+# - `%t`: the type of the entry
+# Use `%%` to escape.
 <template>: <string>
 
 <meta>:
@@ -16,18 +18,20 @@
 <literal>: <string>
 <union>:
   # Metadata for this union.
+  # TODO: $<keyof meta>: <typeof meta>
   $meta: <meta>
   # Default values of type entries.
   $default: <meta>
   # Type entries.
   <type_raw>: <meta>
 <type_raw>: <predefined>|<literal>
-<type>: <predefined>|<list<type_raw>>|<union>
+<type>: <predefined>|<list<type_raw>>|<union>|list<predefined>
 
 <attr_raw>:
   type: <string>|<list<string>>
   prop: <prop>
   <keyof meta>: <typeof meta>
+
 # `<string>` will be converted to `attr.type`.
 <attr>: <string>|<attr_raw>
 
@@ -45,17 +49,9 @@
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `event.type`.
 <event>: <string>|<event_raw>
-# == END TYPE DEFINITIONS == #
 
-# Default metadata for each preset entry.
-$default: <meta>
-
-# Predefined types.
-<<string>>: <type>
-
-# Preset entries.
-<string>:
-  # The DOM interface of this element preset.
+<preset_raw>:
+  # The DOM interface of this element.
   $type: <string>
   # Metadata for this preset.
   $meta: <meta>
@@ -71,3 +67,15 @@ $default: <meta>
     <string>: <event>
   # Attribute entries.
   <string>: <attr>
+# `<string>` will be converted to `preset.$type`.
+<preset>: <string>|<preset_raw>
+# == END TYPE DEFINITIONS == #
+
+# Predefined types.
+<<string>>: <type>
+
+# Default values for each preset entry.
+$default: <preset>
+
+# Preset entries.
+<string>: <preset>
