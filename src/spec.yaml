@@ -45,6 +45,9 @@ event_raw:
 event: <string>|<event_raw>
 # == END TYPE DEFINITIONS == #
 
+# Default metadata for each preset entry.
+$default: <meta>
+
 # Preset entries.
 <string>:
   # The DOM interface of this element preset.
