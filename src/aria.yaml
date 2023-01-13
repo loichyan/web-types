@@ -1,4 +1,6 @@
 ARIA_ATTR:
+  $meta:
+    link: mdn:Web/Accessibility/ARIA/Attributes
   $default:
     link: mdn:Web/Accessibility/ARIA/Attributes/%s
     prop:
@@ -138,3 +140,97 @@ ARIA_ATTR:
   aria-valuetext:
     type: string
     prop: ariaValueText
+  role:
+    prop: role
+    type:
+      $meta:
+        link: mdn:Web/Accessibility/ARIA/Roles
+      $default:
+        link: mdn:Web/Accessibility/ARIA/Roles/%s_role
+      alert:
+      alertdialog:
+      application:
+      article:
+      banner:
+      button:
+      cell:
+      checkbox:
+      columnheader:
+      combobox:
+      command:
+      comment:
+      complementary:
+      composite:
+      contentinfo:
+      definition:
+      dialog:
+      directory:
+      document:
+      document structural:
+      feed:
+      figure:
+      form:
+      generic:
+      grid:
+      gridcell:
+      group:
+      heading:
+      img:
+      input:
+      landmark:
+      link:
+      list:
+      listbox:
+      listitem:
+      log:
+      main:
+      mark:
+      marquee:
+      math:
+      menu:
+      menubar:
+      menuitem:
+      menuitemcheckbox:
+      menuitemradio:
+      meter:
+      navigation:
+      none:
+      note:
+      option:
+      presentation:
+      progressbar:
+      radio:
+      radiogroup:
+      range:
+      region:
+      roletype:
+      row:
+      rowgroup:
+      rowheader:
+      scrollbar:
+      search:
+      searchbox:
+      section:
+      sectionhead:
+      select:
+      separator:
+      slider:
+      spinbutton:
+      status:
+      structure:
+      suggestion:
+      switch:
+      tab:
+      table:
+      tablist:
+      tabpanel:
+      term:
+      textbox:
+      timer:
+      toolbar:
+      tooltip:
+      tree:
+      treegrid:
+      treeitem:
+      widget:
+      window:

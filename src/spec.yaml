@@ -12,22 +12,35 @@ meta:
   # default: false
   nonstrandard: <boolean>
 
-# `<string>` will be converted to `attr.type`.
-attr:
+enum_raw:
+  # Metadata for this enum.
+  $meta: <meta>
+  # Default values of enum entries.
+  $default: <meta>
+  # Enum entries.
+  <string>: <meta>
+enum: <list<string>>|<enum_raw>
+type: <string>|<enum>
+
+attr_raw:
   type: <string>|<list<string>>
   prop: <prop>
   <keyof meta>: <typeof meta>
+# `<string>` will be converted to `attr.type`.
+attr: <string>|<attr_raw>
 
-# `<string>` will be converted to `prop.name`.
-prop:
+prop_raw:
   name: <string>
   type: <string>
   <keyof meta>: <typeof meta>
+# `<string>` will be converted to `prop.name`.
+prop: <string>|<prop_raw>
 
-# `<string>` will be converted to `event.type`.
-event:
+event_raw:
   type: <string>
   <keyof meta>: <typeof meta>
+# `<string>` will be converted to `event.type`.
+event: <string>|<event_raw>
 # == END TYPE DEFINITIONS == #
 
 # Preset entries.
