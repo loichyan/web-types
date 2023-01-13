@@ -31,6 +31,8 @@ event:
 
 # Preset entries.
 <string>:
+  # Metadata for this preset.
+  $meta: <meta>
   # Default values of attribute entries.
   $default: <attr>
   # Extend attribute and event entries from other presets.

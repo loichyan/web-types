@@ -1,4 +1,6 @@
 _WINDOW_EVENT:
+  $meta:
+    link: mdn:Web/API/Window
   $event:
     $default:
       link: mdn:Web/API/Window/%s_event
@@ -41,12 +43,16 @@ _WINDOW_EVENT:
     unload: Event
 
 _NODE_EVENT:
+  $meta:
+    link: mdn:Web/API/Node
   $event:
     $default:
       link: mdn:Web/API/Node/%s_event
     selectstart: Event
 
 _ELEMENT_EVENT:
+  $meta:
+    link: mdn:Web/API/Element
   $event:
     $default:
       link: mdn:Web/API/Element/%s_event
@@ -139,7 +145,11 @@ _ELEMENT_EVENT:
     wheel: WheelEvent
 
 _HTML_ELEMENT_EVENT:
+  $meta:
+    link: mdn:Web/API/HTMLElement
   $event:
+    $default:
+      link: mdn:Web/API/HTMLElement/%s_event
     beforeinput: InputEvent
     change: Event
     copy: ClipboardEvent
@@ -155,7 +165,11 @@ _HTML_ELEMENT_EVENT:
     paste: ClipboardEvent
 
 _HTML_MEDIA_ELEMENT_EVENT:
+  $meta:
+    link: mdn:Web/API/HTMLMediaElement
   $event:
+    $default:
+      link: mdn:Web/API/HTMLMediaElement/%s_event
     abort: Event
     canplay: Event
     canplaythrough: Event
