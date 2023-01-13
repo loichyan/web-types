@@ -1,9 +1,9 @@
 # == BEGIN TYPE DEFINITIONS == #
 # Patterns listed as follows will be replaced:
 # - `%s`: the name of the entry
-template: <string>
+<template>: <string>
 
-meta:
+<meta>:
   link: <template>
   # default: false
   experimental: <boolean>
@@ -12,41 +12,46 @@ meta:
   # default: false
   nonstrandard: <boolean>
 
-enum_raw:
-  # Metadata for this enum.
+<predefined>: <<string>>
+<literal>: <string>
+<union>:
+  # Metadata for this union.
   $meta: <meta>
-  # Default values of enum entries.
+  # Default values of type entries.
   $default: <meta>
-  # Enum entries.
-  <string>: <meta>
-enum: <list<string>>|<enum_raw>
-type: <string>|<enum>
+  # Type entries.
+  <type_raw>: <meta>
+<type_raw>: <predefined>|<literal>
+<type>: <predefined>|<list<type_raw>>|<union>
 
-attr_raw:
+<attr_raw>:
   type: <string>|<list<string>>
   prop: <prop>
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `attr.type`.
-attr: <string>|<attr_raw>
+<attr>: <string>|<attr_raw>
 
-prop_raw:
+<prop_raw>:
   name: <string>
   # inherit: $default : attr.type
   type: <string>
   # inherit: $default : attr.<meta>
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `prop.name`.
-prop: <string>|<prop_raw>
+<prop>: <string>|<prop_raw>
 
-event_raw:
+<event_raw>:
   type: <string>
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `event.type`.
-event: <string>|<event_raw>
+<event>: <string>|<event_raw>
 # == END TYPE DEFINITIONS == #
 
 # Default metadata for each preset entry.
 $default: <meta>
+
+# Predefined types.
+<<string>>: <type>
 
 # Preset entries.
 <string>:

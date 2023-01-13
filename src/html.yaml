@@ -8,18 +8,18 @@ GLOBAL_ATTR:
     prop:
       link: mdn:Web/API/HTMLElement/%s
   accesskey:
-    type: string
+    type: <string>
     prop: accessKey
   autocapitalize: [none, characters, off, on, sentences, words]
-  autofocus: boolean
+  autofocus: <boolean>
   class:
-    type: string
+    type: <string>
     prop: className
   contenteditable:
     type: [false, true, inherit]
     prop: contentEditable
   contextmenu:
-    type: id
+    type: <id>
     prop: contextmenu
     deprecated: true
     nonstandard: true
@@ -30,120 +30,119 @@ GLOBAL_ATTR:
   enterkeyhint:
     type: [enter, done, go, next, previous, search, send]
     prop: enterKeyHint
-  exportparts: string
+  exportparts: <string>
   hidden:
     type: [hidden, until-found]
     prop:
       name: hidden
       type: [<false>, <true>, until-found]
   id:
-    type: id
+    type: <id>
     prop:
       name: id
       link: mdn:Web/API/Element/%s
   inert:
-    type: boolean
+    type: <boolean>
     prop: inert
   inputmode:
     type: [none, decimal, email, numeric, search, tel, text, url]
     prop: inputMode
-  is: string
-  itemid: string
-  itemprop: string
-  itemref: string
-  itemscope: boolean
-  itemtype: string
+  is: <string>
+  itemid: <string>
+  itemprop: <string>
+  itemref: <string>
+  itemscope: <boolean>
+  itemtype: <string>
   lang:
-    type: string
+    type: <string>
     prop: lang
   nonce:
-    type: string
+    type: <string>
     prop: nonce
   part:
-    type: string
+    type: <string>
     prop:
       name: part
       link: mdn:Web/API/Element/%s
   slot:
-    type: string
+    type: <string>
     prop:
       name: slot
       link: mdn:Web/API/Element/%s
   spellcheck: [false, true]
-  style: string
+  style: <string>
   tabindex:
-    type: integer
+    type: <integer>
     prop: tabIndex
   title:
-    type: string
+    type: <string>
     prop: title
   translate: [no, yes]
   virtualkeyboardpolicy: [auto, manual]
 
-REFERRER_POLICY:
-  referrerpolicy:
-    type:
-      - no-referrer
-      - no-referrer-when-downgrade
-      - origin
-      - origin-when-cross-origin
-      - same-origin
-      - strict-origin
-      - strict-origin-when-cross-origin
-      - unsafe-url
+<ReferrerPolicy>:
+  - no-referrer
+  - no-referrer-when-downgrade
+  - origin
+  - origin-when-cross-origin
+  - same-origin
+  - strict-origin
+  - strict-origin-when-cross-origin
+  - unsafe-url
 
-REL:
-  rel:
-    type:
-      $meta:
-        link: mdn:Web/HTML/Link_types
-      alternate:
-      archives:
-      author:
-      bookmark:
-      canonical:
-      dns-prefetch:
-        link: mdn:Web/HTML/Link_types/%s
-      external:
-      first:
-      help:
-      icon:
-      index:
-        deprecated: true
-      last:
-      license:
-      manifest:
-        link: mdn:Web/HTML/Link_types/%s
-      me:
-        link: mdn:Web/HTML/Link_types/%s
-      modulepreload:
-        link: mdn:Web/HTML/Link_types/%s
-      next:
-      nofollow:
-      noopener:
-        link: mdn:Web/HTML/Link_types/%s
-      noreferrer:
-        link: mdn:Web/HTML/Link_types/%s
-      opener:
-        experimental: true
-      pingback:
-      preconnect:
-        link: mdn:Web/HTML/Link_types/%s
-        experimental: true
-      prefetch:
-        link: mdn:Web/HTML/Link_types/%s
-      preload:
-        link: mdn:Web/HTML/Link_types/%s
-      prerender:
-        link: mdn:Web/HTML/Link_types/%s
-      prev:
-      search:
-      shortlink:
-      sidebar:
-      stylesheet:
-      tag:
-      up:
-        deprecated: true
+<Rel>:
+  $meta:
+    link: mdn:Web/HTML/Link_types
+  alternate:
+  archives:
+  author:
+  bookmark:
+  canonical:
+  dns-prefetch:
+    link: mdn:Web/HTML/Link_types/%s
+  external:
+  first:
+  help:
+  icon:
+  index:
+    deprecated: true
+  last:
+  license:
+  manifest:
+    link: mdn:Web/HTML/Link_types/%s
+  me:
+    link: mdn:Web/HTML/Link_types/%s
+  modulepreload:
+    link: mdn:Web/HTML/Link_types/%s
+  next:
+  nofollow:
+  noopener:
+    link: mdn:Web/HTML/Link_types/%s
+  noreferrer:
+    link: mdn:Web/HTML/Link_types/%s
+  opener:
+    experimental: true
+  pingback:
+  preconnect:
+    link: mdn:Web/HTML/Link_types/%s
+    experimental: true
+  prefetch:
+    link: mdn:Web/HTML/Link_types/%s
+  preload:
+    link: mdn:Web/HTML/Link_types/%s
+  prerender:
+    link: mdn:Web/HTML/Link_types/%s
+  prev:
+  search:
+  shortlink:
+  sidebar:
+    stylesheet:
+    tag:
+    up:
+      deprecated: true
+
+$default:
+  link: mdn:Web/HTML/Element/%s
 
 # HTML Elements
 # https://developer.mozilla.org/en-US/docs/Web/HTML/Element
@@ -155,27 +154,34 @@ a:
   $type: HTMLAnchorElement
   $default:
     link: mdn:Web/HTML/Element/a#attr-%s
-  $extend:
-    - REFERRER_POLICY
-    - REL
   charset:
-    type: string
+    type: <string>
     deprecated: true
   coords:
-    type: string
+    type: <string>
     deprecated: true
-  download: string
-  href: url
-  hreflang: string
+  download:
+    type: <url>
+    prop: download
+  href:
+    type: <url>
+    prop: href
+  hreflang: <string>
   name:
-    type: id
+    type: <id>
     deprecated: true
   ping: list<url>
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  rel:
+    type: <Rel>
+    prop: rel
   rev:
-    type: string
+    type: <string>
     deprecated: true
   shape:
-    type: string
+    type: <string>
     deprecated: true
-  target: string
-  type: mime
+  target: [<url>, _self, _blank, _parent, _top]
+  type: <mime>

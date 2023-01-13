@@ -5,7 +5,7 @@ ARIA_ATTR:
     link: mdn:Web/Accessibility/ARIA/Attributes/%s
     prop:
       link: mdn:Web/API/Element/%s
-      type: string
+      type: <string>
   aria-activedescendant: id
   aria-atomic:
     type: [false, true]
@@ -22,14 +22,14 @@ ARIA_ATTR:
     type: [undefined, false, true, mixed]
     prop: ariaChecked
   aria-colcount:
-    type: integer
+    type: <integer>
     prop: ariaColCount
   aria-colindex:
-    type: integer
+    type: <integer>
     prop: ariaColIndex
   aria-colindextext: string
   aria-colspan:
-    type: integer
+    type: <integer>
     prop: ariaColSpan
   aria-controls: list<id>
   aria-current:
@@ -37,7 +37,7 @@ ARIA_ATTR:
     prop: ariaCurrent
   aria-describedby: list<id>
   aria-description:
-    type: string
+    type: <string>
     prop: ariaDescription
   aria-details: list<id>
   aria-disabled:
@@ -62,14 +62,14 @@ ARIA_ATTR:
     prop: ariaHidden
   aria-invalid: [false, true, grammar, spelling]
   aria-keyshortcuts:
-    type: string
+    type: <string>
     prop: ariaKeyShortcuts
   aria-label:
-    type: string
+    type: <string>
     prop: ariaLabel
   aria-labelledby: list<id>
   aria-level:
-    type: integer
+    type: <integer>
     prop: ariaLevel
   aria-live:
     type: [off, assertive, polite]
@@ -88,10 +88,10 @@ ARIA_ATTR:
     prop: ariaOrientation
   aria-owns: list<id>
   aria-placeholder:
-    type: string
+    type: <string>
     prop: ariaPlaceholder
   aria-posinset:
-    type: integer
+    type: <integer>
     prop: ariaPosInSet
   aria-pressed:
     type: [undefined, false, true, mixed]
@@ -108,38 +108,38 @@ ARIA_ATTR:
     type: [false, true]
     prop: ariaRequired
   aria-roledescription:
-    type: string
+    type: <string>
     prop: ariaRoleDescription
   aria-rowcount:
-    type: integer
+    type: <integer>
     prop: ariaRowCount
   aria-rowindex:
-    type: integer
+    type: <integer>
     prop: ariaRowIndex
   aria-rowindextext: string
   aria-rowspan:
-    type: integer
+    type: <integer>
     prop: ariaRowSpan
   aria-selected:
     type: [undefined, false, true]
     prop: ariaSelected
   aria-setsize:
-    type: integer
+    type: <integer>
     prop: ariaSetSize
   aria-sort:
     type: [none, ascending, descending, other]
     prop: ariaSort
   aria-valuemax:
-    type: number
+    type: <number>
     prop: ariaValueMax
   aria-valuemin:
-    type: number
+    type: <number>
     prop: ariaValueMin
   aria-valuenow:
-    type: number
+    type: <number>
     prop: ariaValueNow
   aria-valuetext:
-    type: string
+    type: <string>
     prop: ariaValueText
   role:
     prop: role
