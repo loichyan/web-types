@@ -47,6 +47,8 @@
 # `<string>` will be converted to `event.type`.
 <event>: <string>|<event_raw>
 
+<event_meta>:
+  default: <event>
 <preset_meta>:
   <keyof meta>: <typeof meta>
   # The DOM interface of this element.
@@ -55,15 +57,15 @@
   default: <attr>
   # Extend attribute and event entries from other presets.
   extend: <list<string>>
-  # Events.
-  event:
-    # Default values of event entries.
-    $default: <event>
-    # Event entries.
-    <string>: <event>
 <preset_raw>:
   # Metadata.
   $<keyof preset_meta>: <typeof preset_meta>
+  # Events.
+  $event:
+    # Default values of event entries.
+    $<keyof event_meta>: <typeof event_meta>
+    # Event entries.
+    <string>: <event>
   # Attribute entries.
   <string>: <attr>
 # `<string>` will be converted to `preset.$type`.
@@ -74,7 +76,10 @@
 <<string>>: <type>
 
 # Default values for each preset entry.
-$default: <preset_meta>
+$default:
+  # Metadata.
+  <keyof preset_meta>: <typeof preset_meta>
+  event: <event_meta>
 
 # Preset entries.
 <string>: <preset>

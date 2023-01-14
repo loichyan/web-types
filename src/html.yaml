@@ -12,7 +12,7 @@ $default:
     prop:
       link: mdn:Web/API/%t/%%s
   event:
-    $default:
+    default:
       link: mdn:Web/API/%t/%%s_event
 
 GLOBAL_ATTR:
