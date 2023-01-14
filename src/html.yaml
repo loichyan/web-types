@@ -1,9 +1,13 @@
+$extend:
+  - event.yaml
+
 # HTML Elements
 # https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 $default:
-  # extend:
-  #   - GLOBAL_ATTR
-  #   - HTML_EVENT
+  inherit:
+    - ARIA_ATTR
+    - HTML_EVENT
+    - GLOBAL_ATTR
   link: mdn:Web/HTML/Element/%s
   default:
     link: mdn:Web/HTML/Element/%s#attr-%%s
@@ -13,8 +17,6 @@ $default:
     link: mdn:Web/API/%t/%%s_event
 
 GLOBAL_ATTR:
-  # $extend:
-  #   - ARIA_ATTR
   $link: mdn:Web/HTML/Global_attributes
   $default:
     link: mdn:Web/HTML/Global_attributes/%s
@@ -320,7 +322,7 @@ GLOBAL_ATTR:
   - _parent
   - _top
 
-_MEDIA_ELEMENT_ATTR:
+_HTML_MEDIA_ELEMENT_ATTR:
   $default:
     prop:
       link: mdn:Web/API/HTMLMediaElement/%s
@@ -349,7 +351,7 @@ _MEDIA_ELEMENT_ATTR:
     type: <url>
     prop: src
 
-_MOD_ELEMENT_ATTR:
+_HTML_MOD_ELEMENT_ATTR:
   cite:
     type: <url>
     prop: cite
@@ -357,12 +359,12 @@ _MOD_ELEMENT_ATTR:
     type: <datetime>
     prop: dateTime
 
-_QUOTE_ELEMENT_ATTR:
+_HTML_QUOTE_ELEMENT_ATTR:
   cite:
     type: <url>
     prop: cite
 
-_TABLE_CELL_ELEMENT_ATTR:
+_HTML_TABLE_CELL_ELEMENT_ATTR:
   colspan:
     type: <integer>
     prop: colSpan
@@ -446,7 +448,7 @@ aside: HTMLElement
 audio:
   $type: HTMLAudioElement
   $extend:
-    - _MEDIA_ELEMENT_ATTR
+    - _HTML_MEDIA_ELEMENT_ATTR
 
 b: HTMLElement
 
@@ -459,9 +461,12 @@ bdo: HTMLElement
 blockquote:
   $type: HTMLQuoteElement
   $extend:
-    - _QUOTE_ELEMENT_ATTR
+    - _HTML_QUOTE_ELEMENT_ATTR
 
-body: HTMLBodyElement
+body:
+  $extend:
+    - WINDOW_EVENT
+  $type: HTMLBodyElement
 
 br: HTMLBRElement
 
@@ -523,12 +528,12 @@ code: HTMLElement
 col:
   $type: HTMLTableColElement
   $extend:
-    - _TABLE_COL_ELEMENT_ATTR
+    - _HTML_TABLE_COL_ELEMENT_ATTR
 
 colgroup:
   $type: HTMLTableColElement
   $extend:
-    - _TABLE_COL_ELEMENT_ATTR
+    - _HTML_TABLE_COL_ELEMENT_ATTR
 
 data:
   $type: HTMLDataElement
@@ -545,7 +550,7 @@ dd:
 del:
   $type: HTMLModElement
   $extend:
-    - _MOD_ELEMENT_ATTR
+    - _HTML_MOD_ELEMENT_ATTR
 
 details:
   $type: HTMLDetailsElement
@@ -840,7 +845,7 @@ input:
 ins:
   $type: HTMLModElement
   $extend:
-    - _MOD_ELEMENT_ATTR
+    - _HTML_MOD_ELEMENT_ATTR
 
 kbd: HTMLElement
 
@@ -1033,7 +1038,7 @@ progress:
 q:
   $type: HTMLQuoteElement
   $extend:
-    - _QUOTE_ELEMENT_ATTR
+    - _HTML_QUOTE_ELEMENT_ATTR
 
 rp: HTMLElement
 
@@ -1153,7 +1158,7 @@ tbody: HTMLTableSectionElement
 td:
   $type: HTMLTableCellElement
   $extend:
-    - _TABLE_CELL_ELEMENT_ATTR
+    - _HTML_TABLE_CELL_ELEMENT_ATTR
 
 template: HTMLTemplateElement
 
@@ -1202,7 +1207,7 @@ tfoot: HTMLTableSectionElement
 th:
   $type: HTMLTableCellElement
   $extend:
-    - _TABLE_CELL_ELEMENT_ATTR
+    - _HTML_TABLE_CELL_ELEMENT_ATTR
   abbr:
     type: <string>
     prop: abbr
@@ -1249,7 +1254,7 @@ var: HTMLElement
 video:
   $type: HTMLVideoElement
   $extend:
-    - _MEDIA_ELEMENT_ATTR
+    - _HTML_MEDIA_ELEMENT_ATTR
   on:enterpictureinpicture: PictureInPictureEvent
   on:leavepictureinpicture: PictureInPictureEvent
   height:

@@ -1,42 +1,9 @@
+# TODO: dedup events
+
 $default:
   link: mdn:Web/API/%t#events
   on:default:
     link: mdn:Web/API/%t/%%s_event
-
-_WINDOW_EVENT:
-  $type: Window
-  $link: mdn:Web/API/#events
-  on:afterprint: Event
-  on:appinstalled: Event
-  on:beforeprint: Event
-  on:beforeunload: BeforeUnloadEvent
-  on:blur: FocusEvent
-  on:copy: ClipboardEvent
-  on:cut: ClipboardEvent
-  on:devicemotion: DeviceMotionEvent
-  on:deviceorientation: DeviceOrientationEvent
-  on:deviceorientationabsolute: DeviceOrientationEvent
-  on:DOMContentLoaded: Event
-  on:error: UIEvent
-  on:focus: FocusEvent
-  on:gamepadconnected: GamepadEvent
-  on:gamepaddisconnected: GamepadEvent
-  on:hashchange: HashChangeEvent
-  on:languagechange: Event
-  on:load: Event
-  on:message: MessageEvent
-  on:messageerror: MessageEvent
-  on:offline: Event
-  on:online: Event
-  on:pagehide: PageTransitionEvent
-  on:pageshow: PageTransitionEvent
-  on:paste: ClipboardEvent
-  on:popstate: PopStateEvent
-  on:rejectionhandled: PromiseRejectionEvent
-  on:resize: UIEvent
-  on:storage: StorageEvent
-  on:unhandledrejection: PromiseRejectionEvent
-  on:unload: Event
 
 _NODE_EVENT:
   $type: Node
@@ -183,16 +150,45 @@ _HTML_TRACK_ELEMENT_EVENT:
   $type: HTMLTrackElement
   on:cuechange: Event
 
-_EVENT:
-  $extend:
-    - _WINDOW_EVENT
-    - _NODE_EVENT
-    - _ELEMENT_EVENT
+WINDOW_EVENT:
+  $type: Window
+  $link: mdn:Web/API/#events
+  on:afterprint: Event
+  on:appinstalled: Event
+  on:beforeprint: Event
+  on:beforeunload: BeforeUnloadEvent
+  on:blur: FocusEvent
+  on:copy: ClipboardEvent
+  on:cut: ClipboardEvent
+  on:devicemotion: DeviceMotionEvent
+  on:deviceorientation: DeviceOrientationEvent
+  on:deviceorientationabsolute: DeviceOrientationEvent
+  on:DOMContentLoaded: Event
+  on:error: UIEvent
+  on:focus: FocusEvent
+  on:gamepadconnected: GamepadEvent
+  on:gamepaddisconnected: GamepadEvent
+  on:hashchange: HashChangeEvent
+  on:languagechange: Event
+  on:load: Event
+  on:message: MessageEvent
+  on:messageerror: MessageEvent
+  on:offline: Event
+  on:online: Event
+  on:pagehide: PageTransitionEvent
+  on:pageshow: PageTransitionEvent
+  on:paste: ClipboardEvent
+  on:popstate: PopStateEvent
+  on:rejectionhandled: PromiseRejectionEvent
+  on:resize: UIEvent
+  on:storage: StorageEvent
+  on:unhandledrejection: PromiseRejectionEvent
+  on:unload: Event
 
 HTML_EVENT:
   $extend:
-    - _EVENT
-    - _DOCUMENT_EVENT
+    - _NODE_EVENT
+    - _ELEMENT_EVENT
     - _HTML_ELEMENT_EVENT
     - _HTML_DETAILS_ELEMENT_EVENT
     - _HTML_DIALOG_ELEMENT_EVENT

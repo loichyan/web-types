@@ -55,8 +55,10 @@
   default: <attr>
   # Default values of event entries.
   on:default: <event>
-  # Extend attribute and event entries from other presets.
+  # Extend entries from other presets.
   extend: <list<string>>
+  # Like `extend`, but not merge into the preset.
+  inherit: <list<string>>
 <preset_raw>:
   # Metadata.
   $<keyof preset_meta>: <typeof preset_meta>
@@ -70,6 +72,9 @@
 
 # Predefined types.
 <<string>>: <type>
+
+# Extend other files.
+$extend: <list<string>>
 
 # Default values for each preset entry.
 $default: <preset_meta>
