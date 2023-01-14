@@ -1,8 +1,13 @@
+$default:
+  link: mdn:Web/API/%t#events
+  event:
+    default:
+      link: mdn:Web/API/%t/%%s_event
+
 _WINDOW_EVENT:
-  $link: mdn:Web/API/Window
+  $type: Window
+  $link: mdn:Web/API/#events
   $event:
-    $default:
-      link: mdn:Web/API/Window/%s_event
     afterprint: Event
     appinstalled: Event
     beforeprint: Event
@@ -36,17 +41,13 @@ _WINDOW_EVENT:
     unload: Event
 
 _NODE_EVENT:
-  $link: mdn:Web/API/Node
+  $type: Node
   $event:
-    $default:
-      link: mdn:Web/API/Node/%s_event
     selectstart: Event
 
 _DOCUMENT_EVENT:
-  $link: mdn:/Web/API/Document
+  $type: Document
   $event:
-    $default:
-      link: mdn:Web/API/Document/%s_event
     copy: ClipboardEvent
     cut: ClipboardEvent
     DOMContentLoaded: Event
@@ -63,10 +64,8 @@ _DOCUMENT_EVENT:
     visibilitychange: Event
 
 _ELEMENT_EVENT:
-  $link: mdn:Web/API/Element
+  $type: Element
   $event:
-    $default:
-      link: mdn:Web/API/Element/%s_event
     animationcancel: AnimationEvent
     animationend: AnimationEvent
     animationiteration: AnimationEvent
@@ -121,10 +120,8 @@ _ELEMENT_EVENT:
     wheel: WheelEvent
 
 _HTML_ELEMENT_EVENT:
-  $link: mdn:Web/API/HTMLElement
+  $type: HTMLElement
   $event:
-    $default:
-      link: mdn:Web/API/HTMLElement/%s_event
     beforeinput: InputEvent
     change: Event
     copy: ClipboardEvent
@@ -139,11 +136,33 @@ _HTML_ELEMENT_EVENT:
     input: Event
     paste: ClipboardEvent
 
-_HTML_MEDIA_ELEMENT_EVENT:
-  $link: mdn:Web/API/HTMLMediaElement
+_HTML_DETAILS_ELEMENT_EVENT:
+  $type: HTMLDetailsElement
   $event:
-    $default:
-      link: mdn:Web/API/HTMLMediaElement/%s_event
+    toggle: Event
+
+_HTML_DIALOG_ELEMENT_EVENT:
+  $type: HTMLDialogElement
+  $event:
+    cancel: Event
+    close: Event
+
+_HTML_FORM_ELEMENT_EVENT:
+  $type: HTMLFormElement
+  $event:
+    formdata: FormDataEvent
+    reset: Event
+    submit: SubmitEvent
+
+_HTML_INPUT_ELEMENT_EVENT:
+  $type: HTMLInputElement
+  $event:
+    invalid: Event
+    select: Event
+
+_HTML_MEDIA_ELEMENT_EVENT:
+  $type: HTMLMediaElement
+  $event:
     abort: Event
     canplay: Event
     canplaythrough: Event
@@ -167,6 +186,16 @@ _HTML_MEDIA_ELEMENT_EVENT:
     volumechange: Event
     waiting: Event
 
+_HTML_SLOT_ELEMENT_EVENT:
+  $type: HTMLSlotElement
+  $event:
+    slotchange: Event
+
+_HTML_TRACK_ELEMENT_EVENT:
+  $type: HTMLTrackElement
+  $event:
+    cuechange: Event
+
 _EVENT:
   $extend:
     - _WINDOW_EVENT
@@ -178,4 +207,10 @@ HTML_EVENT:
     - _EVENT
     - _DOCUMENT_EVENT
     - _HTML_ELEMENT_EVENT
+    - _HTML_DETAILS_ELEMENT_EVENT
+    - _HTML_DIALOG_ELEMENT_EVENT
+    - _HTML_FORM_ELEMENT_EVENT
+    - _HTML_INPUT_ELEMENT_EVENT
     - _HTML_MEDIA_ELEMENT_EVENT
+    - _HTML_SLOT_ELEMENT_EVENT
+    - _HTML_TRACK_ELEMENT_EVENT
