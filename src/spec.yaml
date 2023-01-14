@@ -74,7 +74,7 @@
 <<string>>: <type>
 
 # Default values for each preset entry.
-$default: <preset>
+$default: <preset_meta>
 
 # Preset entries.
 <string>: <preset>

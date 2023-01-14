@@ -1,3 +1,20 @@
+# TODO: add missing events
+
+# HTML Elements
+# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+$default:
+  # extend:
+  #   - GLOBAL_ATTR
+  #   - HTML_EVENT
+  link: mdn:Web/HTML/Element/%s
+  default:
+    link: mdn:Web/HTML/Element/%s#attr-%%s
+    prop:
+      link: mdn:Web/API/%t/%%s
+  event:
+    $default:
+      link: mdn:Web/API/%t/%%s_event
+
 GLOBAL_ATTR:
   # $extend:
   #   - ARIA_ATTR
@@ -90,6 +107,155 @@ GLOBAL_ATTR:
       type: <boolean>
   virtualkeyboardpolicy: [auto, manual]
 
+<Autocomplete>:
+  $link: mdn:Web/HTML/Attributes/autocomplete
+  off:
+  on:
+  name:
+  honorific-prefix:
+  given-name:
+  additional-name:
+  family-name:
+  honorific-suffix:
+  nickname:
+  email:
+  username:
+  new-password:
+  current-password:
+  one-time-code:
+  organization-title:
+  organization:
+  street-address:
+  address-line1:
+  address-line2:
+  address-line3:
+  address-level1:
+  address-level2:
+  address-level3:
+  address-level4:
+  country:
+  country-name:
+  postal-code:
+  cc-name:
+  cc-given-name:
+  cc-additional-name:
+  cc-family-name:
+  cc-number:
+  cc-exp:
+  cc-exp-month:
+  cc-exp-year:
+  cc-csc:
+  cc-type:
+  transaction-currency:
+  transaction-amount:
+  language:
+  bday:
+  bday-day:
+  bday-month:
+  bday-year:
+  sex:
+  tel:
+  tel-country-code:
+  tel-national:
+  tel-area-code:
+  tel-local:
+  tel-local-prefix:
+  tel-local-suffix:
+  tel-extension:
+  impp:
+  url:
+  photo:
+
+<Blocking>:
+  - render
+
+<Controls>:
+  - nodownload
+  - nofullscreen
+  - noremoteplayback
+
+<CrossOrigin>:
+  - anonymous
+  - use-credentials
+
+<FormEnctype>:
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain
+
+<FormMethod>:
+  - dialog
+  - get
+  - post
+
+<HttpEquiv>:
+  - content-security-policy
+  - content-type
+  - default-style
+  - x-ua-compatible
+  - refresh
+
+<InputType>:
+  $link: mdn:Web/HTML/Element/input#input_types
+  $default:
+    link: mdn:Web/HTML/Element/input/%s
+  button:
+  checkbox:
+  color:
+  date:
+  datetime-local:
+  email:
+  file:
+  hidden:
+  image:
+  month:
+  number:
+  password:
+  radio:
+  range:
+  reset:
+  search:
+  submit:
+  tel:
+  text:
+  time:
+  url:
+  week:
+
+<LinkAs>:
+  - audio
+  - document
+  - embed
+  - fetch
+  - font
+  - image
+  - object
+  - script
+  - style
+  - track
+  - video
+  - worker
+
+<Loading>:
+  - eager
+  - lazy
+
+<MetaName>:
+  $link: mdn:Web/HTML/Element/meta/name
+  application-name:
+  author:
+  description:
+  generator:
+  keywords:
+  referrer:
+  time-color:
+  color-scheme:
+  viewport:
+  creator:
+  googlebot:
+  publisher:
+  robots:
+
 <ReferrerPolicy>:
   - no-referrer
   - no-referrer-when-downgrade
@@ -134,37 +300,28 @@ GLOBAL_ATTR:
   stylesheet:
   tag:
 
-  <Target>:
-    - <url>
-    - _self
-    - _blank
-    - _parent
-    - _top
+<Sandbox>:
+  - allow-downloads-without-user-activation
+  - allow-downloads
+  - allow-forms
+  - allow-modals
+  - allow-orientation-lock
+  - allow-pointer-lock
+  - allow-popups
+  - allow-popups-to-escape-sandbox
+  - allow-presentation
+  - allow-same-origin
+  - allow-scripts
+  - allow-storage-access-by-user-activation
+  - allow-top-navigation
+  - allow-top-navigation-by-user-activation
 
-_HYPERLINK_ATTR:
-  download:
-    type: <url>
-    prop: download
-  href:
-    type: <url>
-    prop: href
-  ping:
-    type: list<url>
-    prop: ping
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
-  rel:
-    type: list<Rel>
-    prop: rel
-  target:
-    type: <Target>
-    prop: target
-
-<Controls>:
-  - nodownload
-  - nofullscreen
-  - noremoteplayback
+<Target>:
+  - <url>
+  - _self
+  - _blank
+  - _parent
+  - _top
 
 _MEDIA_ELEMENT_ATTR:
   $default:
@@ -180,11 +337,8 @@ _MEDIA_ELEMENT_ATTR:
     type: list<Controls>
     prop: controlsList
   crossorigin:
-    type: [anonymous, use-credentials]
+    type: <CrossOrigin>
     prop: crossOrigin
-  disableremoteplayback:
-    type: <boolean>
-    prop: disableRemotePlayback
   loop:
     type: <boolean>
     prop: loop
@@ -193,33 +347,63 @@ _MEDIA_ELEMENT_ATTR:
     prop: muted
   preload:
     type: [none, metadata, auto]
+    prop: preload
   src:
     type: <url>
     prop: src
 
-# HTML Elements
-# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
-# All elements listed below implicitly:
-# $extend:
-#   - GLOBAL_ATTR
-#   - HTML_EVENT
-$default:
-  $link: mdn:Web/HTML/Element/%s
-  $default:
-    link: mdn:Web/HTML/Element/%s#attr-%%s
-    prop:
-      link: mdn:Web/API/%t/%%s
-  $event:
-    $default:
-      link: mdn:Web/API/%t/%%s_event
+_MOD_ELEMENT_ATTR:
+  cite:
+    type: <url>
+    prop: cite
+  datetime:
+    type: <datetime>
+    prop: dateTime
+
+_QUOTE_ELEMENT_ATTR:
+  cite:
+    type: <url>
+    prop: cite
+
+_TABLE_CELL_ELEMENT_ATTR:
+  colspan:
+    type: <integer>
+    prop: colSpan
+  headers:
+    type: list<string>
+    prop: headers
+  rowspan:
+    type: <integer>
+    prop: rowSpan
+
+_TABLE_COL_ATTR_ATTR:
+  span:
+    type: <integer>
+    prop: span
 
 a:
   $type: HTMLAnchorElement
-  $extend:
-    - _HYPERLINK_ATTR
+  download:
+    type: <url>
+    prop: download
+  href:
+    type: <url>
+    prop: href
   hreflang:
     type: <string>
     prop: hrefLang
+  ping:
+    type: list<url>
+    prop: ping
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  rel:
+    type: list<Rel>
+    prop: rel
+  target:
+    type: <Target>
+    prop: target
   type:
     type: <mime>
     prop: type
@@ -230,17 +414,33 @@ address: HTMLElement
 
 area:
   $type: HTMLAreaElement
-  $extend:
-    - _HYPERLINK_ATTR
   alt:
     type: <string>
     prop: alt
   coords:
     type: <string>
     prop: coords
+  download:
+    type: <url>
+    prop: download
+  href:
+    type: <url>
+    prop: href
+  ping:
+    type: list<url>
+    prop: ping
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  rel:
+    type: list<Rel>
+    prop: rel
   shape:
     type: [rect, circle, poly, default]
     prop: shape
+  target:
+    type: <Target>
+    prop: target
 
 article: HTMLElement
 
@@ -261,23 +461,12 @@ bdo: HTMLElement
 
 blockquote:
   $type: HTMLQuoteElement
-  cite:
-    type: <url>
-    prop: cite
+  $extend:
+    - _QUOTE_ELEMENT_ATTR
 
 body: HTMLBodyElement
 
 br: HTMLBRElement
-
-<FormEncType>:
-  - application/x-www-form-urlencoded
-  - multipart/form-data
-  - text/plain
-
-<FormMethod>:
-  - dialog
-  - get
-  - post
 
 button:
   $type: HTMLButtonElement
@@ -294,8 +483,8 @@ button:
     type: <url>
     prop: formAction
   formenctype:
-    type: <FormEncType>
-    prop: formEncType
+    type: <FormEnctype>
+    prop: formEnctype
   formmethod:
     # TODO: add `dialog` to MDN
     type: <FormMethod>
@@ -331,20 +520,15 @@ cite: HTMLElement
 
 code: HTMLElement
 
-_COL_ATTR:
-  span:
-    type: <integer>
-    prop: span
-
 col:
   $type: HTMLTableColElement
   $extend:
-    - _COL_ATTR
+    - _TABLE_COL_ELEMENT_ATTR
 
 colgroup:
   $type: HTMLTableColElement
   $extend:
-    - _COL_ATTR
+    - _TABLE_COL_ELEMENT_ATTR
 
 data:
   $type: HTMLDataElement
@@ -360,12 +544,8 @@ dd:
 
 del:
   $type: HTMLModElement
-  cite:
-    type: <url>
-    prop: cite
-  datetime:
-    type: <datetime>
-    prop: dateTime
+  $extend:
+    - _MOD_ELEMENT_ATTR
 
 details:
   $type: HTMLDetailsElement
@@ -446,7 +626,7 @@ form:
     type: <url>
     prop: action
   enctype:
-    type: <FormEncType>
+    type: <FormEnctype>
     prop: enctype
   method:
     type: <FormMethod>
@@ -457,3 +637,636 @@ form:
   target:
     type: <Target>
     prop: target
+
+h1: HTMLHeadingElement
+h2: HTMLHeadingElement
+h3: HTMLHeadingElement
+h4: HTMLHeadingElement
+h5: HTMLHeadingElement
+h6: HTMLHeadingElement
+
+head:
+  $type: HTMLHeadElement
+  profile:
+    type: <url>
+    deprecated: true
+
+header: HTMLElement
+
+hgroup: HTMLElement
+
+hr:
+  $type: HTMLHRElement
+  align:
+    type: [bottom, left, right, top]
+    deprecated: true
+  color:
+    type: <string>
+    deprecated: true
+  noshade:
+    type: <boolean>
+    deprecated: true
+  size:
+    type: <integer>
+    deprecated: true
+  width:
+    type: <integer>
+    deprecated: true
+
+html: HTMLHtmlElement
+
+i: HTMLElement
+
+iframe:
+  $type: HTMLIFrameElement
+  allow:
+    type: <string>
+    prop: allow
+  allowfullscreen:
+    type: <boolean>
+    prop: allowfullscreen
+  height:
+    type: <integer>
+    prop: height
+  loading:
+    type: <Loading>
+    prop: loading
+  name:
+    type: <string>
+    prop: name
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  sandbox:
+    type: <Sandbox>
+    prop: sandbox
+  src:
+    type: <url>
+    prop: src
+  srcdoc:
+    type: <url>
+    prop: srcdoc
+  width:
+    type: <integer>
+    prop: width
+
+img:
+  $type: HTMLImageElement
+  alt:
+    type: <string>
+    prop: alt
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
+  decoding:
+    type: [auto, sync, async]
+    prop: decoding
+  elementtiming:
+    type: <string>
+    prop: elementTiming
+  height:
+    type: <integer>
+    prop: height
+  ismap:
+    type: <boolean>
+    prop: isMap
+  loading:
+    type: <Loading>
+    prop: loading
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  sizes:
+    type: <string>
+    prop: sizes
+  src:
+    type: <url>
+    prop: src
+  srcset:
+    type: <string>
+    prop: srcset
+  usemap:
+    type: <url>
+    prop: useMap
+  width:
+    type: <integer>
+    prop: width
+
+input:
+  $type: HTMLInputElement
+  accept:
+    type: <string>
+    prop: accept
+  alt:
+    type: <string>
+    prop: alt
+  autocomplete:
+    type: <Autocomplete>
+    prop: autocomplete
+  capture:
+    type: <string>
+  checked:
+    type: <boolean>
+    prop: checked
+  dirname:
+    type: <string>
+    prop: dirName
+  disabled:
+    type: <boolean>
+    prop: disabled
+  form: <id>
+  formaction:
+    type: <url>
+    prop: formAction
+  formenctype:
+    type: <FormEnctype>
+    prop: formEncType
+  formmethod:
+    type: <FormMethod>
+    prop: formMethod
+  formnovalidate:
+    type: <boolean>
+    prop: formNoValidate
+  formtarget:
+    type: <Target>
+    form: formTarget
+  height:
+    type: <integer>
+    prop: height
+  list: <id>
+  max:
+    type: <string>
+    prop: max
+  maxlength:
+    type: <integer>
+    prop: maxLength
+  min:
+    type: <string>
+    prop: min
+  minlength:
+    type: <integer>
+    prop: minLength
+  multiple:
+    type: <boolean>
+    prop: multiple
+  name:
+    type: <string>
+    prop: name
+  pattern:
+    type: <string>
+    prop: pattern
+  placeholder:
+    type: <string>
+    prop: placeholder
+  readonly:
+    type: <boolean>
+    prop: readOnly
+  required:
+    type: <boolean>
+    prop: required
+  size:
+    type: <integer>
+    prop: size
+  src:
+    type: <url>
+    prop: src
+  step:
+    type: <string>
+    prop: step
+  type:
+    type: <InputType>
+    prop: type
+  value:
+    type: <string>
+    prop: value
+  width:
+    type: <integer>
+    prop: width
+
+ins:
+  $type: HTMLModElement
+  $extend:
+    - _MOD_ELEMENT_ATTR
+
+kbd: HTMLElement
+
+label:
+  $type: HTMLLabelElement
+  for:
+    type: id
+    prop: htmlFor
+
+legend: HTMLLegendElement
+
+li:
+  $type: HTMLLIElement
+  value:
+    type: <integer>
+    prop: value
+
+link:
+  $type: HTMLLinkElement
+  as:
+    type: <LinkAs>
+    prop: as
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
+  disabled:
+    type: <boolean>
+    prop: disabled
+  href:
+    type: <url>
+    prop: href
+  hreflang:
+    type: <string>
+    prop: hrefLang
+  imagesizes:
+    type: <string>
+    prop: imageSizes
+  imagesrcset:
+    type: <string>
+    prop: imageSrcset
+  integrity:
+    type: <string>
+    prop: integrity
+  media:
+    type: <string>
+    prop: media
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  rel:
+    type: <Rel>
+    prop: rel
+  type:
+    type: <string>
+    prop: title
+  blocking: list<Blocking>
+
+main: HTMLElement
+
+map:
+  $type: HTMLMapElement
+  name: <string>
+
+mark: HTMLElement
+
+menu: HTMLMenuElement
+
+meta:
+  $type: HTMLMetaElement
+  charset:
+    type: <string>
+    prop: charset
+  content:
+    type: <string>
+    prop: content
+  http-equiv:
+    type: <HttpEquiv>
+    prop: HttpEquiv
+  name:
+    type: <MetaName>
+    prop: name
+
+meter:
+  $type: HTMLMeterElement
+  high:
+    type: <number>
+    prop: high
+  low:
+    type: <number>
+    prop: low
+  max:
+    type: <number>
+    prop: max
+  min:
+    type: <number>
+    prop: min
+  optimum:
+    type: <number>
+    prop: optimum
+  value:
+    type: <number>
+    prop: value
+
+nav: HTMLElement
+
+noscript: HTMLElement
+
+object:
+  $type: HTMLObjectElement
+  data:
+    type: <url>
+    prop: data
+  form:
+    type: <id>
+    prop: form
+  height:
+    type: <integer>
+    prop: height
+  name:
+    type: <string>
+    prop: name
+  type:
+    type: <mime>
+    prop: type
+  width:
+    type: <integer>
+    prop: width
+
+ol:
+  $type: HTMLOListElement
+  reversed:
+    type: <boolean>
+    prop: reversed
+  start:
+    type: <integer>
+    prop: start
+  type:
+    type: ["1", a, A, i, I]
+    prop: type
+
+optgroup:
+  $type: HTMLOptGroupElement
+  disabled:
+    type: <boolean>
+    prop: disabled
+  label:
+    type: <string>
+    prop: label
+
+option:
+  $type: HTMLOptionElement
+  disabled:
+    type: <boolean>
+    prop: disabled
+  label:
+    type: <string>
+    prop: label
+  selected:
+    type: <boolean>
+    prop: selected
+  value:
+    type: <string>
+    prop: value
+
+output:
+  $type: HTMLOutputElement
+  for:
+    type: <id>
+    prop: htmlFor
+  form: <id>
+  name:
+    type: <string>
+    prop: name
+
+p: HTMLParagraphElement
+
+picture: HTMLPictureElement
+
+pre: HTMLPreElement
+
+progress:
+  $type: HTMLProgressElement
+  max:
+    type: <number>
+    prop: max
+  value:
+    type: <number>
+    prop: value
+
+q:
+  $type: HTMLQuoteElement
+  $extend:
+    - _QUOTE_ELEMENT_ATTR
+
+rp: HTMLElement
+
+rt: HTMLElement
+
+ruby: HTMLElement
+
+s: HTMLElement
+
+samp: HTMLElement
+
+script:
+  $type: HTMLScriptElement
+  async:
+    type: <boolean>
+    prop: async
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
+  defer:
+    type: <boolean>
+    prop: defer
+  integrity:
+    type: <string>
+    prop: integrity
+  nomodule:
+    type: <boolean>
+    prop: noModule
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  src:
+    type: <url>
+    prop: src
+  type:
+    type: [module, importmap]
+    prop: type
+  blocking: list<Blocking>
+
+section: HTMLElement
+
+select:
+  $type: HTMLSelectElement
+  autocomplete:
+    type: <Autocomplete>
+    prop: autocomplete
+  disabled:
+    type: <boolean>
+    prop: disabled
+  form: <id>
+  multiple:
+    type: <boolean>
+    prop: multiple
+  name:
+    type: <string>
+    prop: name
+  required:
+    type: <boolean>
+    prop: required
+  size:
+    type: <integer>
+    prop: size
+
+slot:
+  $type: HTMLSlotElement
+  name:
+    type: <string>
+    prop: name
+
+small: HTMLElement
+
+source:
+  $type: HTMLSourceElement
+  height:
+    type: <integer>
+    prop: height
+  meida:
+    type: <string>
+    prop: media
+  src:
+    type: <url>
+    prop: src
+  srcset:
+    type: <string>
+    prop: srcset
+  sizes:
+    type: <string>
+    prop: sizes
+  type:
+    type: <mime>
+    prop: type
+  width:
+    type: <integer>
+    prop: width
+
+span: HTMLSpanElement
+
+strong: HTMLElement
+
+style:
+  $type: HTMLStyleElement
+  media:
+    type: <string>
+    prop: media
+  blocking: list<Blocking>
+
+sub: HTMLElement
+
+summary: HTMLElement
+
+sup: HTMLElement
+
+table: HTMLTableElement
+
+tbody: HTMLTableSectionElement
+
+td:
+  $type: HTMLTableCellElement
+  $extend:
+    - _TABLE_CELL_ELEMENT_ATTR
+
+template: HTMLTemplateElement
+
+textarea:
+  $type: HTMLTextAreaElement
+  autocomplete:
+    type: <Autocomplete>
+    prop: autocomplete
+  cols:
+    type: <integer>
+    prop: cols
+  dirname:
+    type: <string>
+    prop: dirName
+  disabled:
+    type: <boolean>
+    prop: disabled
+  form: <id>
+  maxlength:
+    type: <integer>
+    prop: maxLength
+  minlength:
+    type: <integer>
+    prop: minLength
+  name:
+    type: <string>
+    prop: name
+  placeholder:
+    type: <string>
+    prop: placeholder
+  readonly:
+    type: <boolean>
+    prop: readOnly
+  required:
+    type: <boolean>
+    prop: required
+  rows:
+    type: <integer>
+    prop: rows
+  wrap:
+    type: [off, hard, soft]
+    prop: wrap
+
+tfoot: HTMLTableSectionElement
+
+th:
+  $type: HTMLTableCellElement
+  $extend:
+    - _TABLE_CELL_ELEMENT_ATTR
+  abbr:
+    type: <string>
+    prop: abbr
+  scope:
+    type: [row, col, rowgroup, colgroup]
+    prop: scope
+
+thead: HTMLTableSectionElement
+
+time:
+  $type: HTMLTimeElement
+  datetime:
+    type: <datetime>
+    prop: dateTime
+
+title: HTMLTitleElement
+
+tr: HTMLTableRowElement
+
+track:
+  $type: HTMLTrackElement
+  default:
+    type: <boolean>
+    prop: default
+  kind:
+    type: [subtitles, captions, descriptions, chapters, metadata]
+    prop: kind
+  label:
+    type: <string>
+    prop: label
+  src:
+    type: <url>
+    prop: src
+  srclang:
+    type: <string>
+    prop: srclang
+
+u: HTMLElement
+
+ul: HTMLUListElement
+
+var: HTMLElement
+
+video:
+  $type: HTMLVideoElement
+  $extend:
+    - _MEDIA_ELEMENT_ATTR
+  height:
+    type: <integer>
+    prop: height
+  playsinline:
+    type: <boolean>
+    prop: playsInline
+  poster:
+    type: <url>
+    prop: poster
+  width:
+    type: <integer>
+    prop: width
+
+wbr: HTMLElement

@@ -6,6 +6,8 @@ A collection of types for web development.
 
 - [ ] Specify whether an event bubbles.
 - [ ] Check the specification of each entry.
+- [ ] Remove deprecated, experimental and non-standard entries.
+- [ ] Restrict usage of `list<*>`.
 
 ## ⚖️ License
 
