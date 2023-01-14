@@ -1,6 +1,5 @@
 _WINDOW_EVENT:
-  $meta:
-    link: mdn:Web/API/Window
+  $link: mdn:Web/API/Window
   $event:
     $default:
       link: mdn:Web/API/Window/%s_event
@@ -71,16 +70,14 @@ _WINDOW_EVENT:
       nonstandard: true
 
 _NODE_EVENT:
-  $meta:
-    link: mdn:Web/API/Node
+  $link: mdn:Web/API/Node
   $event:
     $default:
       link: mdn:Web/API/Node/%s_event
     selectstart: Event
 
 _DOCUMENT_EVENT:
-  $meta:
-    link: mdn:/Web/API/Document
+  $link: mdn:/Web/API/Document
   $event:
     $default:
       link: mdn:Web/API/Document/%s_event
@@ -106,8 +103,7 @@ _DOCUMENT_EVENT:
     visibilitychange: Event
 
 _ELEMENT_EVENT:
-  $meta:
-    link: mdn:Web/API/Element
+  $link: mdn:Web/API/Element
   $event:
     $default:
       link: mdn:Web/API/Element/%s_event
@@ -207,8 +203,7 @@ _ELEMENT_EVENT:
     wheel: WheelEvent
 
 _HTML_ELEMENT_EVENT:
-  $meta:
-    link: mdn:Web/API/HTMLElement
+  $link: mdn:Web/API/HTMLElement
   $event:
     $default:
       link: mdn:Web/API/HTMLElement/%s_event
@@ -227,8 +222,7 @@ _HTML_ELEMENT_EVENT:
     paste: ClipboardEvent
 
 _HTML_MEDIA_ELEMENT_EVENT:
-  $meta:
-    link: mdn:Web/API/HTMLMediaElement
+  $link: mdn:Web/API/HTMLMediaElement
   $event:
     $default:
       link: mdn:Web/API/HTMLMediaElement/%s_event

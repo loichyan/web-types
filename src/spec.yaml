@@ -18,8 +18,7 @@
 <literal>: <string>
 <union>:
   # Metadata for this union.
-  # TODO: $<keyof meta>: <typeof meta>
-  $meta: <meta>
+  $<keyof meta>: <typeof meta>
   # Default values of type entries.
   $default: <meta>
   # Type entries.
@@ -50,21 +49,23 @@
 # `<string>` will be converted to `event.type`.
 <event>: <string>|<event_raw>
 
-<preset_raw>:
+<preset_meta>:
+  <keyof meta>: <typeof meta>
   # The DOM interface of this element.
-  $type: <string>
-  # Metadata for this preset.
-  $meta: <meta>
+  type: <string>
   # Default values of attribute entries.
-  $default: <attr>
+  default: <attr>
   # Extend attribute and event entries from other presets.
-  $extend: <list<string>>
+  extend: <list<string>>
   # Events.
-  $event:
+  event:
     # Default values of event entries.
     $default: <event>
     # Event entries.
     <string>: <event>
+<preset_raw>:
+  # Metadata.
+  $<keyof preset_meta>: <typeof preset_meta>
   # Attribute entries.
   <string>: <attr>
 # `<string>` will be converted to `preset.$type`.

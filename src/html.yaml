@@ -1,8 +1,7 @@
 GLOBAL_ATTR:
   # $extend:
   #   - ARIA_ATTR
-  $meta:
-    link: mdn:Web/HTML/Global_attributes
+  $link: mdn:Web/HTML/Global_attributes
   $default:
     link: mdn:Web/HTML/Global_attributes/%s
     prop:
@@ -107,8 +106,7 @@ GLOBAL_ATTR:
   - unsafe-url
 
 <Rel>:
-  $meta:
-    link: mdn:Web/HTML/Link_types
+  $link: mdn:Web/HTML/Link_types
   $default:
     link: mdn:Web/HTML/Link_types/%s
   alternate:
@@ -219,8 +217,7 @@ _MEDIA_ELEMENT_ATTR:
 #   - GLOBAL_ATTR
 #   - HTML_EVENT
 $default:
-  $meta:
-    link: mdn:Web/HTML/Element/%s
+  $link: mdn:Web/HTML/Element/%s
   $default:
     link: mdn:Web/HTML/Element/%s#attr-%%s
     prop:
@@ -264,15 +261,13 @@ abbr: HTMLElement
 
 acronym:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
 
 address: HTMLElement
 
 applet:
   $type: HTMLAppletElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   align: [bottom, left, middle, right, top]
   alt: <string>
   archive: <string>
@@ -334,8 +329,7 @@ bdo: HTMLElement
 
 bgsound:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   balance: <number>
   loop: <boolean>
   src: <url>
@@ -343,13 +337,11 @@ bgsound:
 
 big:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
 
 blink:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
 
 blockquote:
   $type: HTMLQuoteElement
@@ -462,8 +454,7 @@ caption:
 
 center:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
 
 cite: HTMLElement
 
@@ -504,8 +495,7 @@ colgroup:
 
 content:
   $type: HTMLContentElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   select: <string>
 
 data:
@@ -551,8 +541,7 @@ dialog:
 
 dir:
   $type: HTMLDirectoryElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   compact: <boolean>
 
 div:
@@ -602,8 +591,7 @@ figure: HTMLElement
 
 font:
   $type: HTMLFontElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   color: <string>
   face: <string>
   size: <integer>
@@ -645,8 +633,7 @@ form:
 
 frame:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   src: <url>
   name: <string>
   noresize: <boolean>
@@ -657,7 +644,6 @@ frame:
 
 frameset:
   $type: HTMLElement
-  $meta:
-    deprecated: true
+  $deprecated: true
   cols: <integer>
   rows: <integer>

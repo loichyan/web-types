@@ -1,6 +1,5 @@
 ARIA_ATTR:
-  $meta:
-    link: mdn:Web/Accessibility/ARIA/Attributes
+  $link: mdn:Web/Accessibility/ARIA/Attributes
   $default:
     link: mdn:Web/Accessibility/ARIA/Attributes/%s
     prop:
@@ -144,8 +143,7 @@ ARIA_ATTR:
   role:
     prop: role
     type:
-      $meta:
-        link: mdn:Web/Accessibility/ARIA/Roles
+      $link: mdn:Web/Accessibility/ARIA/Roles
       $default:
         link: mdn:Web/Accessibility/ARIA/Roles/%s_role
       alert:
