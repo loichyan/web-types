@@ -3,7 +3,7 @@
 $default:
   link: mdn:Web/API/%t#events
   on:default:
-    link: mdn:Web/API/%t/%%s_event
+    link: mdn:Web/API/%t#%%s
 
 _NODE_EVENT:
   $type: Node
@@ -152,7 +152,6 @@ _HTML_TRACK_ELEMENT_EVENT:
 
 WINDOW_EVENT:
   $type: Window
-  $link: mdn:Web/API/#events
   on:afterprint: Event
   on:appinstalled: Event
   on:beforeprint: Event

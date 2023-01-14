@@ -8,20 +8,32 @@ $default:
     - ARIA_ATTR
     - HTML_EVENT
     - GLOBAL_ATTR
-  link: mdn:Web/HTML/Element/%s
+  link: mdn:Web/HTML/Element/%S
   default:
-    link: mdn:Web/HTML/Element/%s#attr-%%s
+    link: mdn:Web/HTML/Element/%S#attr-%%s
     prop:
-      link: mdn:Web/API/%t/%%s
+      link: mdn:Web/API/%t#%%s
   on:default:
-    link: mdn:Web/API/%t/%%s_event
+    link: mdn:Web/API/%t#%%s
 
-GLOBAL_ATTR:
-  $link: mdn:Web/HTML/Global_attributes
+_ELEMENT_ATTR:
   $default:
-    link: mdn:Web/HTML/Global_attributes/%s
     prop:
-      link: mdn:Web/API/HTMLElement/%s
+      link: mdn:Web/API/Element#element.%s
+  id:
+    type: <id>
+    prop: id
+  part:
+    type: <string>
+    prop: part
+  slot:
+    type: <string>
+    prop: slot
+
+_HTML_ELEMENT_ATTR:
+  $default:
+    prop:
+      link: mdn:Web/API/HTMLElement#htmlelement.%s
   accesskey:
     type: <string>
     prop: accessKey
@@ -54,11 +66,6 @@ GLOBAL_ATTR:
     prop:
       name: hidden
       type: [<false>, <true>, until-found]
-  id:
-    type: <id>
-    prop:
-      name: id
-      link: mdn:Web/API/Element/%s
   inert:
     type: <boolean>
     prop: inert
@@ -77,16 +84,6 @@ GLOBAL_ATTR:
   nonce:
     type: <string>
     prop: nonce
-  part:
-    type: <string>
-    prop:
-      name: part
-      link: mdn:Web/API/Element/%s
-  slot:
-    type: <string>
-    prop:
-      name: slot
-      link: mdn:Web/API/Element/%s
   spellcheck:
     type: [false, true]
     prop:
@@ -104,7 +101,14 @@ GLOBAL_ATTR:
     prop:
       name: translate
       type: <boolean>
-  virtualkeyboardpolicy: [auto, manual]
+
+GLOBAL_ATTR:
+  $link: mdn:Web/HTML/Global_attributes
+  $default:
+    link: mdn:Web/HTML/Global_attributes#%s
+  $extend:
+    - _ELEMENT_ATTR
+    - _HTML_ELEMENT_ATTR
 
 <Autocomplete>:
   $link: mdn:Web/HTML/Attributes/autocomplete
@@ -197,7 +201,7 @@ GLOBAL_ATTR:
 <InputType>:
   $link: mdn:Web/HTML/Element/input#input_types
   $default:
-    link: mdn:Web/HTML/Element/input/%s
+    link: mdn:Web/HTML/Element/input/%S
   button:
   checkbox:
   color:
@@ -268,7 +272,7 @@ GLOBAL_ATTR:
 <Rel>:
   $link: mdn:Web/HTML/Link_types
   $default:
-    link: mdn:Web/HTML/Link_types/%s
+    link: mdn:Web/HTML/Link_types/%S
   alternate:
   archives:
   author:
@@ -325,7 +329,7 @@ GLOBAL_ATTR:
 _HTML_MEDIA_ELEMENT_ATTR:
   $default:
     prop:
-      link: mdn:Web/API/HTMLMediaElement/%s
+      link: mdn:Web/API/HTMLMediaElement#htmlmediaelement.%s
   autoplay:
     type: <boolean>
     prop: autoplay

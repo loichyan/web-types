@@ -1,7 +1,7 @@
 <Role>:
   $link: mdn:Web/Accessibility/ARIA/Roles
   $default:
-    link: mdn:Web/Accessibility/ARIA/Roles/%s_role
+    link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
   alert:
   alertdialog:
   application:
@@ -93,9 +93,9 @@
 ARIA_ATTR:
   $link: mdn:Web/Accessibility/ARIA/Attributes
   $default:
-    link: mdn:Web/Accessibility/ARIA/Attributes/%s
+    link: mdn:Web/Accessibility/ARIA/Attributes#%s
     prop:
-      link: mdn:Web/API/Element/%s
+      link: mdn:Web/API/Element#element.%s
       type: <string>
   aria-activedescendant: id
   aria-atomic:

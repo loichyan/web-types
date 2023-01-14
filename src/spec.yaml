@@ -1,7 +1,9 @@
 # == BEGIN TYPE DEFINITIONS == #
 # Patterns listed as follows will be replaced:
-# - `%s`: the name of the entry
-# - `%t`: the type of the entry
+# - `%S`: the name of the entry
+# - `%s`: the lowercase name
+# - `%T`: the type of the entry
+# - `%t`: the lowercase type
 # Use `%%` to escape.
 <template>: <string>
 
