@@ -21,11 +21,6 @@ GLOBAL_ATTR:
   contenteditable:
     type: [false, true, inherit]
     prop: contentEditable
-  contextmenu:
-    type: <id>
-    prop: contextmenu
-    deprecated: true
-    nonstandard: true
   dir:
     type: [auto, ltr, rtl]
     prop: dir
@@ -119,8 +114,6 @@ GLOBAL_ATTR:
   first:
   help:
   icon:
-  index:
-    deprecated: true
   last:
   license:
   manifest:
@@ -130,11 +123,7 @@ GLOBAL_ATTR:
   nofollow:
   noopener:
   noreferrer:
-  opener:
-    experimental: true
   pingback:
-  preconnect:
-    experimental: true
   prefetch:
   preload:
   prerender:
@@ -144,8 +133,6 @@ GLOBAL_ATTR:
   sidebar:
   stylesheet:
   tag:
-  up:
-    deprecated: true
 
   <Target>:
     - <url>
@@ -230,59 +217,16 @@ a:
   $type: HTMLAnchorElement
   $extend:
     - _HYPERLINK_ATTR
-  charset:
-    type: <string>
-    prop: charset
-    deprecated: true
-  coords:
-    type: <string>
-    prop: coords
-    deprecated: true
-  name:
-    type: <id>
-    prop: name
-    deprecated: true
   hreflang:
     type: <string>
     prop: hrefLang
-  rev:
-    type: <string>
-    prop: rev
-    deprecated: true
-  shape:
-    type: <string>
-    prop: shape
-    deprecated: true
   type:
     type: <mime>
     prop: type
 
 abbr: HTMLElement
 
-acronym:
-  $type: HTMLElement
-  $deprecated: true
-
 address: HTMLElement
-
-applet:
-  $type: HTMLAppletElement
-  $deprecated: true
-  align: [bottom, left, middle, right, top]
-  alt: <string>
-  archive: <string>
-  code: <url>
-  codebase: <url>
-  datafld: <string>
-  datasrc: <string>
-  height: <string>
-  hspace: <string>
-  mayscript: <string>
-  name: <string>
-  object: <url>
-  src: <url>
-  vspace: <url>
-  width: <string>
 
 area:
   $type: HTMLAreaElement
@@ -294,21 +238,9 @@ area:
   coords:
     type: <string>
     prop: coords
-  hreflang:
-    type: <string>
-    deprecated: true
-  name:
-    type: <string>
-    deprecated: true
-  nohref:
-    type: <boolean>
-    deprecated: true
   shape:
     type: [rect, circle, poly, default]
     prop: shape
-  type:
-    type: <string>
-    deprecated: true
 
 article: HTMLElement
 
@@ -327,71 +259,21 @@ bdi: HTMLElement
 
 bdo: HTMLElement
 
-bgsound:
-  $type: HTMLElement
-  $deprecated: true
-  balance: <number>
-  loop: <boolean>
-  src: <url>
-  volume: <number>
-
-big:
-  $type: HTMLElement
-  $deprecated: true
-
-blink:
-  $type: HTMLElement
-  $deprecated: true
-
 blockquote:
   $type: HTMLQuoteElement
   cite:
     type: <url>
     prop: cite
 
-body:
-  $type: HTMLBodyElement
-  alink:
-    type: <string>
-    deprecated: true
-  background:
-    type: <url>
-    deprecated: true
-  bgcolor:
-    type: <string>
-    deprecated: true
-  bottommargin:
-    type: <string>
-    deprecated: true
-  leftmargin:
-    type: <string>
-    deprecated: true
-  link:
-    type: <string>
-    deprecated: true
-  rightmargin:
-    type: <string>
-    deprecated: true
-  text:
-    type: <string>
-    deprecated: true
-  topmargin:
-    type: <string>
-    deprecated: true
-  vlink:
-    type: <string>
-    deprecated: true
+body: HTMLBodyElement
 
-br:
-  $type: HTMLBRElement
-  clear:
-    type: <string>
-    deprecated: true
+br: HTMLBRElement
 
 <FormEncType>:
   - application/x-www-form-urlencoded
   - multipart/form-data
   - text/plain
+
 <FormMethod>:
   - dialog
   - get
@@ -402,9 +284,6 @@ button:
   autofocus:
     type: <boolean>
     prop: autofocus
-  autocomplete:
-    type: [off, on]
-    nonstandard: true
   disabled:
     type: <boolean>
     prop: disabled
@@ -446,42 +325,16 @@ canvas:
     type: <integer>
     prop: width
 
-caption:
-  $type: HTMLTableCaptionElement
-  align:
-    type: [bottom, left, right, top]
-    deprecated: true
-
-center:
-  $type: HTMLElement
-  $deprecated: true
+caption: HTMLTableCaptionElement
 
 cite: HTMLElement
 
 code: HTMLElement
 
 _COL_ATTR:
-  align:
-    type: [center, justify, left, center]
-    deprecated: true
-  bgcolor:
-    type: <string>
-    deprecated: true
-  char:
-    type: <string>
-    deprecated: true
-  charoff:
-    type: <integer>
-    deprecated: true
   span:
     type: <integer>
     prop: span
-  valign:
-    type: [baseline, bottom, middle, top]
-    deprecated: true
-  width:
-    type: <integer>
-    deprecated: true
 
 col:
   $type: HTMLTableColElement
@@ -492,11 +345,6 @@ colgroup:
   $type: HTMLTableColElement
   $extend:
     - _COL_ATTR
-
-content:
-  $type: HTMLContentElement
-  $deprecated: true
-  select: <string>
 
 data:
   $type: HTMLDataElement
@@ -539,11 +387,6 @@ dialog:
     cancel: Event
     close: Event
 
-dir:
-  $type: HTMLDirectoryElement
-  $deprecated: true
-  compact: <boolean>
-
 div:
   $type: HTMLDivElement
   align: [center, justify, left, right]
@@ -556,15 +399,9 @@ em: HTMLElement
 
 embed:
   $type: HTMLEmbedElement
-  align:
-    type: [center, justify, left, right]
-    deprecated: true
   height:
     type: <integer>
     prop: height
-  name:
-    type: <string>
-    deprecated: true
   src:
     type: <url>
     prop: src
@@ -589,20 +426,10 @@ figcaption: HTMLElement
 
 figure: HTMLElement
 
-font:
-  $type: HTMLFontElement
-  $deprecated: true
-  color: <string>
-  face: <string>
-  size: <integer>
-
 footer: HTMLElement
 
 form:
   $type: HTMLFormELement
-  accept:
-    type: <string>
-    deprecated: true
   accept-charset:
     type: <string>
     prop: acceptCharset
@@ -630,20 +457,3 @@ form:
   target:
     type: <Target>
     prop: target
-
-frame:
-  $type: HTMLElement
-  $deprecated: true
-  src: <url>
-  name: <string>
-  noresize: <boolean>
-  scrolling: [no, ues]
-  marginheight: <integer>
-  marginwidth: <integer>
-  frameborder: <string>
-
-frameset:
-  $type: HTMLElement
-  $deprecated: true
-  cols: <integer>
-  rows: <integer>

@@ -8,11 +8,9 @@
 <meta>:
   link: <template>
   # default: false
-  experimental: <boolean>
-  # default: false
   deprecated: <boolean>
   # default: false
-  nonstrandard: <boolean>
+  nonstandard: <boolean>
 
 <predefined>: <<string>>
 <literal>: <string>

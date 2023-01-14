@@ -42,17 +42,11 @@ ARIA_ATTR:
   aria-disabled:
     type: [false, true]
     prop: ariaDisabled
-  aria-dropeffect:
-    type: [none, copy, execute, link, move, popup]
-    deprecated: true
   aria-errormessage: id
   aria-expanded:
     type: [undefined, false, true]
     prop: ariaExpanded
   aria-flowto: list<id>
-  aria-grabbed:
-    type: [undefined, false, true]
-    deprecated: true
   aria-haspopup:
     type: [false, true, menu, listbox, tree, grid, dialog]
     prop: ariaHasPopup
@@ -98,11 +92,7 @@ ARIA_ATTR:
   aria-readonly:
     type: [false, true]
     prop: ariaReadOnly
-  aria-relevant:
-    type: [additions, all, removals, text]
-    prop:
-      name: ariaRelevant
-      nonstandard: true
+  aria-relevant: [additions, all, removals, text]
   aria-required:
     type: [false, true]
     prop: ariaRequired
