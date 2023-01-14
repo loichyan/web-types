@@ -9,9 +9,8 @@ $default:
     link: mdn:Web/HTML/Element/%s#attr-%%s
     prop:
       link: mdn:Web/API/%t/%%s
-  event:
-    default:
-      link: mdn:Web/API/%t/%%s_event
+  on:default:
+    link: mdn:Web/API/%t/%%s_event
 
 GLOBAL_ATTR:
   # $extend:
@@ -505,10 +504,9 @@ button:
 
 canvas:
   $type: HTMLCanvasElement
-  $event:
-    webglcontextcreationerror: WebGLContextEvent
-    webglcontextlost: WebGLContextEvent
-    webglcontextrestored: WebGLContextEvent
+  on:webglcontextcreationerror: WebGLContextEvent
+  on:webglcontextlost: WebGLContextEvent
+  on:webglcontextrestored: WebGLContextEvent
   height:
     type: <integer>
     prop: height
@@ -1252,9 +1250,8 @@ video:
   $type: HTMLVideoElement
   $extend:
     - _MEDIA_ELEMENT_ATTR
-  $event:
-    enterpictureinpicture: PictureInPictureEvent
-    leavepictureinpicture: PictureInPictureEvent
+  on:enterpictureinpicture: PictureInPictureEvent
+  on:leavepictureinpicture: PictureInPictureEvent
   height:
     type: <integer>
     prop: height

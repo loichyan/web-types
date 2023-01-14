@@ -1,200 +1,187 @@
 $default:
   link: mdn:Web/API/%t#events
-  event:
-    default:
-      link: mdn:Web/API/%t/%%s_event
+  on:default:
+    link: mdn:Web/API/%t/%%s_event
 
 _WINDOW_EVENT:
   $type: Window
   $link: mdn:Web/API/#events
-  $event:
-    afterprint: Event
-    appinstalled: Event
-    beforeprint: Event
-    beforeunload: BeforeUnloadEvent
-    blur: FocusEvent
-    copy: ClipboardEvent
-    cut: ClipboardEvent
-    devicemotion: DeviceMotionEvent
-    deviceorientation: DeviceOrientationEvent
-    deviceorientationabsolute: DeviceOrientationEvent
-    DOMContentLoaded: Event
-    error: UIEvent
-    focus: FocusEvent
-    gamepadconnected: GamepadEvent
-    gamepaddisconnected: GamepadEvent
-    hashchange: HashChangeEvent
-    languagechange: Event
-    load: Event
-    message: MessageEvent
-    messageerror: MessageEvent
-    offline: Event
-    online: Event
-    pagehide: PageTransitionEvent
-    pageshow: PageTransitionEvent
-    paste: ClipboardEvent
-    popstate: PopStateEvent
-    rejectionhandled: PromiseRejectionEvent
-    resize: UIEvent
-    storage: StorageEvent
-    unhandledrejection: PromiseRejectionEvent
-    unload: Event
+  on:afterprint: Event
+  on:appinstalled: Event
+  on:beforeprint: Event
+  on:beforeunload: BeforeUnloadEvent
+  on:blur: FocusEvent
+  on:copy: ClipboardEvent
+  on:cut: ClipboardEvent
+  on:devicemotion: DeviceMotionEvent
+  on:deviceorientation: DeviceOrientationEvent
+  on:deviceorientationabsolute: DeviceOrientationEvent
+  on:DOMContentLoaded: Event
+  on:error: UIEvent
+  on:focus: FocusEvent
+  on:gamepadconnected: GamepadEvent
+  on:gamepaddisconnected: GamepadEvent
+  on:hashchange: HashChangeEvent
+  on:languagechange: Event
+  on:load: Event
+  on:message: MessageEvent
+  on:messageerror: MessageEvent
+  on:offline: Event
+  on:online: Event
+  on:pagehide: PageTransitionEvent
+  on:pageshow: PageTransitionEvent
+  on:paste: ClipboardEvent
+  on:popstate: PopStateEvent
+  on:rejectionhandled: PromiseRejectionEvent
+  on:resize: UIEvent
+  on:storage: StorageEvent
+  on:unhandledrejection: PromiseRejectionEvent
+  on:unload: Event
 
 _NODE_EVENT:
   $type: Node
-  $event:
-    selectstart: Event
+  on:selectstart: Event
 
 _DOCUMENT_EVENT:
   $type: Document
-  $event:
-    copy: ClipboardEvent
-    cut: ClipboardEvent
-    DOMContentLoaded: Event
-    fullscreenchange: Event
-    fullscreenerror: Event
-    lostpointercapture: PointerEvent
-    paste: ClipboardEvent
-    pointerlockchange: Event
-    pointerlockerror: Event
-    readystatechange: Event
-    scroll: Event
-    scrollend: Event
-    selectionchange: Event
-    visibilitychange: Event
+  on:copy: ClipboardEvent
+  on:cut: ClipboardEvent
+  on:DOMContentLoaded: Event
+  on:fullscreenchange: Event
+  on:fullscreenerror: Event
+  on:lostpointercapture: PointerEvent
+  on:paste: ClipboardEvent
+  on:pointerlockchange: Event
+  on:pointerlockerror: Event
+  on:readystatechange: Event
+  on:scroll: Event
+  on:scrollend: Event
+  on:selectionchange: Event
+  on:visibilitychange: Event
 
 _ELEMENT_EVENT:
   $type: Element
-  $event:
-    animationcancel: AnimationEvent
-    animationend: AnimationEvent
-    animationiteration: AnimationEvent
-    animationstart: AnimationEvent
-    auxclick: MouseEvent
-    blur: FocusEvent
-    click: MouseEvent
-    compositionend: CompositionEvent
-    compositionstart: CompositionEvent
-    compositionupdate: CompositionEvent
-    contextmenu: MouseEvent
-    copy: ClipboardEvent
-    cut: ClipboardEvent
-    dblclick: MouseEvent
-    error: UIEvent
-    focus: FocusEvent
-    focusin: FocusEvent
-    focusout: FocusEvent
-    fullscreenchange: Event
-    fullscreenerror: Event
-    gotpointercapture: PointerEvent
-    keydown: KeyboardEvent
-    keyup: KeyboardEvent
-    lostpointercapture: PointerEvent
-    mousedown: MouseEvent
-    mouseenter: MouseEvent
-    mouseleave: MouseEvent
-    mousemove: MouseEvent
-    mouseout: MouseEvent
-    mouseover: MouseEvent
-    mouseup: MouseEvent
-    paste: ClipboardEvent
-    pointercancel: PointerEvent
-    pointerdown: PointerEvent
-    pointerenter: PointerEvent
-    pointerleave: PointerEvent
-    pointermove: PointerEvent
-    pointerout: PointerEvent
-    pointerover: PointerEvent
-    pointerup: PointerEvent
-    scroll: Event
-    scrollend: Event
-    securitypolicyviolation: SecurityPolicyViolationEvent
-    touchcancel: TouchEvent
-    touchend: TouchEvent
-    touchmove: TouchEvent
-    touchstart: TouchEvent
-    transitioncancel: TransitionEvent
-    transitionend: TransitionEvent
-    transitionrun: TransitionEvent
-    transitionstart: TransitionEvent
-    wheel: WheelEvent
+  on:animationcancel: AnimationEvent
+  on:animationend: AnimationEvent
+  on:animationiteration: AnimationEvent
+  on:animationstart: AnimationEvent
+  on:auxclick: MouseEvent
+  on:blur: FocusEvent
+  on:click: MouseEvent
+  on:compositionend: CompositionEvent
+  on:compositionstart: CompositionEvent
+  on:compositionupdate: CompositionEvent
+  on:contextmenu: MouseEvent
+  on:copy: ClipboardEvent
+  on:cut: ClipboardEvent
+  on:dblclick: MouseEvent
+  on:error: UIEvent
+  on:focus: FocusEvent
+  on:focusin: FocusEvent
+  on:focusout: FocusEvent
+  on:fullscreenchange: Event
+  on:fullscreenerror: Event
+  on:gotpointercapture: PointerEvent
+  on:keydown: KeyboardEvent
+  on:keyup: KeyboardEvent
+  on:lostpointercapture: PointerEvent
+  on:mousedown: MouseEvent
+  on:mouseenter: MouseEvent
+  on:mouseleave: MouseEvent
+  on:mousemove: MouseEvent
+  on:mouseout: MouseEvent
+  on:mouseover: MouseEvent
+  on:mouseup: MouseEvent
+  on:paste: ClipboardEvent
+  on:pointercancel: PointerEvent
+  on:pointerdown: PointerEvent
+  on:pointerenter: PointerEvent
+  on:pointerleave: PointerEvent
+  on:pointermove: PointerEvent
+  on:pointerout: PointerEvent
+  on:pointerover: PointerEvent
+  on:pointerup: PointerEvent
+  on:scroll: Event
+  on:scrollend: Event
+  on:securitypolicyviolation: SecurityPolicyViolationEvent
+  on:touchcancel: TouchEvent
+  on:touchend: TouchEvent
+  on:touchmove: TouchEvent
+  on:touchstart: TouchEvent
+  on:transitioncancel: TransitionEvent
+  on:transitionend: TransitionEvent
+  on:transitionrun: TransitionEvent
+  on:transitionstart: TransitionEvent
+  on:wheel: WheelEvent
 
 _HTML_ELEMENT_EVENT:
   $type: HTMLElement
-  $event:
-    beforeinput: InputEvent
-    change: Event
-    copy: ClipboardEvent
-    cut: ClipboardEvent
-    drag: DragEvent
-    dragend: DragEvent
-    dragenter: DragEvent
-    dragleave: DragEvent
-    dragover: DragEvent
-    dragstart: DragEvent
-    drop: DragEvent
-    input: Event
-    paste: ClipboardEvent
+  on:beforeinput: InputEvent
+  on:change: Event
+  on:copy: ClipboardEvent
+  on:cut: ClipboardEvent
+  on:drag: DragEvent
+  on:dragend: DragEvent
+  on:dragenter: DragEvent
+  on:dragleave: DragEvent
+  on:dragover: DragEvent
+  on:dragstart: DragEvent
+  on:drop: DragEvent
+  on:input: Event
+  on:paste: ClipboardEvent
 
 _HTML_DETAILS_ELEMENT_EVENT:
   $type: HTMLDetailsElement
-  $event:
-    toggle: Event
+  on:toggle: Event
 
 _HTML_DIALOG_ELEMENT_EVENT:
   $type: HTMLDialogElement
-  $event:
-    cancel: Event
-    close: Event
+  on:cancel: Event
+  on:close: Event
 
 _HTML_FORM_ELEMENT_EVENT:
   $type: HTMLFormElement
-  $event:
-    formdata: FormDataEvent
-    reset: Event
-    submit: SubmitEvent
+  on:formdata: FormDataEvent
+  on:reset: Event
+  on:submit: SubmitEvent
 
 _HTML_INPUT_ELEMENT_EVENT:
   $type: HTMLInputElement
-  $event:
-    invalid: Event
-    select: Event
+  on:invalid: Event
+  on:select: Event
 
 _HTML_MEDIA_ELEMENT_EVENT:
   $type: HTMLMediaElement
-  $event:
-    abort: Event
-    canplay: Event
-    canplaythrough: Event
-    durationchange: Event
-    emptied: Event
-    ended: Event
-    error: Event
-    loadeddata: Event
-    loadedmetadata: Event
-    loadstart: Event
-    pause: Event
-    play: Event
-    playing: Event
-    progress: Event
-    ratechange: Event
-    seeked: Event
-    seeking: Event
-    stalled: Event
-    suspend: Event
-    timeupdate: Event
-    volumechange: Event
-    waiting: Event
+  on:abort: Event
+  on:canplay: Event
+  on:canplaythrough: Event
+  on:durationchange: Event
+  on:emptied: Event
+  on:ended: Event
+  on:error: Event
+  on:loadeddata: Event
+  on:loadedmetadata: Event
+  on:loadstart: Event
+  on:pause: Event
+  on:play: Event
+  on:playing: Event
+  on:progress: Event
+  on:ratechange: Event
+  on:seeked: Event
+  on:seeking: Event
+  on:stalled: Event
+  on:suspend: Event
+  on:timeupdate: Event
+  on:volumechange: Event
+  on:waiting: Event
 
 _HTML_SLOT_ELEMENT_EVENT:
   $type: HTMLSlotElement
-  $event:
-    slotchange: Event
+  on:slotchange: Event
 
 _HTML_TRACK_ELEMENT_EVENT:
   $type: HTMLTrackElement
-  $event:
-    cuechange: Event
+  on:cuechange: Event
 
 _EVENT:
   $extend:
