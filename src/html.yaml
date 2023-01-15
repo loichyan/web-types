@@ -4,10 +4,6 @@ $extend:
 # HTML Elements
 # https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 $default:
-  inherit:
-    - ARIA_ATTR
-    - HTML_EVENT
-    - GLOBAL_ATTR
   link: mdn:Web/HTML/Element/%S
   default:
     link: mdn:Web/HTML/Element/%S#attr-%%s
@@ -109,6 +105,8 @@ GLOBAL_ATTR:
   $extend:
     - _ELEMENT_ATTR
     - _HTML_ELEMENT_ATTR
+    # - ARIA_ATTR
+    # - GLOBAL_EVENT
 
 <Autocomplete>:
   $link: mdn:Web/HTML/Attributes/autocomplete
