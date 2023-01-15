@@ -469,7 +469,7 @@ blockquote:
 
 body:
   $extend:
-    - WINDOW_EVENT
+    - _SHARED_WINDOW_EVENT
   $type: HTMLBodyElement
 
 br: HTMLBRElement

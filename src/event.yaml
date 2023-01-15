@@ -1,65 +1,45 @@
-# TODO: dedup events
-
-$default:
-  link: mdn:Web/API/%t#events
-  on:default:
-    link: mdn:Web/API/%t#%%s
-
-_NODE_EVENT:
-  $type: Node
-  on:selectstart: Event
-
-_DOCUMENT_EVENT:
-  $type: Document
-  on:copy: ClipboardEvent
-  on:cut: ClipboardEvent
-  on:DOMContentLoaded: Event
-  on:fullscreenchange: Event
-  on:fullscreenerror: Event
-  on:lostpointercapture: PointerEvent
-  on:paste: ClipboardEvent
-  on:pointerlockchange: Event
-  on:pointerlockerror: Event
-  on:readystatechange: Event
-  on:scroll: Event
-  on:scrollend: Event
-  on:selectionchange: Event
-  on:visibilitychange: Event
-
-_ELEMENT_EVENT:
-  $type: Element
+_ANIMATION_EVENT:
+  $link: mdn:Web/CSS/CSS_Animations/Using_CSS_animations
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:animationcancel: AnimationEvent
   on:animationend: AnimationEvent
   on:animationiteration: AnimationEvent
   on:animationstart: AnimationEvent
-  on:auxclick: MouseEvent
-  on:blur: FocusEvent
-  on:click: MouseEvent
-  on:compositionend: CompositionEvent
-  on:compositionstart: CompositionEvent
-  on:compositionupdate: CompositionEvent
-  on:contextmenu: MouseEvent
+
+_CLIPBOARD_EVENT:
+  $link: mdn:Web/API/Clipboard_API
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:copy: ClipboardEvent
   on:cut: ClipboardEvent
-  on:dblclick: MouseEvent
-  on:error: UIEvent
-  on:focus: FocusEvent
-  on:focusin: FocusEvent
-  on:focusout: FocusEvent
+  on:paste: ClipboardEvent
+
+_DRAG_EVENT:
+  $link: mdn:Web/API/HTMLElement/drag_event
+  $on:default:
+    link: mdn:Web/API/HTMLElement/%s_event
+  on:drag: DragEvent
+  on:dragend: DragEvent
+  on:dragenter: DragEvent
+  on:dragleave: DragEvent
+  on:dragover: DragEvent
+  on:dragstart: DragEvent
+  on:drop: DragEvent
+
+_FULLSCREEN_EVENT:
+  $link: mdn:Web/API/Fullscreen_API
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:fullscreenchange: Event
   on:fullscreenerror: Event
+
+_POINTER_EVENT:
+  $link: mdn:Web/API/Pointer_events
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:gotpointercapture: PointerEvent
-  on:keydown: KeyboardEvent
-  on:keyup: KeyboardEvent
   on:lostpointercapture: PointerEvent
-  on:mousedown: MouseEvent
-  on:mouseenter: MouseEvent
-  on:mouseleave: MouseEvent
-  on:mousemove: MouseEvent
-  on:mouseout: MouseEvent
-  on:mouseover: MouseEvent
-  on:mouseup: MouseEvent
-  on:paste: ClipboardEvent
   on:pointercancel: PointerEvent
   on:pointerdown: PointerEvent
   on:pointerenter: PointerEvent
@@ -68,34 +48,85 @@ _ELEMENT_EVENT:
   on:pointerout: PointerEvent
   on:pointerover: PointerEvent
   on:pointerup: PointerEvent
-  on:scroll: Event
-  on:scrollend: Event
-  on:securitypolicyviolation: SecurityPolicyViolationEvent
+
+_SELECTION_EVENT:
+  $link: mdn:Web/API/Selection_API
+  on:selectstart:
+    type: Event
+    link: mdn:Web/API/Node/%s_event
+  on:selectionchange:
+    type: Event
+    link: mdn:Web/API/Document/%s_event
+
+_TOUCH_EVENT:
+  $link: mdn:Web/API/Touch_events
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:touchcancel: TouchEvent
   on:touchend: TouchEvent
   on:touchmove: TouchEvent
   on:touchstart: TouchEvent
+
+_TRANSITION_EVENT:
+  $link: mdn:Web/CSS/CSS_Transitions/Using_CSS_transitions
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   on:transitioncancel: TransitionEvent
   on:transitionend: TransitionEvent
   on:transitionrun: TransitionEvent
   on:transitionstart: TransitionEvent
+
+_UI_EVENT:
+  $link: mdn:Web/API/UI_Events
+  $on:default:
+    link: mdn:Web/API/UI_Events#%s
+  # UI events
+  # TODO: add to MDN
+  on:abort: Event
+  on:error: Event
+  on:load: Event
+  # Composition events
+  on:compositionend: CompositionEvent
+  on:compositionstart: CompositionEvent
+  on:compositionupdate: CompositionEvent
+  # Focus events
+  on:blur: FocusEvent
+  on:focus: FocusEvent
+  on:focusin: FocusEvent
+  on:focusout: FocusEvent
+  # Keyboard events
+  on:keydown: KeyboardEvent
+  on:keyup: KeyboardEvent
+  on:keypress:
+    type: KeyboardEvent
+    deprecated: true
+  # Input events
+  # TODO: add to MDN
+  on:beforeinput: InputEvent
+  on:input: InputEvent
+  # Mouse events
+  on:auxclick: MouseEvent
+  on:click: MouseEvent
+  on:contextmenu: MouseEvent
+  on:dblclick: MouseEvent
+  on:mousedown: MouseEvent
+  on:mouseenter: MouseEvent
+  on:mouseleave: MouseEvent
+  on:mousemove: MouseEvent
+  on:mouseout: MouseEvent
+  on:mouseover: MouseEvent
+  on:mouseup: MouseEvent
+  # Wheel events
   on:wheel: WheelEvent
 
-_HTML_ELEMENT_EVENT:
-  $type: HTMLElement
-  on:beforeinput: InputEvent
-  on:change: Event
-  on:copy: ClipboardEvent
-  on:cut: ClipboardEvent
-  on:drag: DragEvent
-  on:dragend: DragEvent
-  on:dragenter: DragEvent
-  on:dragleave: DragEvent
-  on:dragover: DragEvent
-  on:dragstart: DragEvent
-  on:drop: DragEvent
-  on:input: Event
-  on:paste: ClipboardEvent
+_VISUAL_VIEWPORT_EVENT:
+  $link: mdn:Web/API/Visual_Viewport_API
+  $on:default:
+    link: mdn:Web/API/VisualViewport/%s_event
+  on:resize: Event
+  on:scroll: Event
+  # TODO: add to MDN
+  on:scrollend: Event
 
 _HTML_DETAILS_ELEMENT_EVENT:
   $type: HTMLDetailsElement
@@ -114,18 +145,20 @@ _HTML_FORM_ELEMENT_EVENT:
 
 _HTML_INPUT_ELEMENT_EVENT:
   $type: HTMLInputElement
+  # TODO: add to MDN
+  on:change: Event
   on:invalid: Event
   on:select: Event
 
 _HTML_MEDIA_ELEMENT_EVENT:
   $type: HTMLMediaElement
-  on:abort: Event
+  # on:abort: Event
+  # on:error: Event
   on:canplay: Event
   on:canplaythrough: Event
   on:durationchange: Event
   on:emptied: Event
   on:ended: Event
-  on:error: Event
   on:loadeddata: Event
   on:loadedmetadata: Event
   on:loadstart: Event
@@ -150,45 +183,22 @@ _HTML_TRACK_ELEMENT_EVENT:
   $type: HTMLTrackElement
   on:cuechange: Event
 
-WINDOW_EVENT:
-  $type: Window
-  on:afterprint: Event
-  on:appinstalled: Event
-  on:beforeprint: Event
-  on:beforeunload: BeforeUnloadEvent
-  on:blur: FocusEvent
-  on:copy: ClipboardEvent
-  on:cut: ClipboardEvent
-  on:devicemotion: DeviceMotionEvent
-  on:deviceorientation: DeviceOrientationEvent
-  on:deviceorientationabsolute: DeviceOrientationEvent
-  on:DOMContentLoaded: Event
-  on:error: UIEvent
-  on:focus: FocusEvent
-  on:gamepadconnected: GamepadEvent
-  on:gamepaddisconnected: GamepadEvent
-  on:hashchange: HashChangeEvent
-  on:languagechange: Event
-  on:load: Event
-  on:message: MessageEvent
-  on:messageerror: MessageEvent
-  on:offline: Event
-  on:online: Event
-  on:pagehide: PageTransitionEvent
-  on:pageshow: PageTransitionEvent
-  on:paste: ClipboardEvent
-  on:popstate: PopStateEvent
-  on:rejectionhandled: PromiseRejectionEvent
-  on:resize: UIEvent
-  on:storage: StorageEvent
-  on:unhandledrejection: PromiseRejectionEvent
-  on:unload: Event
-
-HTML_EVENT:
+GLOBAL_EVENT:
+  $link: mdn:Web/API/Element#events
+  $on:default:
+    link: mdn:Web/API/Element/%s_event
   $extend:
-    - _NODE_EVENT
-    - _ELEMENT_EVENT
-    - _HTML_ELEMENT_EVENT
+    - _ANIMATION_EVENT
+    - _CLIPBOARD_EVENT
+    - _DRAG_EVENT
+    - _FORM_EVENT
+    - _FULLSCREEN_EVENT
+    - _POINTER_EVENT
+    - _SELECTION_EVENT
+    - _TOUCH_EVENT
+    - _TRANSITION_EVENT
+    - _UI_EVENT
+    - _VISUAL_VIEWPORT_EVENT
     - _HTML_DETAILS_ELEMENT_EVENT
     - _HTML_DIALOG_ELEMENT_EVENT
     - _HTML_FORM_ELEMENT_EVENT
@@ -196,3 +206,53 @@ HTML_EVENT:
     - _HTML_MEDIA_ELEMENT_EVENT
     - _HTML_SLOT_ELEMENT_EVENT
     - _HTML_TRACK_ELEMENT_EVENT
+  on:securitypolicyviolation: SecurityPolicyViolationEvent
+
+_SHARED_WINDOW_EVENT:
+  $link: mdn:Web/API/Window#events
+  $on:default:
+    link: mdn:Web/API/Window#%s
+  on:afterprint: Event
+  on:beforeprint: Event
+  on:beforeunload: BeforeUnloadEvent
+  on:hashchange: HashChangeEvent
+  on:languagechange: Event
+  on:message: MessageEvent
+  on:messageerror: MessageEvent
+  on:offline: Event
+  on:online: Event
+  on:pagehide: PageTransitionEvent
+  on:pageshow: PageTransitionEvent
+  on:popstate: PopStateEvent
+  on:rejectionhandled: PromiseRejectionEvent
+  on:unhandledrejection: PromiseRejectionEvent
+  on:storage: StorageEvent
+  on:unload: Event
+  # Gamepad events
+  on:gamepadconnected: GamepadEvent
+  on:gamepaddisconnected: GamepadEvent
+
+DOCUMENT_EVENT:
+  $link: mdn:Web/API/Document#events
+  $on:default:
+    link: mdn:Web/API/Document#%s
+  $extend:
+    - GLOBAL_EVENT
+    - _SHARED_WINDOW_EVENT
+  on:DOMContentLoaded: Event
+  on:pointerlockchange: Event
+  on:pointerlockerror: Event
+  on:readystatechange: Event
+  on:visibilitychange: Event
+
+WINDOW_EVENT:
+  $link: mdn:Web/API/Window#events
+  $on:default:
+    link: mdn:Web/API/Window#%s
+  $extend:
+    - GLOBAL_EVENT
+    - _SHARED_WINDOW_EVENT
+  on:appinstalled: Event
+  on:devicemotion: DeviceMotionEvent
+  on:deviceorientation: DeviceOrientationEvent
+  on:deviceorientationabsolute: DeviceOrientationEvent
