@@ -8,9 +8,9 @@ $default:
   default:
     link: mdn:Web/HTML/Element/%S#attr-%%s
     prop:
-      link: mdn:Web/API/%t#%%s
+      link: mdn:Web/API/%T#%%s
   on:default:
-    link: mdn:Web/API/%t#%%s
+    link: mdn:Web/API/%T#%%s
 
 _ELEMENT_ATTR:
   $default:
