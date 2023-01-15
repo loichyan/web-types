@@ -1,0 +1,299 @@
+# $extend:
+#   - shared.yaml
+
+_SVG_CORE_ATTR:
+  $link: mdn:Web/SVG/Attribute/Core
+  $default:
+    link: mdn:Web/SVG/Attribute/Core#%s
+  id: <id>
+  lang: <lang>
+  tabindex: <integer>
+  xml:base: <string>
+  xml:lang: <lang>
+  xml:space: [default, preserve]
+
+_SVG_STYLING_ATTR:
+  $link: mdn:Web/SVG/Attribute/Styling
+  $default:
+    link: mdn:Web/SVG/Attribute/Styling#%s
+  class: list<id>
+  style: <string>
+
+_SVG_CONDITIONAL_PROCESSING_ATTR:
+  $link: mdn:Web/SVG/Attribute/Conditional_Processing
+  $default:
+    link: mdn:Web/SVG/Attribute/Conditional_Processing#%s
+  requiredExtensions:
+  requiredFeatures:
+  systemLanguage: <lang>
+
+_SVG_PRESENTATION_ATTR:
+  $link: mdn:Web/SVG/Attribute/Presentation
+  $default:
+    link: mdn:Web/SVG/Attribute/Presentation#%s
+  # TODO: d, transform
+  alignment-baseline:
+    - inherit
+    - auto
+    - baseline
+    - before-edge
+    - text-before-edge
+    - middle
+    - central
+    - after-edge
+    - text-after-edge
+    - ideographic
+    - alphabetic
+    - hanging
+    - mathematical
+  baseline-shift:
+    - inherit
+    - auto
+    - baseline
+    - super
+    - sub
+    - <string>
+  clip-path:
+    - inherit
+    - none
+    - <string>
+  clip-rule:
+    - inherit
+    - nonzero
+    - evenodd
+  color:
+    - inherit
+    - <string>
+  color-interpolation: <ColorInterpolation>
+  color-interpolation-filters: <ColorInterpolation>
+  cursor:
+    - inherit
+    - auto
+    - default
+    - none
+    - context-menu
+    - help
+    - pointer
+    - progress
+    - wait
+    - cell
+    - crosshair
+    - text
+    - vertical-text
+    - alias
+    - copy
+    - move
+    - no-drop
+    - not-allowed
+    - grab
+    - grabbing
+    - e-resize
+    - n-resize
+    - ne-resize
+    - nw-resize
+    - s-resize
+    - se-resize
+    - sw-resize
+    - w-resize
+    - ew-resize
+    - ns-resize
+    - nesw-resize
+    - nwse-resize
+    - col-resize
+    - row-resize
+    - all-scroll
+    - zoom-in
+    - zoom-out
+  direction:
+    - inherit
+    - ltr
+    - rtl
+  display: <string>
+  dominant-baseline:
+    - auto
+    - text-bottom
+    - alphabetic
+    - ideographic
+    - middle
+    - central
+    - mathematical
+    - hanging
+    - text-top
+  fill: <string>
+  fill-opacity: <string>
+  fill-rule:
+    - inherit
+    - nonzero
+    - evenodd
+  filter:
+    - inherit
+    - none
+    - <string>
+  flood-color: <string>
+  flood-opacity: <string>
+  font-family: <string>
+  font-size: <string>
+  font-size-adjust:
+    - inherit
+    - none
+    - <number>
+  font-stretch: <string>
+  font-style:
+    - normal
+    - italic
+    - oblique
+  font-variant: <string>
+  font-weight:
+    - normal
+    - bold
+    - lighter
+    - bolder
+    - "100"
+    - "200"
+    - "300"
+    - "400"
+    - "500"
+    - "600"
+    - "700"
+    - "800"
+    - "900"
+  image-rendering:
+    - inherit
+    - auto
+    - optimizeQuality
+    - optimizeSpeed
+  letter-spacing:
+    - normal
+    - inherit
+    - <string>
+  lighting-color: <string>
+  marker-end:
+    - none
+    - inherit
+    - <string>
+  marker-mid:
+    - none
+    - inherit
+    - <string>
+  marker-start:
+    - none
+    - inherit
+    - <string>
+  mask: <string>
+  mask-type:
+    - luminance
+    - alpha
+  opacity: <string>
+  overflow:
+    - inherit
+    - auto
+    - visible
+    - hidden
+    - scroll
+  paint-order:
+    - inherit
+    - normal
+    - fill
+    - stroke
+    - markers
+  pointer-events:
+    - bounding-box
+    - visiblePainted
+    - visibleFill
+    - visibleStroke
+    - visible
+    - painted
+    - fill
+    - stroke
+    - all
+    - none
+  shape-rendering:
+    - inherit
+    - auto
+    - optimizeSpeed
+    - crispEdges
+    - geometricPrecision
+  stop-color:
+    - inherit
+    - <string>
+  stop-opacity:
+    - inherit
+    - <string>
+  stroke: <string>
+  stroke-dasharray:
+    - none
+    - <string>
+  stroke-dashoffset: <string>
+  stroke-linecap:
+    - butt
+    - round
+    - square
+  stroke-linejoin:
+    - arcs
+    - bevel
+    - miter
+    - miter-clip
+    - round
+  stroke-miterlimit: <number>
+  stroke-opacity: <string>
+  stroke-width: <string>
+  text-anchor:
+    - inherit
+    - start
+    - middle
+    - end
+  text-decoration:
+    - inherit
+    - none
+    - underline
+    - overline
+    - line-through
+    - blink
+  text-rendering:
+    - inherit
+    - auto
+    - optimizeSpeed
+    - optimizeLegibility
+    - geometricPrecision
+  transofrm-origin: <string>
+  unicode-bidi:
+    - normal
+    - embed
+    - isolate
+    - bidi-override
+    - isolate-override
+    - plaintext
+  vector-effect:
+    - inherit
+    - default
+    - non-scaling-stroke
+  visibility:
+    - inherit
+    - visible
+    - hidden
+    - collapse
+  white-space:
+    - normal
+    - pre
+    - nowrap
+    - pre-wrap
+    - break-spaces
+    - pre-line
+  word-spacing:
+    - inherit
+    - <string>
+  writing-mode:
+    - inherit
+    - lr-tb
+    - rl-tb
+    - tb-rl
+    - lr
+    - rl
+    - rb
+
+SVG_GLOBAL_ATTR:
+  $extend:
+    - _SVG_CORE_ATTR
+    - _SVG_STYLING_ATTR
+    - _SVG_CONDITIONAL_PROCESSING_ATTR
+    - _SVG_PRESENTATION_ATTR

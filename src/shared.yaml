@@ -1,0 +1,229 @@
+# Shared type definitions and presets for HTML and SVG elements.
+# $extend:
+#   - aria.yaml
+#   - event.yaml
+
+# HTML types
+
+<Autocomplete>:
+  $link: mdn:Web/HTML/Attributes/autocomplete
+  off:
+  on:
+  name:
+  honorific-prefix:
+  given-name:
+  additional-name:
+  family-name:
+  honorific-suffix:
+  nickname:
+  email:
+  username:
+  new-password:
+  current-password:
+  one-time-code:
+  organization-title:
+  organization:
+  street-address:
+  address-line1:
+  address-line2:
+  address-line3:
+  address-level1:
+  address-level2:
+  address-level3:
+  address-level4:
+  country:
+  country-name:
+  postal-code:
+  cc-name:
+  cc-given-name:
+  cc-additional-name:
+  cc-family-name:
+  cc-number:
+  cc-exp:
+  cc-exp-month:
+  cc-exp-year:
+  cc-csc:
+  cc-type:
+  transaction-currency:
+  transaction-amount:
+  language:
+  bday:
+  bday-day:
+  bday-month:
+  bday-year:
+  sex:
+  tel:
+  tel-country-code:
+  tel-national:
+  tel-area-code:
+  tel-local:
+  tel-local-prefix:
+  tel-local-suffix:
+  tel-extension:
+  impp:
+  url:
+  photo:
+
+<Blocking>:
+  - render
+
+<Controls>:
+  - nodownload
+  - nofullscreen
+  - noremoteplayback
+
+<CrossOrigin>:
+  - anonymous
+  - use-credentials
+
+<FormEnctype>:
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain
+
+<FormMethod>:
+  - dialog
+  - get
+  - post
+
+<HttpEquiv>:
+  - content-security-policy
+  - content-type
+  - default-style
+  - x-ua-compatible
+  - refresh
+
+<InputType>:
+  $link: mdn:Web/HTML/Element/input#input_types
+  $default:
+    link: mdn:Web/HTML/Element/input/%S
+  button:
+  checkbox:
+  color:
+  date:
+  datetime-local:
+  email:
+  file:
+  hidden:
+  image:
+  month:
+  number:
+  password:
+  radio:
+  range:
+  reset:
+  search:
+  submit:
+  tel:
+  text:
+  time:
+  url:
+  week:
+
+<LinkAs>:
+  - audio
+  - document
+  - embed
+  - fetch
+  - font
+  - image
+  - object
+  - script
+  - style
+  - track
+  - video
+  - worker
+
+<Loading>:
+  - eager
+  - lazy
+
+<MetaName>:
+  $link: mdn:Web/HTML/Element/meta/name
+  application-name:
+  author:
+  description:
+  generator:
+  keywords:
+  referrer:
+  time-color:
+  color-scheme:
+  viewport:
+  creator:
+  googlebot:
+  publisher:
+  robots:
+
+<ReferrerPolicy>:
+  - no-referrer
+  - no-referrer-when-downgrade
+  - origin
+  - origin-when-cross-origin
+  - same-origin
+  - strict-origin
+  - strict-origin-when-cross-origin
+  - unsafe-url
+
+<Rel>:
+  $link: mdn:Web/HTML/Link_types
+  $default:
+    link: mdn:Web/HTML/Link_types/%S
+  alternate:
+  archives:
+  author:
+  bookmark:
+  canonical:
+  dns-prefetch:
+  external:
+  first:
+  help:
+  icon:
+  last:
+  license:
+  manifest:
+  me:
+  modulepreload:
+  next:
+  nofollow:
+  noopener:
+  noreferrer:
+  pingback:
+  prefetch:
+  preload:
+  prerender:
+  prev:
+  search:
+  shortlink:
+  sidebar:
+  stylesheet:
+  tag:
+
+<Sandbox>:
+  - allow-downloads-without-user-activation
+  - allow-downloads
+  - allow-forms
+  - allow-modals
+  - allow-orientation-lock
+  - allow-pointer-lock
+  - allow-popups
+  - allow-popups-to-escape-sandbox
+  - allow-presentation
+  - allow-same-origin
+  - allow-scripts
+  - allow-storage-access-by-user-activation
+  - allow-top-navigation
+  - allow-top-navigation-by-user-activation
+
+<Target>:
+  - <url>
+  - _self
+  - _blank
+  - _parent
+  - _top
+
+# SVG types
+<ColorInterpolation>:
+  - inherit
+  - auto
+  - sRGB
+  - linearRGB

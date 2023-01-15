@@ -70,11 +70,11 @@
 <preset>: <string>|<preset_raw>
 # == END TYPE DEFINITIONS == #
 
-# Predefined types.
-<<string>>: <type>
-
 # Default values for each preset entry.
 $default: <preset_meta>
+
+# Predefined types.
+<<string>>: <type>
 
 # Preset entries.
 <string>: <preset>
