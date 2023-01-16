@@ -1,7 +1,8 @@
 # Shared type definitions and presets for HTML and SVG elements.
-# $extend:
-#   - aria.yaml
-#   - event.yaml
+
+$extend:
+  - aria.yaml
+  - event.yaml
 
 # HTML types
 

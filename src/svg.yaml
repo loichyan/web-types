@@ -1,5 +1,8 @@
-# $extend:
-#   - shared.yaml
+# SVG elements
+
+$extend:
+  - shared.yaml
+
 $default:
   link: mdn:Web/SVG/Element/%s
   default:
@@ -382,8 +385,6 @@ _ANIMATION_ATTR:
     - _ANIMATION_TARGET_ELEMENT_ATTR
     - _ANIMATION_TIMING_ATTR
     - _ANIMATION_VALUE_ATTR
-
-# TODO: add DOM types
 
 a:
   $type: SVGAElement

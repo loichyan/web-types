@@ -1,8 +1,8 @@
-# $extend:
-#   - shared.yaml
+# HTML elements
 
-# HTML Elements
-# https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+$extend:
+  - shared.yaml
+
 $default:
   link: mdn:Web/HTML/Element/%S
   default:

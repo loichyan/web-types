@@ -73,6 +73,9 @@
 # Default values for each preset entry.
 $default: <preset_meta>
 
+# Extend other presets.
+$extend: <list<string>>
+
 # Predefined types.
 <<string>>: <type>
 

@@ -1,3 +1,5 @@
+# HTML & SVG global events
+
 _ANIMATION_EVENT:
   $link: mdn:Web/CSS/CSS_Animations/Using_CSS_animations
   $on:default:
