@@ -222,8 +222,40 @@
   - _top
 
 # SVG types
+
 <ColorInterpolation>:
   - inherit
   - auto
   - sRGB
   - linearRGB
+
+<In>:
+  - SourceGraphic
+  - SourceAlpha
+  - BackgroundImage
+  - BackgroundAlpha
+  - FillPaint
+  - StrokePaint
+  - <string>
+
+<Operator>:
+  - over
+  - in
+  - out
+  - atop
+  - xor
+  - lighter
+  - arithmetic
+
+<Units>:
+  - userSpaceOnUse
+  - objectBoundingBox
+
+<SpreadMethod>:
+  - pad
+  - reflect
+  - repeat
+
+<LengthAdjust>:
+  - spacing
+  - spacingAndGlyphs

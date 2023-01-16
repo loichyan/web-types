@@ -1,5 +1,9 @@
 # $extend:
 #   - shared.yaml
+$default:
+  link: mdn:Web/SVG/Element/%s
+  default:
+    link: mdn:Web/SVG/Attribute/%%S
 
 _SVG_CORE_ATTR:
   $link: mdn:Web/SVG/Attribute/Core
@@ -291,9 +295,504 @@ _SVG_PRESENTATION_ATTR:
     - rl
     - rb
 
+_SVG_GRAPHICAL_EVENT:
+  $link: mdn:Web/SVG/Attribute/Events#graphical_event_attributes
+  on:activate: Event
+
 SVG_GLOBAL_ATTR:
   $extend:
     - _SVG_CORE_ATTR
     - _SVG_STYLING_ATTR
     - _SVG_CONDITIONAL_PROCESSING_ATTR
     - _SVG_PRESENTATION_ATTR
+
+_SVG_ANIMATION_EVENT:
+  $link: mdn:Web/SVG/Attribute/Events#animation_event_attributes
+  on:begin: Event
+  on:end: Event
+  on:repeat: Event
+
+_ANIMATION_ADDITION_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_addition_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  additive:
+    - replace
+    - sum
+  accumulate:
+    - none
+    - sum
+
+_ANIMATION_ATTRIBUTE_TARGET_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_attribute_target_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  attributeName: <name>
+
+_ANIMATION_TARGET_ELEMENT_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_target_element_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  href: <url>
+
+_ANIMATION_TIMING_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_timing_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  begin: <string>
+  dur:
+    - media
+    - indefinite
+    - <string>
+  end: <string>
+  fill: <string>
+  max: <string>
+  min: <string>
+  repeatCount:
+    - indefinite
+    - <number>
+  repeatDur:
+    - indefinite
+    - <string>
+  restart:
+    - always
+    - whenNotActive
+    - never
+
+_ANIMATION_VALUE_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_value_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  calcMode:
+    - discrete
+    - linear
+    - paced
+    - spline
+  values: <string>
+  keyTimes: <string>
+  keySplines: <string>
+  from: <string>
+  to: <string>
+  by: <string>
+
+_ANIMATION_ATTR:
+  $extend:
+    - _ANIMATION_EVENT
+    - _ANIMATION_ADDITION_ATTR
+    - _ANIMATION_TARGET_ELEMENT_ATTR
+    - _ANIMATION_TIMING_ATTR
+    - _ANIMATION_VALUE_ATTR
+
+# TODO: add DOM types
+
+a:
+  href: <url>
+  target: <Target>
+  download: <url>
+  ping: list<url>
+  rel: <Rel>
+  hreflang: <lang>
+  type: <mime>
+  referrerpolicy: <RefererrPolicy>
+
+animate:
+  $extend:
+    - _ANIMATION_ATTR
+
+animateMotion:
+  $extend:
+    - _ANIMATION_ATTR
+  keyPoints: <string>
+  path: <string>
+  rotate:
+    - auto
+    - auto-reverse
+    - <number>
+
+animateTransform:
+  $extend:
+    - _ANIMATION_ATTR
+  type:
+    - translate
+    - scale
+    - rotate
+    - skewX
+    - skewY
+
+circle:
+  cx: <string>
+  cy: <string>
+  r: <string>
+  pathLength: <number>
+
+clipPath:
+  clipPathUnits: <Units>
+
+defs:
+
+desc:
+
+ellipse:
+  cx: <string>
+  cy: <string>
+  rx:
+    - auto
+    - <string>
+  ry:
+    - auto
+    - <string>
+  pathLength: <number>
+
+feBlend:
+  in: <In>
+  in2: <In>
+  mode:
+    - normal
+    - multiply
+    - screen
+    - overlay
+    - darken
+    - lighten
+    - color-dodge
+    - color-burn
+    - hard-light
+    - soft-light
+    - difference
+    - exclusion
+    - hue
+    - saturation
+    - color
+    - luminosity
+
+feColorMatrix:
+  in: <In>
+  type:
+    - matrix
+    - saturate
+    - hueRotate
+    - luminanceToAlpha
+  values: <string>
+
+feComponentTransfer:
+  in: <In>
+
+feComposite:
+  in: <In>
+  in2: <In>
+  operator: <Operator>
+  k1: <number>
+  k2: <number>
+  k3: <number>
+  k4: <number>
+
+feConvolveMatrix:
+  in: <In>
+  order: <string>
+  kernelMatrix: <string>
+  divisor: <number>
+  bias: <number>
+  targetX: <integer>
+  targetY: <integer>
+  edgeMode:
+    - none
+    - duplicate
+    - wrap
+  preserveAlpha:
+    - false
+    - true
+
+feDiffuseLighting:
+  in: <In>
+  sufaceScale: <number>
+  diffuseConstant: <number>
+
+feDisplacementMap:
+  in: <In>
+  in2: <In>
+  scale: <number>
+  xChannelSelector:
+    - R
+    - G
+    - B
+    - A
+  yChannelSelector:
+    - R
+    - G
+    - B
+    - A
+
+feDistantLight:
+  azimuth: <number>
+  elevation: <number>
+
+feFlood:
+  flood-color: <string>
+  flood-opacity: <string>
+
+feFuncA:
+feFuncB:
+feFuncG:
+feFuncR:
+
+feGaussianBlur:
+  in: <In>
+  stdDeviation: <string>
+  edgeMode:
+    - duplicate
+    - wrap
+    - none
+
+feImage:
+  preserveAspectRatio: <string>
+
+feMerge:
+
+feMergeNode:
+  in: <In>
+
+feMorphology:
+  in: <In>
+  operator: <Operator>
+  radius: <string>
+
+feOffset:
+  in: <In>
+  dx: <number>
+  dy: <number>
+
+fePointLight:
+  x: <string>
+  y: <string>
+  z: <string>
+
+feSpecularLighting:
+  in: <In>
+  surfaceScale: <number>
+  specularConstant: <number>
+  specularExponent: <number>
+
+feSpotLight:
+  x: <string>
+  y: <string>
+  z: <string>
+  pointsAtX: <number>
+  pointsAtY: <number>
+  pointsAtZ: <number>
+  specularExponent: <number>
+
+feTile:
+  in: <In>
+
+feTurbulence:
+  baseFrequency: <string>
+  numOctaves: <integer>
+  seed: <number>
+  stichTiles:
+    - noStitch
+    - stitch
+  type:
+    - fractaNoise
+    - turbulence
+
+filter:
+  x: <string>
+  y: <string>
+  width: <string>
+  height: <string>
+  filterUnits: <Units>
+  primitiveUnits: <Units>
+
+g:
+
+image:
+  x: <string>
+  y: <string>
+  width: <string>
+  height: <string>
+  href: <url>
+  preserveAspectRatio: <string>
+  crossOrigin: <CrossOrigin>
+
+line:
+  x1: <string>
+  x2: <string>
+  y1: <string>
+  y2: <string>
+  pathLength: <number>
+
+linearGradient:
+  gradientUnits: <Units>
+  gradientTransform: <string>
+  spreadMethod: <SpreadMethod>
+  href: <url>
+  x1: <string>
+  x2: <string>
+  y1: <string>
+  y2: <string>
+
+marker:
+  markerHeight: <string>
+  markerUnits: <Units>
+  markerWidth: <string>
+  orient:
+    - auto
+    - auto-start-reverse
+    - <string>
+  preserveAspectRatio: <string>
+  refX:
+    - left
+    - center
+    - right
+    - <string>
+  refY:
+    - top
+    - center
+    - bottom
+    - <string>
+  viewBox: <string>
+
+mask:
+  height: <string>
+  maskContentUnits: <Units>
+  maskUnits: <Units>
+  x: <string>
+  y: <string>
+  width: <string>
+
+metadata:
+
+mpath:
+
+path:
+  d: <string>
+  pathLength: <number>
+
+pattern:
+  height: <string>
+  href: <url>
+  patternContentUnits: <Units>
+  patternTransform: <string>
+  patternUnits: <Units>
+  preserveAspectRatio: <string>
+  viewBox: <string>
+  width: <string>
+  x: <string>
+  y: <string>
+
+polygon:
+  points: <string>
+  pathLength: <number>
+
+polyline:
+  points: <string>
+  pathLength: <number>
+
+radialGradient:
+  cx: <string>
+  cy: <string>
+  fr: <string>
+  fx: <string>
+  fy: <string>
+  gradientUnits: <Units>
+  gradientTransform: <string>
+  href: <url>
+  r: <string>
+  spreadMethod: <SpreadMethod>
+
+rect:
+  x: <string>
+  y: <string>
+  width: <string>
+  height: <string>
+  rx: <string>
+  ry: <string>
+  pathLength: <number>
+
+script:
+  crossOrigin: <CrossOrigin>
+  href: <url>
+  type: <string>
+
+set:
+  to: <string>
+
+stop:
+  offset: <string>
+  stop-color: <string>
+  stop-opacity: <string>
+
+style:
+  type: <string>
+  media: <string>
+  title: <string>
+
+svg:
+  baseProfile: <string>
+  contentScriptType: <string>
+  contentStyleType: <string>
+  height: <string>
+  preserveAspectRatio: <string>
+  version: <number>
+  viewBox: <string>
+  width: <string>
+  x: <string>
+  y: <string>
+
+switch:
+
+symbol:
+  height: <string>
+  preserveAspectRatio: <string>
+  refX: <string>
+  refY: <string>
+  viewBox: <string>
+  width: <string>
+  x: <string>
+  y: <string>
+
+text:
+  x: <string>
+  y: <string>
+  dx: <string>
+  dy: <string>
+  rotate: <string>
+  lengthAdjust: <LengthAdjust>
+  textLength: <string>
+
+textPath:
+  href: <url>
+  lengthAdjust: <LengthAdjust>
+  method:
+    - align
+    - stretch
+  path: <string>
+  side:
+    - left
+    - right
+  spacing:
+    - auto
+    - exact
+  startOffset: <string>
+  textLength: <string>
+
+title:
+
+tspan:
+  x: <string>
+  y: <string>
+  dx: <string>
+  dy: <string>
+  rotate: <string>
+  lengthAdjust: <LengthAdjust>
+  textLength: <string>
+
+use:
+  x: <string>
+  y: <string>
+  href: <url>
+  width: <string>
+  height: <string>
+
+view:
+  viewBox: <string>
+  preserveAspectRatio: <string>

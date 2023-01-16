@@ -8,7 +8,8 @@ A collection of types for web development.
 - [ ] Check the specification of each entry.
 - [ ] Remove deprecated, experimental and non-standard entries.
 - [ ] Restrict usage of `list<*>`.
-- [ ] New builtin type `lang` and `element`.
+- [x] ~~New builtin type `lang` and `element`~~.
+- [ ] More builtin types.
 - [ ] Explicitly extend other presets.
 - [ ] Add note for the preset naming convention.
 - [ ] Add note for the builtin types.

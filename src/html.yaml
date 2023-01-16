@@ -251,7 +251,7 @@ blockquote:
 
 body:
   $extend:
-    - _SHARED_WINDOW_EVENT
+    - SHARED_WINDOW_EVENT
   $type: HTMLBodyElement
 
 br: HTMLBRElement

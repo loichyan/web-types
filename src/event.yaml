@@ -208,7 +208,7 @@ GLOBAL_EVENT:
     - _HTML_TRACK_ELEMENT_EVENT
   on:securitypolicyviolation: SecurityPolicyViolationEvent
 
-_SHARED_WINDOW_EVENT:
+SHARED_WINDOW_EVENT:
   $link: mdn:Web/API/Window#events
   $on:default:
     link: mdn:Web/API/Window#%s
@@ -238,7 +238,7 @@ DOCUMENT_EVENT:
     link: mdn:Web/API/Document#%s
   $extend:
     - GLOBAL_EVENT
-    - _SHARED_WINDOW_EVENT
+    - SHARED_WINDOW_EVENT
   on:DOMContentLoaded: Event
   on:pointerlockchange: Event
   on:pointerlockerror: Event
@@ -251,7 +251,7 @@ WINDOW_EVENT:
     link: mdn:Web/API/Window#%s
   $extend:
     - GLOBAL_EVENT
-    - _SHARED_WINDOW_EVENT
+    - SHARED_WINDOW_EVENT
   on:appinstalled: Event
   on:devicemotion: DeviceMotionEvent
   on:deviceorientation: DeviceOrientationEvent
