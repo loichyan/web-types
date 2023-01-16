@@ -1,0 +1,35 @@
+# List of builtin types.
+
+# A text value.
+- <string>
+
+# A double-precision floating-point value.
+- <number>
+
+# A long integer value.
+- <integer>
+
+# A boolean value.
+# If an attribute is `<boolean>`, it should be treated as a boolean attribute.
+# See: <https//html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes>
+- <boolean>
+
+# A space-separated list of <T>.
+- list<T>
+
+# The ID of an element, it's suggested to the same format of `<name>`.
+# See: <https//developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id>
+- <id>
+
+# A string of ASCII letters, digits, '_' and '-', starts with a letter.
+# Generally, this type is used as a token of `DOMTokenList`.
+# See: <https//developer.mozilla.org/en-US/docs/Web/API/DOMTokenList>
+- <name>
+
+# An URL.
+# See: <https://developer.mozilla.org/en-US/docs/Web/API/URL>
+- <url>
+
+# A language identifier.
+# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>
+- <lang>

@@ -61,7 +61,7 @@ _HTML_ELEMENT_ATTR:
     type: [hidden, until-found]
     prop:
       name: hidden
-      type: [<false>, <true>, until-found]
+      type: [<boolean>, until-found]
   inert:
     type: <boolean>
     prop: inert
