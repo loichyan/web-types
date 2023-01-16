@@ -7,13 +7,13 @@ A collection of types for web development.
 - [ ] Specify whether an event bubbles.
 - [ ] Check the specification of each entry.
 - [ ] Explicitly extend other presets.
-- [x] Remove deprecated, experimental and non-standard entries.
-- [x] ~~New builtin type `lang` and `element`~~.
-- [ ] More builtin types.
 - [ ] Restrict usage of `list<*>`.
+- [ ] More builtin types.
 - [ ] Add a list of all builtin types.
-- [ ] Add note for the preset naming convention.
-- [ ] Add note for the builtin types.
+- [x] Remove deprecated, experimental and non-standard entries.
+- [x] Add note for the preset naming convention.
+- [x] ~~New builtin type `lang` and `element`~~.
+- [x] ~~Add note for the builtin types~~.
 - [x] ~~Use yaml-style lists~~.
 
 ## ⚖️ License

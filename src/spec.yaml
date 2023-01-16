@@ -77,7 +77,12 @@ $default: <preset_meta>
 $extend: <list<string>>
 
 # Predefined types.
+# The name of predefined types should use camel case and reflect the name of
+# the associated attribute.
 <<string>>: <type>
 
 # Preset entries.
+# Predefined presets should be named in upper case snake case and element presets
+# should use the tag of the element. Presets start with `_` are makred as private
+# and should not be exposed to other files.
 <string>: <preset>
