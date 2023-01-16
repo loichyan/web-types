@@ -386,6 +386,7 @@ _ANIMATION_ATTR:
 # TODO: add DOM types
 
 a:
+  $type: SVGAElement
   href: <url>
   target: <Target>
   download: <url>
@@ -396,10 +397,12 @@ a:
   referrerpolicy: <RefererrPolicy>
 
 animate:
+  $type: SVGAnimateElement
   $extend:
     - _ANIMATION_ATTR
 
 animateMotion:
+  $type: SVGAnimateMotionElement
   $extend:
     - _ANIMATION_ATTR
   keyPoints: <string>
@@ -410,6 +413,7 @@ animateMotion:
     - <number>
 
 animateTransform:
+  $type: SVGAnimateTransformElement
   $extend:
     - _ANIMATION_ATTR
   type:
@@ -420,19 +424,22 @@ animateTransform:
     - skewY
 
 circle:
+  $type: SVGCircleElement
   cx: <string>
   cy: <string>
   r: <string>
   pathLength: <number>
 
 clipPath:
+  $type: SVGClipPathElement
   clipPathUnits: <Units>
 
-defs:
+defs: SVGDefsElement
 
-desc:
+desc: SVGDescElement
 
 ellipse:
+  $type: SVGEllipseElement
   cx: <string>
   cy: <string>
   rx:
@@ -444,6 +451,7 @@ ellipse:
   pathLength: <number>
 
 feBlend:
+  $type: SVGFEBlendElement
   in: <In>
   in2: <In>
   mode:
@@ -465,6 +473,7 @@ feBlend:
     - luminosity
 
 feColorMatrix:
+  $type: SVGFEColorMatrixElement
   in: <In>
   type:
     - matrix
@@ -474,9 +483,11 @@ feColorMatrix:
   values: <string>
 
 feComponentTransfer:
+  $type: SVGFEComponentTransferElement
   in: <In>
 
 feComposite:
+  $type: SVGCompositeElement
   in: <In>
   in2: <In>
   operator: <Operator>
@@ -486,6 +497,7 @@ feComposite:
   k4: <number>
 
 feConvolveMatrix:
+  $type: SVGFEConvolveMatrixElement
   in: <In>
   order: <string>
   kernelMatrix: <string>
@@ -502,11 +514,13 @@ feConvolveMatrix:
     - true
 
 feDiffuseLighting:
+  $type: SVGFEDiffuseLightingElement
   in: <In>
   sufaceScale: <number>
   diffuseConstant: <number>
 
 feDisplacementMap:
+  $type: SVGFEDisplacementMapElement
   in: <In>
   in2: <In>
   scale: <number>
@@ -521,20 +535,25 @@ feDisplacementMap:
     - B
     - A
 
+feDropShadow: SVGFEDropShadowElement
+
 feDistantLight:
+  $type: SVGFEDistanLightElement
   azimuth: <number>
   elevation: <number>
 
 feFlood:
+  $type: SVGFloodElement
   flood-color: <string>
   flood-opacity: <string>
 
-feFuncA:
-feFuncB:
-feFuncG:
-feFuncR:
+feFuncA: SVGFEFuncAElement
+feFuncB: SVGFEFuncBElement
+feFuncG: SVGFEFuncGElement
+feFuncR: SVGFEFuncRElement
 
 feGaussianBlur:
+  $type: SVGFEGaussianBlurElement
   in: <In>
   stdDeviation: <string>
   edgeMode:
@@ -543,35 +562,42 @@ feGaussianBlur:
     - none
 
 feImage:
+  $type: SVGFEImageElement
   preserveAspectRatio: <string>
 
-feMerge:
+feMerge: SVGFEMergeElement
 
 feMergeNode:
+  $type: SVGFEMergeNodeElement
   in: <In>
 
 feMorphology:
+  $type: SVGFEMorphologyElement
   in: <In>
   operator: <Operator>
   radius: <string>
 
 feOffset:
+  $type: SVGFEOffsetElement
   in: <In>
   dx: <number>
   dy: <number>
 
 fePointLight:
+  $type: SVGPointLightElement
   x: <string>
   y: <string>
   z: <string>
 
 feSpecularLighting:
+  $type: SVGFESpecularLightingElement
   in: <In>
   surfaceScale: <number>
   specularConstant: <number>
   specularExponent: <number>
 
 feSpotLight:
+  $type: SVGSpotLightElement
   x: <string>
   y: <string>
   z: <string>
@@ -581,9 +607,11 @@ feSpotLight:
   specularExponent: <number>
 
 feTile:
+  $type: SVGFETileElement
   in: <In>
 
 feTurbulence:
+  $type: SVGFETurbulenceElement
   baseFrequency: <string>
   numOctaves: <integer>
   seed: <number>
@@ -595,6 +623,7 @@ feTurbulence:
     - turbulence
 
 filter:
+  $type: SVGFilterElement
   x: <string>
   y: <string>
   width: <string>
@@ -602,9 +631,12 @@ filter:
   filterUnits: <Units>
   primitiveUnits: <Units>
 
-g:
+foreignObject: SVGForeignObjectElement
+
+g: SVGGElement
 
 image:
+  $type: SVGImageElement
   x: <string>
   y: <string>
   width: <string>
@@ -614,6 +646,7 @@ image:
   crossOrigin: <CrossOrigin>
 
 line:
+  $type: SVGLineElement
   x1: <string>
   x2: <string>
   y1: <string>
@@ -621,6 +654,7 @@ line:
   pathLength: <number>
 
 linearGradient:
+  $type: SVGLinearGradientElement
   gradientUnits: <Units>
   gradientTransform: <string>
   spreadMethod: <SpreadMethod>
@@ -631,6 +665,7 @@ linearGradient:
   y2: <string>
 
 marker:
+  $type: SVGMarkerElement
   markerHeight: <string>
   markerUnits: <Units>
   markerWidth: <string>
@@ -652,6 +687,7 @@ marker:
   viewBox: <string>
 
 mask:
+  $type: SVGMaskElement
   height: <string>
   maskContentUnits: <Units>
   maskUnits: <Units>
@@ -659,15 +695,17 @@ mask:
   y: <string>
   width: <string>
 
-metadata:
+metadata: SVGMetadataElement
 
-mpath:
+mpath: SVGMPathElement
 
 path:
+  $type: SVGPathElement
   d: <string>
   pathLength: <number>
 
 pattern:
+  $type: SVGPatternElement
   height: <string>
   href: <url>
   patternContentUnits: <Units>
@@ -680,14 +718,17 @@ pattern:
   y: <string>
 
 polygon:
+  $type: SVGPolygonElement
   points: <string>
   pathLength: <number>
 
 polyline:
+  $type: SVGPolylineElement
   points: <string>
   pathLength: <number>
 
 radialGradient:
+  $type: SVGRadiaGradientElement
   cx: <string>
   cy: <string>
   fr: <string>
@@ -700,6 +741,7 @@ radialGradient:
   spreadMethod: <SpreadMethod>
 
 rect:
+  $type: SVGRectElement
   x: <string>
   y: <string>
   width: <string>
@@ -709,24 +751,29 @@ rect:
   pathLength: <number>
 
 script:
+  $type: SVGScriptElement
   crossOrigin: <CrossOrigin>
   href: <url>
   type: <string>
 
 set:
+  $type: SVGSetElement
   to: <string>
 
 stop:
+  $type: SVGStopElement
   offset: <string>
   stop-color: <string>
   stop-opacity: <string>
 
 style:
+  $type: SVGStyleElement
   type: <string>
   media: <string>
   title: <string>
 
 svg:
+  $type: SVGSVGElement
   baseProfile: <string>
   contentScriptType: <string>
   contentStyleType: <string>
@@ -738,9 +785,10 @@ svg:
   x: <string>
   y: <string>
 
-switch:
+switch: SVGSwitchElement
 
 symbol:
+  $type: SVGSymbolElement
   height: <string>
   preserveAspectRatio: <string>
   refX: <string>
@@ -751,6 +799,7 @@ symbol:
   y: <string>
 
 text:
+  $type: SVGTextElement
   x: <string>
   y: <string>
   dx: <string>
@@ -760,6 +809,7 @@ text:
   textLength: <string>
 
 textPath:
+  $type: SVGTextPathElement
   href: <url>
   lengthAdjust: <LengthAdjust>
   method:
@@ -775,9 +825,10 @@ textPath:
   startOffset: <string>
   textLength: <string>
 
-title:
+title: SVGTitleElement
 
 tspan:
+  $type: SVGTSpanElement
   x: <string>
   y: <string>
   dx: <string>
@@ -787,6 +838,7 @@ tspan:
   textLength: <string>
 
 use:
+  $type: SVGUseElement
   x: <string>
   y: <string>
   href: <url>
@@ -794,5 +846,6 @@ use:
   height: <string>
 
 view:
+  $type: SVGViewElement
   viewBox: <string>
   preserveAspectRatio: <string>
