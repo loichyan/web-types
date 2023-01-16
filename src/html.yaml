@@ -14,74 +14,116 @@ $default:
 
 _ELEMENT_ATTR:
   $default:
+    link: mdn:Web/HTML/Global_attributes#%s
     prop:
       link: mdn:Web/API/Element#element.%s
+  # DOM defined attributes.
+  # See: https://dom.spec.whatwg.org/#interface-element
+  class:
+    type: list<name>
+    prop: className
   id:
     type: <id>
     prop: id
-  part:
-    type: <string>
-    prop: part
   slot:
     type: <string>
     prop: slot
+  # CSS shadow parts attribute.
+  # See: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/exportparts
+  exportparts: <string>
+  part: list<name>
 
 _HTML_ELEMENT_ATTR:
   $default:
+    link: mdn:Web/HTML/Global_attributes#%s
     prop:
       link: mdn:Web/API/HTMLElement#htmlelement.%s
+  # Standard HTML attributes
+  # See: <https://html.spec.whatwg.org/multipage/dom.html#global-attributes>
   accesskey:
-    type: <string>
+    type: list<char>
     prop: accessKey
   autocapitalize:
-    type: [none, characters, off, on, sentences, words]
+    type:
+      - off
+      - none
+      - on
+      - sentences
+      - words
+      - characters
     prop: autocapitalize
   autofocus:
     type: <boolean>
     prop: autofocus
-  class:
-    type: list<id>
-    prop: className
   contenteditable:
-    type: [false, true, inherit]
+    type:
+      - true
+      - false
+      - inherit
     prop: contentEditable
   dir:
-    type: [auto, ltr, rtl]
+    type:
+      - ltr
+      - rtl
+      - auto
     prop: dir
   draggable:
-    type: [false, true]
+    type:
+      - true
+      - false
+      - auto
     prop:
       name: draggable
       type: <boolean>
   enterkeyhint:
-    type: [enter, done, go, next, previous, search, send]
+    type:
+      - enter
+      - done
+      - go
+      - next
+      - previous
+      - search
+      - send
     prop: enterKeyHint
-  exportparts: <string>
   hidden:
-    type: [hidden, until-found]
+    type:
+      - until-found
+      - hidden
     prop:
       name: hidden
-      type: [<boolean>, until-found]
+      type:
+        - <boolean>
+        - until-found
   inert:
     type: <boolean>
     prop: inert
   inputmode:
-    type: [none, decimal, email, numeric, search, tel, text, url]
+    type:
+      - none
+      - text
+      - tel
+      - url
+      - email
+      - numeric
+      - decimal
     prop: inputMode
-  is: <string>
-  itemid: <string>
-  itemprop: <string>
-  itemref: <string>
+  is: <name>
+  itemid: <url>
+  itemprop: list<name>
+  itemref: list<id>
   itemscope: <boolean>
-  itemtype: <string>
+  itemtype: list<url>
   lang:
     type: <lang>
     prop: lang
-  nonce:
-    type: <string>
-    prop: nonce
+  # No CEReactions
+  # See: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#nonce-does-not-update-dom>
+  nonce: <string>
   spellcheck:
-    type: [false, true]
+    type:
+      - true
+      - false
+      - default
     prop:
       name: spellcheck
       type: <boolean>
@@ -93,20 +135,22 @@ _HTML_ELEMENT_ATTR:
     type: <string>
     prop: title
   translate:
-    type: [no, yes]
+    type:
+      - yes
+      - no
+      - inherit
     prop:
       name: translate
       type: <boolean>
 
-HTML_GLOBAL_ATTR:
+# TODO: checked
+GLOBAL_ATTR:
   $link: mdn:Web/HTML/Global_attributes
-  $default:
-    link: mdn:Web/HTML/Global_attributes#%s
   $extend:
     - _ELEMENT_ATTR
     - _HTML_ELEMENT_ATTR
-    # - ARIA_ATTR
-    # - GLOBAL_EVENT
+    - ARIA_ATTR
+    - GLOBAL_EVENT
 
 _HTML_MEDIA_ELEMENT_ATTR:
   $default:

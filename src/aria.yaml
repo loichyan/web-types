@@ -1,17 +1,49 @@
 # ARIA attributes
 
+<Booleanish>:
+  $link: https://w3c.github.io/aria/#valuetype_true-false
+  true:
+  false:
+
+<UndefinedBooleanish>:
+  $link: https://w3c.github.io/aria#valuetype_true-false-undefined
+  true:
+  false:
+  undefined:
+
+<Tristate>:
+  $link: https://w3c.github.io/aria#valuetype_tristate
+  true:
+  false:
+  mixed:
+  undefined:
+
+<AriaRelevant>:
+  - additions
+  - all
+  - removals
+  - text
+
 <Role>:
   $link: mdn:Web/Accessibility/ARIA/Roles
   $default:
     link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
+  # ARIA roles
+  # See: <https://w3c.github.io/aria/#role_definitions>
   alert:
   alertdialog:
   application:
   article:
+  associationlist:
+  associationlistitemkey:
+  associationlistitemvalue:
   banner:
+  blockquote:
   button:
+  caption:
   cell:
   checkbox:
+  code:
   columnheader:
   combobox:
   command:
@@ -20,10 +52,11 @@
   composite:
   contentinfo:
   definition:
+  deletion:
   dialog:
   directory:
   document:
-  document structural:
+  emphasis:
   feed:
   figure:
   form:
@@ -32,8 +65,10 @@
   gridcell:
   group:
   heading:
+  image:
   img:
   input:
+  insertion:
   landmark:
   link:
   list:
@@ -54,6 +89,7 @@
   none:
   note:
   option:
+  paragraph:
   presentation:
   progressbar:
   radio:
@@ -74,8 +110,11 @@
   slider:
   spinbutton:
   status:
+  strong:
   structure:
+  subscript:
   suggestion:
+  superscript:
   switch:
   tab:
   table:
@@ -83,6 +122,7 @@
   tabpanel:
   term:
   textbox:
+  time:
   timer:
   toolbar:
   tooltip:
@@ -98,21 +138,30 @@ ARIA_ATTR:
     link: mdn:Web/Accessibility/ARIA/Attributes#%s
     prop:
       link: mdn:Web/API/Element#element.%s
+      # All IDL properties are strings.
       type: <string>
-  aria-activedescendant: id
+  # ARIA attributes
+  # See:
+  # - <https://w3c.github.io/aria/#state_prop_def>
+  # - <https://w3c.github.io/aria/#idl-interface>
+  aria-activedescendant: <id>
   aria-atomic:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaAtomic
   aria-autocomplete:
-    type: [none, inline, list, both]
+    type:
+      - inline
+      - list
+      - both
+      - none
     prop: ariaAutoComplete
-  aria-braillelabel: string
-  aria-brailleroledescription: string
+  aria-braillelabel: <string>
+  aria-brailleroledescription: <string>
   aria-busy:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaBusy
   aria-checked:
-    type: [undefined, false, true, mixed]
+    type: <Tristate>
     prop: ariaChecked
   aria-colcount:
     type: <integer>
@@ -120,13 +169,20 @@ ARIA_ATTR:
   aria-colindex:
     type: <integer>
     prop: ariaColIndex
-  aria-colindextext: string
+  aria-colindextext: <string>
   aria-colspan:
     type: <integer>
     prop: ariaColSpan
   aria-controls: list<id>
   aria-current:
-    type: [false, true, page, step, location, date, time]
+    type:
+      - page
+      - step
+      - location
+      - date
+      - time
+      - true
+      - false
     prop: ariaCurrent
   aria-describedby: list<id>
   aria-description:
@@ -134,20 +190,33 @@ ARIA_ATTR:
     prop: ariaDescription
   aria-details: list<id>
   aria-disabled:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaDisabled
-  aria-errormessage: id
+  aria-errormessage: list<id>
   aria-expanded:
-    type: [undefined, false, true]
+    type: <UndefinedBooleanish>
     prop: ariaExpanded
   aria-flowto: list<id>
   aria-haspopup:
-    type: [false, true, menu, listbox, tree, grid, dialog]
+    type:
+      - false
+      - true
+      - menu
+      - listbox
+      - tree
+      - grid
+      - dialog
     prop: ariaHasPopup
   aria-hidden:
-    type: [undefined, false, true]
+    type: <UndefinedBooleanish>
     prop: ariaHidden
-  aria-invalid: [false, true, grammar, spelling]
+  aria-invalid:
+    type:
+      - grammar
+      - false
+      - spelling
+      - true
+    prop: ariaInvalid
   aria-keyshortcuts:
     type: <string>
     prop: ariaKeyShortcuts
@@ -159,19 +228,25 @@ ARIA_ATTR:
     type: <integer>
     prop: ariaLevel
   aria-live:
-    type: [off, assertive, polite]
+    type:
+      - assertive
+      - off
+      - polite
     prop: ariaLive
   aria-modal:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaModal
   aria-multiline:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaMultiLine
   aria-multiselectable:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaMultiSelectable
   aria-orientation:
-    type: [undefined, horizontial, vertical]
+    type:
+      - horizontal
+      - undefined
+      - vertical
     prop: ariaOrientation
   aria-owns: list<id>
   aria-placeholder:
@@ -181,14 +256,14 @@ ARIA_ATTR:
     type: <integer>
     prop: ariaPosInSet
   aria-pressed:
-    type: [undefined, false, true, mixed]
+    type: <Tristate>
     prop: ariaPressed
   aria-readonly:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaReadOnly
-  aria-relevant: [additions, all, removals, text]
+  aria-relevant: list<AriaRelevant>
   aria-required:
-    type: [false, true]
+    type: <Booleanish>
     prop: ariaRequired
   aria-roledescription:
     type: <string>
@@ -199,18 +274,24 @@ ARIA_ATTR:
   aria-rowindex:
     type: <integer>
     prop: ariaRowIndex
-  aria-rowindextext: string
+  aria-rowindextext:
+    type: <string>
+    prop: ariaRowIndexText
   aria-rowspan:
     type: <integer>
     prop: ariaRowSpan
   aria-selected:
-    type: [undefined, false, true]
+    type: <UndefinedBooleanish>
     prop: ariaSelected
   aria-setsize:
     type: <integer>
     prop: ariaSetSize
   aria-sort:
-    type: [none, ascending, descending, other]
+    type:
+      - ascending
+      - descending
+      - none
+      - other
     prop: ariaSort
   aria-valuemax:
     type: <number>

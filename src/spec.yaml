@@ -27,7 +27,9 @@
 <type>: <predefined>|<list<type_raw>>|<union>|list<predefined>
 
 <attr_raw>:
+  # The type of this attribute.
   type: <string>|<list<string>>
+  # The IDL getter/setter property of this attribute.
   prop: <prop>
   <keyof meta>: <typeof meta>
 
@@ -77,7 +79,7 @@ $default: <preset_meta>
 $extend: <list<string>>
 
 # Predefined types.
-# The name of predefined types should use camel case and reflect the name of
+# The name of predefined types should use pasal case and reflect the name of
 # the associated attribute.
 <<string>>: <type>
 
