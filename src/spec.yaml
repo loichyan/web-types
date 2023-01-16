@@ -14,17 +14,21 @@
   # default: false
   nonstandard: <boolean>
 
+<union_raw>:
+  # Metadata for this union.
+  <keyof meta>: <typeof meta>
+  # Default values of union entries.
+  default: <meta>
+  content: <list<type_entry>>
+<union>: <union_raw>|<list<type_entry>>
 <predefined>: <<string>>
 <literal>: <string>
-<union>:
-  # Metadata for this union.
-  $<keyof meta>: <typeof meta>
-  # Default values of type entries.
-  $default: <meta>
-  # Type entries.
-  <type_raw>: <meta>
-<type_raw>: <predefined>|<literal>
-<type>: <predefined>|<list<type_raw>>|<union>|list<predefined>
+<type_raw>:
+  # Metadata for this entry.
+  <keyof meta>: <typeof meta>
+  value: <predefined>|<literal>
+<type_entry>: <predefined>|<literal>|<type_raw>
+<type>: <predefined>|<union>|list<predefined>
 
 <attr_raw>:
   # The type of this attribute.

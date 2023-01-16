@@ -7,63 +7,64 @@ $extend:
 # HTML types
 
 <Autocomplete>:
-  $link: mdn:Web/HTML/Attributes/autocomplete
-  off:
-  on:
-  name:
-  honorific-prefix:
-  given-name:
-  additional-name:
-  family-name:
-  honorific-suffix:
-  nickname:
-  email:
-  username:
-  new-password:
-  current-password:
-  one-time-code:
-  organization-title:
-  organization:
-  street-address:
-  address-line1:
-  address-line2:
-  address-line3:
-  address-level1:
-  address-level2:
-  address-level3:
-  address-level4:
-  country:
-  country-name:
-  postal-code:
-  cc-name:
-  cc-given-name:
-  cc-additional-name:
-  cc-family-name:
-  cc-number:
-  cc-exp:
-  cc-exp-month:
-  cc-exp-year:
-  cc-csc:
-  cc-type:
-  transaction-currency:
-  transaction-amount:
-  language:
-  bday:
-  bday-day:
-  bday-month:
-  bday-year:
-  sex:
-  tel:
-  tel-country-code:
-  tel-national:
-  tel-area-code:
-  tel-local:
-  tel-local-prefix:
-  tel-local-suffix:
-  tel-extension:
-  impp:
-  url:
-  photo:
+  link: mdn:Web/HTML/Attributes/autocomplete
+  content:
+    - off
+    - on
+    - name
+    - honorific-prefix
+    - given-name
+    - additional-name
+    - family-name
+    - honorific-suffix
+    - nickname
+    - email
+    - username
+    - new-password
+    - current-password
+    - one-time-code
+    - organization-title
+    - organization
+    - street-address
+    - address-line1
+    - address-line2
+    - address-line3
+    - address-level1
+    - address-level2
+    - address-level3
+    - address-level4
+    - country
+    - country-name
+    - postal-code
+    - cc-name
+    - cc-given-name
+    - cc-additional-name
+    - cc-family-name
+    - cc-number
+    - cc-exp
+    - cc-exp-month
+    - cc-exp-year
+    - cc-csc
+    - cc-type
+    - transaction-currency
+    - transaction-amount
+    - language
+    - bday
+    - bday-day
+    - bday-month
+    - bday-year
+    - sex
+    - tel
+    - tel-country-code
+    - tel-national
+    - tel-area-code
+    - tel-local
+    - tel-local-prefix
+    - tel-local-suffix
+    - tel-extension
+    - impp
+    - url
+    - photo
 
 <Blocking>:
   - render
@@ -95,31 +96,32 @@ $extend:
   - refresh
 
 <InputType>:
-  $link: mdn:Web/HTML/Element/input#input_types
-  $default:
+  link: mdn:Web/HTML/Element/input#input_types
+  default:
     link: mdn:Web/HTML/Element/input/%S
-  button:
-  checkbox:
-  color:
-  date:
-  datetime-local:
-  email:
-  file:
-  hidden:
-  image:
-  month:
-  number:
-  password:
-  radio:
-  range:
-  reset:
-  search:
-  submit:
-  tel:
-  text:
-  time:
-  url:
-  week:
+  content:
+    - button
+    - checkbox
+    - color
+    - date
+    - datetime-local
+    - email
+    - file
+    - hidden
+    - image
+    - month
+    - number
+    - password
+    - radio
+    - range
+    - reset
+    - search
+    - submit
+    - tel
+    - text
+    - time
+    - url
+    - week
 
 <LinkAs>:
   - audio
@@ -140,20 +142,21 @@ $extend:
   - lazy
 
 <MetaName>:
-  $link: mdn:Web/HTML/Element/meta/name
-  application-name:
-  author:
-  description:
-  generator:
-  keywords:
-  referrer:
-  time-color:
-  color-scheme:
-  viewport:
-  creator:
-  googlebot:
-  publisher:
-  robots:
+  link: mdn:Web/HTML/Element/meta/name
+  content:
+    - application-name
+    - author
+    - description
+    - generator
+    - keywords
+    - referrer
+    - time-color
+    - color-scheme
+    - viewport
+    - creator
+    - googlebot
+    - publisher
+    - robots
 
 <ReferrerPolicy>:
   - no-referrer
@@ -166,38 +169,39 @@ $extend:
   - unsafe-url
 
 <Rel>:
-  $link: mdn:Web/HTML/Link_types
-  $default:
+  link: mdn:Web/HTML/Link_types
+  default:
     link: mdn:Web/HTML/Link_types/%S
-  alternate:
-  archives:
-  author:
-  bookmark:
-  canonical:
-  dns-prefetch:
-  external:
-  first:
-  help:
-  icon:
-  last:
-  license:
-  manifest:
-  me:
-  modulepreload:
-  next:
-  nofollow:
-  noopener:
-  noreferrer:
-  pingback:
-  prefetch:
-  preload:
-  prerender:
-  prev:
-  search:
-  shortlink:
-  sidebar:
-  stylesheet:
-  tag:
+  content:
+    - alternate
+    - archives
+    - author
+    - bookmark
+    - canonical
+    - dns-prefetch
+    - external
+    - first
+    - help
+    - icon
+    - last
+    - license
+    - manifest
+    - me
+    - modulepreload
+    - next
+    - nofollow
+    - noopener
+    - noreferrer
+    - pingback
+    - prefetch
+    - preload
+    - prerender
+    - prev
+    - search
+    - shortlink
+    - sidebar
+    - stylesheet
+    - tag
 
 <Sandbox>:
   - allow-downloads-without-user-activation

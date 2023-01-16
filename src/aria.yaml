@@ -1,136 +1,140 @@
 # ARIA attributes
 
 <Booleanish>:
-  $link: https://w3c.github.io/aria/#valuetype_true-false
-  true:
-  false:
+  link: https://w3c.github.io/aria/#valuetype_true-false
+  content:
+    - true
+    - false
 
 <UndefinedBooleanish>:
-  $link: https://w3c.github.io/aria#valuetype_true-false-undefined
-  true:
-  false:
-  undefined:
+  link: https://w3c.github.io/aria#valuetype_true-false-undefined
+  content:
+    - true
+    - false
+    - undefined
 
 <Tristate>:
-  $link: https://w3c.github.io/aria#valuetype_tristate
-  true:
-  false:
-  mixed:
-  undefined:
+  link: https://w3c.github.io/aria#valuetype_tristate
+  content:
+    - true
+    - false
+    - mixed
+    - undefined
+
+<Role>:
+  link: mdn:Web/Accessibility/ARIA/Roles
+  default:
+    link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
+  content:
+    # ARIA roles
+    # See: <https://w3c.github.io/aria/#role_definitions>
+    - alert
+    - alertdialog
+    - application
+    - article
+    - associationlist
+    - associationlistitemkey
+    - associationlistitemvalue
+    - banner
+    - blockquote
+    - button
+    - caption
+    - cell
+    - checkbox
+    - code
+    - columnheader
+    - combobox
+    - command
+    - comment
+    - complementary
+    - composite
+    - contentinfo
+    - definition
+    - deletion
+    - dialog
+    - directory
+    - document
+    - emphasis
+    - feed
+    - figure
+    - form
+    - generic
+    - grid
+    - gridcell
+    - group
+    - heading
+    - image
+    - img
+    - input
+    - insertion
+    - landmark
+    - link
+    - list
+    - listbox
+    - listitem
+    - log
+    - main
+    - mark
+    - marquee
+    - math
+    - menu
+    - menubar
+    - menuitem
+    - menuitemcheckbox
+    - menuitemradio
+    - meter
+    - navigation
+    - none
+    - note
+    - option
+    - paragraph
+    - presentation
+    - progressbar
+    - radio
+    - radiogroup
+    - range
+    - region
+    - roletype
+    - row
+    - rowgroup
+    - rowheader
+    - scrollbar
+    - search
+    - searchbox
+    - section
+    - sectionhead
+    - select
+    - separator
+    - slider
+    - spinbutton
+    - status
+    - strong
+    - structure
+    - subscript
+    - suggestion
+    - superscript
+    - switch
+    - tab
+    - table
+    - tablist
+    - tabpanel
+    - term
+    - textbox
+    - time
+    - timer
+    - toolbar
+    - tooltip
+    - tree
+    - treegrid
+    - treeitem
+    - widget
+    - window
 
 <AriaRelevant>:
   - additions
   - all
   - removals
   - text
-
-<Role>:
-  $link: mdn:Web/Accessibility/ARIA/Roles
-  $default:
-    link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
-  # ARIA roles
-  # See: <https://w3c.github.io/aria/#role_definitions>
-  alert:
-  alertdialog:
-  application:
-  article:
-  associationlist:
-  associationlistitemkey:
-  associationlistitemvalue:
-  banner:
-  blockquote:
-  button:
-  caption:
-  cell:
-  checkbox:
-  code:
-  columnheader:
-  combobox:
-  command:
-  comment:
-  complementary:
-  composite:
-  contentinfo:
-  definition:
-  deletion:
-  dialog:
-  directory:
-  document:
-  emphasis:
-  feed:
-  figure:
-  form:
-  generic:
-  grid:
-  gridcell:
-  group:
-  heading:
-  image:
-  img:
-  input:
-  insertion:
-  landmark:
-  link:
-  list:
-  listbox:
-  listitem:
-  log:
-  main:
-  mark:
-  marquee:
-  math:
-  menu:
-  menubar:
-  menuitem:
-  menuitemcheckbox:
-  menuitemradio:
-  meter:
-  navigation:
-  none:
-  note:
-  option:
-  paragraph:
-  presentation:
-  progressbar:
-  radio:
-  radiogroup:
-  range:
-  region:
-  roletype:
-  row:
-  rowgroup:
-  rowheader:
-  scrollbar:
-  search:
-  searchbox:
-  section:
-  sectionhead:
-  select:
-  separator:
-  slider:
-  spinbutton:
-  status:
-  strong:
-  structure:
-  subscript:
-  suggestion:
-  superscript:
-  switch:
-  tab:
-  table:
-  tablist:
-  tabpanel:
-  term:
-  textbox:
-  time:
-  timer:
-  toolbar:
-  tooltip:
-  tree:
-  treegrid:
-  treeitem:
-  widget:
-  window:
 
 ARIA_ATTR:
   $link: mdn:Web/Accessibility/ARIA/Attributes
