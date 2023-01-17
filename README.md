@@ -4,10 +4,10 @@ A collection of types for web development.
 
 ## 📝 Todo
 
-- [ ] Specify whether an event bubbles.
+- [x] Specify whether an event bubbles.
 - [ ] Check the specification of each entry.
   - [x] ARIA attributes
-  - [ ] Global events
+  - [x] Global events
   - [ ] HTML elements
   - [ ] SVG elements
 - [ ] Explicitly extend other presets.

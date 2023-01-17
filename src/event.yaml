@@ -1,194 +1,449 @@
 # HTML & SVG global events
+$default:
+  link: mdn:Web/API/%T#events
+  on:default:
+    link: mdn:Web/API/%T/%%S
 
+# Spec: <https://w3c.github.io/csswg-drafts/css-animations/#event-animationevent>
 _ANIMATION_EVENT:
-  $link: mdn:Web/CSS/CSS_Animations/Using_CSS_animations
+  $link: mdn:Web/CSS/CSS_Animations
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:animationcancel: AnimationEvent
-  on:animationend: AnimationEvent
-  on:animationiteration: AnimationEvent
-  on:animationstart: AnimationEvent
+  on:animationstart:
+    type: AnimationEvent
+    bubbles: true
+    cancelable: false
+  on:animationcancel:
+    type: AnimationEvent
+    bubbles: true
+    cancelable: false
+  on:animationend:
+    type: AnimationEvent
+    bubbles: true
+    cancelable: false
+  on:animationiteration:
+    type: AnimationEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/clipboard-apis/#clipboard-event-definitions>
 _CLIPBOARD_EVENT:
   $link: mdn:Web/API/Clipboard_API
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:copy: ClipboardEvent
-  on:cut: ClipboardEvent
-  on:paste: ClipboardEvent
+  on:copy:
+    type: ClipboardEvent
+    bubbles: true
+    cancelable: true
+  on:cut:
+    type: ClipboardEvent
+    bubbles: true
+    cancelable: true
+  on:paste:
+    type: ClipboardEvent
+    bubbles: true
+    cancelable: true
 
+# Spec: <https://html.spec.whatwg.org/multipage/dnd.html#dndevents>
 _DRAG_EVENT:
   $link: mdn:Web/API/HTMLElement/drag_event
   $on:default:
     link: mdn:Web/API/HTMLElement/%s_event
-  on:drag: DragEvent
-  on:dragend: DragEvent
-  on:dragenter: DragEvent
-  on:dragleave: DragEvent
-  on:dragover: DragEvent
-  on:dragstart: DragEvent
-  on:drop: DragEvent
+  on:dragstart:
+    type: DragEvent
+    bubbles: true
+    cancelable: true
+  on:drag:
+    type: DragEvent
+    bubbles: true
+    cancelable: true
+  on:dragenter:
+    type: DragEvent
+    bubbles: true
+    cancelable: true
+  on:dragleave:
+    type: DragEvent
+    bubbles: true
+    cancelable: false
+  on:dragover:
+    type: DragEvent
+    bubbles: true
+    cancelable: true
+  on:drop:
+    type: DragEvent
+    bubbles: true
+    cancelable: true
+  on:dragend:
+    type: DragEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://fullscreen.spec.whatwg.org/#run-the-fullscreen-steps>
 _FULLSCREEN_EVENT:
   $link: mdn:Web/API/Fullscreen_API
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:fullscreenchange: Event
-  on:fullscreenerror: Event
+  on:fullscreenchange:
+    type: Event
+    bubbles: true
+    cancelable: false
+  on:fullscreenerror:
+    type: Event
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/pointerevents/#attributes-and-default-actions>
 _POINTER_EVENT:
   $link: mdn:Web/API/Pointer_events
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:gotpointercapture: PointerEvent
-  on:lostpointercapture: PointerEvent
-  on:pointercancel: PointerEvent
-  on:pointerdown: PointerEvent
-  on:pointerenter: PointerEvent
-  on:pointerleave: PointerEvent
-  on:pointermove: PointerEvent
-  on:pointerout: PointerEvent
-  on:pointerover: PointerEvent
-  on:pointerup: PointerEvent
+  on:pointerover:
+    type: PointerEvent
+    bubbles: true
+    cancelable: true
+  on:pointerenter:
+    type: PointerEvent
+    bubbles: false
+    cancelable: false
+  on:pointerdown:
+    type: PointerEvent
+    bubbles: true
+    cancelable: true
+  on:pointermove:
+    type: PointerEvent
+    bubbles: true
+    cancelable: true
+  # TODO: add to MDN
+  on:pointerrawupdate:
+    type: PointerEvent
+    bubbles: true
+    cancelable: false
+  on:pointerup:
+    type: PointerEvent
+    bubbles: true
+    cancelable: true
+  on:pointercancel:
+    type: PointerEvent
+    bubbles: true
+    cancelable: false
+  on:pointerout:
+    type: PointerEvent
+    bubbles: true
+    cancelable: true
+  on:pointerleave:
+    type: PointerEvent
+    bubbles: false
+    cancelable: false
+  on:gotpointercapture:
+    type: PointerEvent
+    bubbles: true
+    cancelable: false
+  on:lostpointercapture:
+    type: PointerEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/selection-api/#user-interactions>
 _SELECTION_EVENT:
   $link: mdn:Web/API/Selection_API
   on:selectstart:
     type: Event
     link: mdn:Web/API/Node/%s_event
+    bubbles: true
+    cancelable: true
   on:selectionchange:
     type: Event
     link: mdn:Web/API/Document/%s_event
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/touch-events/#list-of-touchevent-types>
 _TOUCH_EVENT:
   $link: mdn:Web/API/Touch_events
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:touchcancel: TouchEvent
-  on:touchend: TouchEvent
-  on:touchmove: TouchEvent
-  on:touchstart: TouchEvent
+  on:touchstart:
+    type: TouchEvent
+    bubbles: true
+    cancelable: false
+  on:touchend:
+    type: TouchEvent
+    bubbles: true
+    cancelable: false
+  on:touchmove:
+    type: TouchEvent
+    bubbles: true
+    cancelable: false
+  on:touchcancel:
+    type: TouchEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://drafts.csswg.org/css-transitions/#event-transitionevent>
 _TRANSITION_EVENT:
-  $link: mdn:Web/CSS/CSS_Transitions/Using_CSS_transitions
+  $link: mdn:Web/CSS/CSS_Transitions
   $on:default:
     link: mdn:Web/API/Element/%s_event
-  on:transitioncancel: TransitionEvent
-  on:transitionend: TransitionEvent
-  on:transitionrun: TransitionEvent
-  on:transitionstart: TransitionEvent
+  on:transitionrun:
+    type: TransitionEvent
+    bubbles: true
+    cancelable: false
+  on:transitionstart:
+    type: TransitionEvent
+    bubbles: true
+    cancelable: false
+  on:transitionend:
+    type: TransitionEvent
+    bubbles: true
+    cancelable: false
+  on:transitioncancel:
+    type: TransitionEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/uievents/#event-types-list>
 _UI_EVENT:
   $link: mdn:Web/API/UI_Events
   $on:default:
     link: mdn:Web/API/UI_Events#%s
   # UI events
+  # This event is only available on `Window`.
+  # on:unload: Event
+  on:load:
+    type: Event
+    bubbles: false
+    cancelable: false
   # TODO: add to MDN
-  on:abort: Event
-  on:error: Event
-  on:load: Event
-  # Composition events
-  on:compositionend: CompositionEvent
-  on:compositionstart: CompositionEvent
-  on:compositionupdate: CompositionEvent
+  on:abort:
+    type: Event
+    bubbles: false
+    cancelable: false
+  on:error:
+    type: Event
+    bubbles: false
+    cancelable: false
+  # TODO: add to MDN
+  on:select:
+    type: Event
+    link: Web/API/HTMLInputElement/%s_event
+    bubbles: true
+    cancelable: false
   # Focus events
-  on:blur: FocusEvent
-  on:focus: FocusEvent
-  on:focusin: FocusEvent
-  on:focusout: FocusEvent
+  on:blur:
+    type: FocusEvent
+    bubbles: false
+    cancelable: false
+  on:focus:
+    type: FocusEvent
+    bubbles: false
+    cancelable: false
+  on:focusin:
+    type: FocusEvent
+    bubbles: true
+    cancelable: false
+  on:focusout:
+    type: FocusEvent
+    bubbles: true
+    cancelable: false
+  # Mouse events
+  on:auxclick:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:click:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:contextmenu:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:dblclick:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:mousedown:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:mouseenter:
+    type: MouseEvent
+    bubbles: false
+    cancelable: false
+  on:mouseleave:
+    type: MouseEvent
+    bubbles: false
+    cancelable: false
+  on:mousemove:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:mouseout:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:mouseover:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  on:mouseup:
+    type: MouseEvent
+    bubbles: true
+    cancelable: true
+  # Wheel events
+  on:wheel:
+    type: WheelEvent
+    bubbles: true
+    cancelable: false
+  # Input events
+  # TODO: add to MDN
+  on:beforeinput:
+    type: InputEvent
+    bubbles: true
+    cancelable: true
+  on:input:
+    type: InputEvent
+    bubbles: true
+    cancelable: false
   # Keyboard events
-  on:keydown: KeyboardEvent
-  on:keyup: KeyboardEvent
+  on:keydown:
+    type: KeyboardEvent
+    bubbles: true
+    cancelable: true
+  on:keyup:
+    type: KeyboardEvent
+    bubbles: true
+    cancelable: true
   on:keypress:
     type: KeyboardEvent
     deprecated: true
-  # Input events
-  # TODO: add to MDN
-  on:beforeinput: InputEvent
-  on:input: InputEvent
-  # Mouse events
-  on:auxclick: MouseEvent
-  on:click: MouseEvent
-  on:contextmenu: MouseEvent
-  on:dblclick: MouseEvent
-  on:mousedown: MouseEvent
-  on:mouseenter: MouseEvent
-  on:mouseleave: MouseEvent
-  on:mousemove: MouseEvent
-  on:mouseout: MouseEvent
-  on:mouseover: MouseEvent
-  on:mouseup: MouseEvent
-  # Wheel events
-  on:wheel: WheelEvent
+    bubbles: true
+    cancelable: true
+  # Composition events
+  on:compositionstart:
+    type: CompositionEvent
+    bubbles: true
+    cancelable: true
+  on:compositionupdate:
+    type: CompositionEvent
+    bubbles: true
+    cancelable: false
+  on:compositionend:
+    type: CompositionEvent
+    bubbles: true
+    cancelable: false
 
+# Spec: <https://w3c.github.io/csswg-drafts/cssom-view/#events>
 _VISUAL_VIEWPORT_EVENT:
   $link: mdn:Web/API/Visual_Viewport_API
   $on:default:
     link: mdn:Web/API/VisualViewport/%s_event
-  on:resize: Event
-  on:scroll: Event
+  on:resize:
+    type: Event
+    bubbles: false
+    cancelable: false
+  on:scroll:
+    type: Event
+    bubbles: true
+    cancelable: false
   # TODO: add to MDN
-  on:scrollend: Event
+  on:scrollend:
+    type: Event
+    bubbles: true
+    cancelable: false
 
 _HTML_DETAILS_ELEMENT_EVENT:
   $type: HTMLDetailsElement
-  on:toggle: Event
+  # Spec: <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element>
+  on:toggle:
+    type: Event
+    bubbles: false
+    cancelable: false
 
 _HTML_DIALOG_ELEMENT_EVENT:
   $type: HTMLDialogElement
-  on:cancel: Event
-  on:close: Event
+  # Spec:
+  # - <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element>
+  # - <https://html.spec.whatwg.org/multipage/input.html#common-input-element-apis>
+  on:cancel:
+    type: Event
+    bubbles: false
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element>
+  on:close:
+    type: Event
+    bubbles: false
+    cancelable: false
 
 _HTML_FORM_ELEMENT_EVENT:
   $type: HTMLFormElement
-  on:formdata: FormDataEvent
-  on:reset: Event
-  on:submit: SubmitEvent
+  # Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-form-data-set>
+  on:formdata:
+    type: FormDataEvent
+    bubbles: true
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#resetting-a-form>
+  on:reset:
+    type: Event
+    bubbles: true
+    cancelable: true
+  # Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#form-submission-algorithm>
+  on:submit:
+    type: SubmitEvent
+    bubbles: true
+    cancelable: true
 
-_HTML_INPUT_ELEMENT_EVENT:
-  $type: HTMLInputElement
-  # TODO: add to MDN
-  on:change: Event
-  on:invalid: Event
-  on:select: Event
-
+# All events listed as follow are fired without any other parameters.
+# Spec: <https://html.spec.whatwg.org/multipage/media.html#mediaevents>
 _HTML_MEDIA_ELEMENT_EVENT:
   $type: HTMLMediaElement
+  $on:default:
+    bubbles: false
+    cancelable: false
+  # These events are defined in UI events.
   # on:abort: Event
   # on:error: Event
+  # This event is defined in visual viewport events.
+  # on:resize: Event
+  on:loadstart: Event
+  on:progress: Event
+  on:suspend: Event
+  on:emptied: Event
+  on:stalled: Event
+  on:loadedmetadata: Event
+  on:loadeddata: Event
   on:canplay: Event
   on:canplaythrough: Event
-  on:durationchange: Event
-  on:emptied: Event
-  on:ended: Event
-  on:loadeddata: Event
-  on:loadedmetadata: Event
-  on:loadstart: Event
-  on:pause: Event
-  on:play: Event
   on:playing: Event
-  on:progress: Event
-  on:ratechange: Event
-  on:seeked: Event
-  on:seeking: Event
-  on:stalled: Event
-  on:suspend: Event
-  on:timeupdate: Event
-  on:volumechange: Event
   on:waiting: Event
+  on:seeking: Event
+  on:seeked: Event
+  on:ended: Event
+  on:durationchange: Event
+  on:timeupdate: Event
+  on:play: Event
+  on:pause: Event
+  on:ratechange: Event
+  on:volumechange: Event
 
 _HTML_SLOT_ELEMENT_EVENT:
   $type: HTMLSlotElement
-  on:slotchange: Event
+  # Spec: <https://dom.spec.whatwg.org/#mutation-observers>
+  on:slotchange:
+    type: Event
+    bubbles: true
+    cancelable: false
 
 _HTML_TRACK_ELEMENT_EVENT:
   $type: HTMLTrackElement
-  on:cuechange: Event
+  # Spec: <https://html.spec.whatwg.org/multipage/media.html#playing-the-media-resource>
+  on:cuechange:
+    type: Event
+    bubbles: true
+    cancelable: false
 
 GLOBAL_EVENT:
-  $link: mdn:Web/API/Element#events
-  $on:default:
-    link: mdn:Web/API/Element/%s_event
+  $type: Element
   $extend:
     - _ANIMATION_EVENT
     - _CLIPBOARD_EVENT
@@ -204,57 +459,179 @@ GLOBAL_EVENT:
     - _HTML_DETAILS_ELEMENT_EVENT
     - _HTML_DIALOG_ELEMENT_EVENT
     - _HTML_FORM_ELEMENT_EVENT
-    - _HTML_INPUT_ELEMENT_EVENT
     - _HTML_MEDIA_ELEMENT_EVENT
     - _HTML_SLOT_ELEMENT_EVENT
     - _HTML_TRACK_ELEMENT_EVENT
-  on:securitypolicyviolation: SecurityPolicyViolationEvent
+  # Form control events
+  # Spec: <https://html.spec.whatwg.org/multipage/input.html#common-input-element-events>
+  on:change:
+    type: Event
+    bubbles: true
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constraint-validation>
+  on:invalid:
+    type: Event
+    bubbles: false
+    cancelable: true
+  # CSP events
+  # Spec: <https://w3c.github.io/webappsec-csp/#report-violation>
+  on:securitypolicyviolation:
+    type: SecurityPolicyViolationEvent
+    bubbles: true
+    cancelable: false
 
 SHARED_WINDOW_EVENT:
-  $link: mdn:Web/API/Window#events
-  $on:default:
-    link: mdn:Web/API/Window#%s
-  on:afterprint: Event
-  on:beforeprint: Event
-  on:beforeunload: BeforeUnloadEvent
-  on:hashchange: HashChangeEvent
-  on:languagechange: Event
-  on:message: MessageEvent
-  on:messageerror: MessageEvent
-  on:offline: Event
-  on:online: Event
-  on:pagehide: PageTransitionEvent
-  on:pageshow: PageTransitionEvent
-  on:popstate: PopStateEvent
-  on:rejectionhandled: PromiseRejectionEvent
-  on:unhandledrejection: PromiseRejectionEvent
-  on:storage: StorageEvent
-  on:unload: Event
+  $type: Window
+  # Connection events
+  # Spec: <https://html.spec.whatwg.org/multipage/system-state.html#navigator.online>
+  on:online:
+    type: Event
+    bubbles: false
+    cancelable: false
+  on:offline:
+    type: Event
+    bubbles: false
+    cancelable: false
   # Gamepad events
-  on:gamepadconnected: GamepadEvent
-  on:gamepaddisconnected: GamepadEvent
+  # Spec: <https://w3c.github.io/gamepad/#event-gamepadconnected>
+  on:gamepadconnected:
+    type: GamepadEvent
+    bubbles: false
+    cancelable: false
+  # Spec: <https://w3c.github.io/gamepad/#event-gamepaddisconnected>
+  on:gamepaddisconnected:
+    type: GamepadEvent
+    bubbles: false
+    cancelable: false
+  # History events
+  # Spec: <https://html.spec.whatwg.org/multipage/browsing-the-web.html#updating-the-document>
+  on:hashchange:
+    type: HashChangeEvent
+    bubbles: false
+    cancelable: false
+  on:popstate:
+    type: PopStateEvent
+    bubbles: false
+    cancelable: false
+  on:pageshow:
+    type: PageTransitionEvent
+    bubbles: false
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/document-lifecycle.html#unloading-documents>
+  on:pagehide:
+    type: PageTransitionEvent
+    bubbles: false
+    cancelable: false
+  # Load & unload events
+  # Spec: <https://w3c.github.io/uievents/#events-uievent-types>
+  # This event is defined in `GLOBAL_EVENT`
+  # on:load: Event
+  on:unload:
+    type: Event
+    bubbles: false
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/browsing-the-web.html#preventing-navigation>
+  on:beforeunload:
+    type: BeforeUnloadEvent
+    bubbles: false
+    cancelable: true
+  # Messaging events
+  # Spec: <https://html.spec.whatwg.org/multipage/web-messaging.html#posting-messages>
+  on:message:
+    type: MessageEvent
+    bubbles: false
+    cancelable: false
+  on:messageerror:
+    type: MessageEvent
+    bubbles: false
+    cancelable: false
+  # Print events
+  # Spec: <https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#printing>
+  on:beforeprint:
+    type: Event
+    bubbles: false
+    cancelable: false
+  on:afterprint:
+    type: Event
+    bubbles: false
+    cancelable: false
+  # Promise rejection events
+  # Spec: <https://html.spec.whatwg.org/multipage/webappapis.html#the-hostpromiserejectiontracker-implementation>
+  on:rejectionhandled:
+    type: PromiseRejectionEvent
+    bubbles: false
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/webappapis.html#unhandled-promise-rejections>
+  on:unhandledrejection:
+    type: PromiseRejectionEvent
+    bubbles: false
+    cancelable: true
+  # Other events
+  # Spec: <https://html.spec.whatwg.org/multipage/webstorage.html#the-storage-interface>
+  on:storage:
+    type: StorageEvent
+    bubbles: false
+    cancelable: false
+  # Spec: <https://html.spec.whatwg.org/multipage/system-state.html#language-preferences>
+  on:languagechange:
+    type: Event
+    bubbles: false
+    cancelable: false
 
+# TODO: check
 DOCUMENT_EVENT:
-  $link: mdn:Web/API/Document#events
-  $on:default:
-    link: mdn:Web/API/Document#%s
+  $type: Document
   $extend:
     - GLOBAL_EVENT
     - SHARED_WINDOW_EVENT
-  on:DOMContentLoaded: Event
-  on:pointerlockchange: Event
-  on:pointerlockerror: Event
+  # Load & unload events
+  # Spec: <https://html.spec.whatwg.org/multipage/parsing.html#the-end>
+  on:DOMContentLoaded:
+    type: Event
+    bubbles: true
+    cancelable: false
   on:readystatechange: Event
-  on:visibilitychange: Event
+  # Pointer events
+  # Spec: <https://w3c.github.io/pointerlock/#pointerlockchange-and-pointerlockerror-events>
+  on:pointerlockchange:
+    type: Event
+    bubbles: false
+    cancelable: false
+  on:pointerlockerror:
+    type: Event
+    bubbles: false
+    cancelable: false
+  # Other events
+  # Spec: <https://html.spec.whatwg.org/multipage/interaction.html#page-visibility>
+  on:visibilitychange:
+    type: Event
+    bubbles: true
+    cancelable: false
 
 WINDOW_EVENT:
-  $link: mdn:Web/API/Window#events
-  $on:default:
-    link: mdn:Web/API/Window#%s
+  $type: Window
   $extend:
     - GLOBAL_EVENT
     - SHARED_WINDOW_EVENT
-  on:appinstalled: Event
-  on:devicemotion: DeviceMotionEvent
-  on:deviceorientation: DeviceOrientationEvent
-  on:deviceorientationabsolute: DeviceOrientationEvent
+  # Device motion events
+  # Spec: <https://w3c.github.io/deviceorientation/#deviceorientation>
+  on:deviceorientation:
+    type: DeviceOrientationEvent
+    bubbles: false
+    cancelable: false
+  # Spec: <https://w3c.github.io/deviceorientation/#deviceorientationabsolute>
+  on:deviceorientationabsolute:
+    type: DeviceOrientationEvent
+    bubbles: false
+    cancelable: false
+  # TODO: add to MDN
+  # Spec: <https://w3c.github.io/deviceorientation/#compassneedscalibration>
+  on:compassneedscalibration:
+    type: Event
+    bubbles: false
+    cancelable: true
+  # Spec: <https://w3c.github.io/deviceorientation/#devicemotion>
+  on:devicemotion:
+    type: DeviceMotionEvent
+    bubbles: false
+    cancelable: false

@@ -8,17 +8,17 @@ $default:
   default:
     link: mdn:Web/HTML/Element/%S#attr-%%s
     prop:
-      link: mdn:Web/API/%T#%%s
+      link: mdn:Web/API/%T/%%S
   on:default:
-    link: mdn:Web/API/%T#%%s
+    link: mdn:Web/API/%T/%%S
 
 _ELEMENT_ATTR:
   $default:
     link: mdn:Web/HTML/Global_attributes#%s
     prop:
-      link: mdn:Web/API/Element#element.%s
+      link: mdn:Web/API/Element/%S
   # DOM defined attributes.
-  # See: https://dom.spec.whatwg.org/#interface-element
+  # Spec: https://dom.spec.whatwg.org/#interface-element
   class:
     type: list<name>
     prop: className
@@ -29,17 +29,17 @@ _ELEMENT_ATTR:
     type: <string>
     prop: slot
   # CSS shadow parts attribute.
-  # See: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/exportparts
+  # Spec: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/exportparts
   exportparts: <string>
   part: list<name>
 
+# Standard HTML attributes
+# Spec: <https://html.spec.whatwg.org/multipage/dom.html#global-attributes>
 _HTML_ELEMENT_ATTR:
   $default:
     link: mdn:Web/HTML/Global_attributes#%s
     prop:
-      link: mdn:Web/API/HTMLElement#htmlelement.%s
-  # Standard HTML attributes
-  # See: <https://html.spec.whatwg.org/multipage/dom.html#global-attributes>
+      link: mdn:Web/API/HTMLElement/%S
   accesskey:
     type: list<char>
     prop: accessKey

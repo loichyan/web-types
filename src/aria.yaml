@@ -21,13 +21,13 @@
     - mixed
     - undefined
 
+# ARIA roles
+# Spec: <https://w3c.github.io/aria/#role_definitions>
 <Role>:
   link: mdn:Web/Accessibility/ARIA/Roles
   default:
     link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
   content:
-    # ARIA roles
-    # See: <https://w3c.github.io/aria/#role_definitions>
     - alert
     - alertdialog
     - application
@@ -136,18 +136,18 @@
   - removals
   - text
 
+# ARIA attributes
+# Spec:
+# - <https://w3c.github.io/aria/#state_prop_def>
+# - <https://w3c.github.io/aria/#idl-interface>
 ARIA_ATTR:
   $link: mdn:Web/Accessibility/ARIA/Attributes
   $default:
-    link: mdn:Web/Accessibility/ARIA/Attributes#%s
+    link: mdn:Web/Accessibility/ARIA/Attributes/%S
     prop:
       link: mdn:Web/API/Element#element.%s
       # All IDL properties are strings.
       type: <string>
-  # ARIA attributes
-  # See:
-  # - <https://w3c.github.io/aria/#state_prop_def>
-  # - <https://w3c.github.io/aria/#idl-interface>
   aria-activedescendant: <id>
   aria-atomic:
     type: <Booleanish>

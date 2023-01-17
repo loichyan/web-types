@@ -51,6 +51,10 @@
 
 <event_raw>:
   type: <string>
+  # default: false
+  bubbles: <boolean>
+  # default: false
+  cancelable: <boolean>
   <keyof meta>: <typeof meta>
 # `<string>` will be converted to `event.type`.
 <event>: <string>|<event_raw>
