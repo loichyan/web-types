@@ -1,38 +1,62 @@
 # List of builtin types.
 
-# A text value.
-- <string>
-
-# A double-precision floating-point value.
-- <number>
-
-# A long integer value.
-- <integer>
-
-# A character.
-- <char>
+# == Primitive types == #
+# A parser should always support these types.
 
 # A boolean value.
 # If an attribute is `<boolean>`, it should be treated as a boolean attribute.
 # See: <https//html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes>
 - <boolean>
 
+# A long integer value.
+- <integer>
+
+# A double-precision floating-point value.
+- <number>
+
+# A text value.
+- <string>
+
+# == Special types == #
+# These types, including enums, should be converted to strings when they're
+# used as the value of an attribute or a property.
+
 # A space-separated list of <T>.
 - list<T>
+
+# A character.
+- <char>
+
+# A date string with optional time.
+# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#date_strings>
+- <datetime>
+
+# An empty string.
+# Empty strings may appear in some enumerated types and should be ignored
+# when they have the same meaning as other non-empty strings.
+- <empty>
 
 # The ID of an element, it's suggested to the same format of `<name>`.
 # See: <https//developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id>
 - <id>
+
+# A language identifier.
+# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>
+- <lang>
+
+# A MIME type.
+# See: <https://developer.mozilla.org/en-US/docs/Glossary/MIME_type>
+- <mime>
 
 # A string of ASCII letters, digits, '_' and '-', starts with a letter.
 # Generally, this type is used as a token of `DOMTokenList`.
 # See: <https//developer.mozilla.org/en-US/docs/Web/API/DOMTokenList>
 - <name>
 
+# A name prefixed by a '#' reference to an element.
+# See: <https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-hash-name-reference>
+- <hash_name>
+
 # An URL.
 # See: <https://developer.mozilla.org/en-US/docs/Web/API/URL>
 - <url>
-
-# A language identifier.
-# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>
-- <lang>

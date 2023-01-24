@@ -1,6 +1,8 @@
 # HTML elements
 
 $extend:
+  - aria.yaml
+  - event.yaml
   - shared.yaml
 
 $default:
@@ -10,7 +12,7 @@ $default:
     prop:
       link: mdn:Web/API/%T/%%S
   on:default:
-    link: mdn:Web/API/%T/%%S
+    link: mdn:Web/API/%T/%%S_event
 
 _ELEMENT_ATTR:
   $default:
@@ -116,7 +118,7 @@ _HTML_ELEMENT_ATTR:
   lang:
     type: <lang>
     prop: lang
-  # No CEReactions
+  # No CEReaction
   # See: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#nonce-does-not-update-dom>
   nonce: <string>
   spellcheck:
@@ -143,7 +145,6 @@ _HTML_ELEMENT_ATTR:
       name: translate
       type: <boolean>
 
-# TODO: checked
 GLOBAL_ATTR:
   $link: mdn:Web/HTML/Global_attributes
   $extend:
@@ -152,34 +153,39 @@ GLOBAL_ATTR:
     - ARIA_ATTR
     - GLOBAL_EVENT
 
+# Spec: <https://html.spec.whatwg.org/multipage/media.html#media-elements>
 _HTML_MEDIA_ELEMENT_ATTR:
   $default:
     prop:
       link: mdn:Web/API/HTMLMediaElement#htmlmediaelement.%s
-  autoplay:
-    type: <boolean>
-    prop: autoplay
-  controls:
-    type: <boolean>
-    prop: controls
-  controlslist:
-    type: list<Controls>
-    prop: controlsList
+  src:
+    type: <url>
+    prop: src
   crossorigin:
     type: <CrossOrigin>
     prop: crossOrigin
+  # Spec: <https://html.spec.whatwg.org/multipage/media.html#attr-media-preload>
+  preload:
+    type:
+      - none
+      - metadata
+      - auto
+    prop: preload
+  autoplay:
+    type: <boolean>
+    prop: autoplay
   loop:
     type: <boolean>
     prop: loop
   muted:
     type: <boolean>
+    # CEReaction: defaultMuted
     prop: muted
-  preload:
-    type: [none, metadata, auto]
-    prop: preload
-  src:
-    type: <url>
-    prop: src
+  controls:
+    type: <boolean>
+    prop: controls
+  # Spec: <https://wicg.github.io/controls-list/explainer.html>
+  controlslist: list<Controls>
 
 _HTML_MOD_ELEMENT_ATTR:
   cite:
@@ -198,119 +204,177 @@ _HTML_TABLE_CELL_ELEMENT_ATTR:
   colspan:
     type: <integer>
     prop: colSpan
-  headers:
-    type: list<string>
-    prop: headers
   rowspan:
     type: <integer>
     prop: rowSpan
+  headers:
+    type: list<id>
+    prop: headers
 
-_TABLE_COL_ATTR_ATTR:
+_HTML_TABLE_COL_ELEMENT_ATTR:
   span:
     type: <integer>
     prop: span
 
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element>
 a:
   $type: HTMLAnchorElement
-  download:
-    type: <url>
-    prop: download
+  $extend:
+    - GLOBAL_ATTR
   href:
     type: <url>
     prop: href
-  hreflang:
-    type: <lang>
-    prop: hrefLang
-  ping:
-    type: list<url>
-    prop: ping
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
-  rel:
-    type: list<Rel>
-    prop: rel
   target:
     type: <Target>
     prop: target
+  download:
+    type: <string>
+    prop: download
+  ping:
+    type: list<url>
+    prop: ping
+  rel:
+    type: list<Rel>
+    prop: rel
+  hreflang:
+    type: <lang>
+    prop: hrefLang
   type:
     type: <mime>
     prop: type
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
 
-abbr: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element>
+abbr:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-address: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-address-element>
+address:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element>
 area:
   $type: HTMLAreaElement
+  $extend:
+    - GLOBAL_ATTR
   alt:
     type: <string>
     prop: alt
   coords:
     type: <string>
     prop: coords
-  download:
-    type: <url>
-    prop: download
+  # Spec: <https://html.spec.whatwg.org/multipage/image-maps.html#attr-area-shape>
+  shape:
+    type:
+      - circle
+      - default
+      - polygon
+      - rectangle
+    prop: shape
   href:
     type: <url>
     prop: href
+  target:
+    type: <Target>
+    prop: target
+  download:
+    type: <string>
+    prop: download
   ping:
     type: list<url>
     prop: ping
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
   rel:
     type: list<Rel>
     prop: rel
-  shape:
-    type: [rect, circle, poly, default]
-    prop: shape
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-article-element>
+article:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
+
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-aside-element>
+aside:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
+
+# Spec: <https://html.spec.whatwg.org/multipage/media.html#the-audio-element>
+audio:
+  $type: HTMLAudioElement
+  $extend:
+    - GLOBAL_ATTR
+    - _HTML_MEDIA_ELEMENT_ATTR
+
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element>
+b:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
+
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-base-element>
+base:
+  $type: HTMLBaseElement
+  $extend:
+    - GLOBAL_ATTR
+  href:
+    type: <url>
+    prop: href
   target:
     type: <Target>
     prop: target
 
-article: HTMLElement
-
-aside: HTMLElement
-
-audio:
-  $type: HTMLAudioElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element>
+bdi:
+  $type: HTMLElement
   $extend:
-    - _HTML_MEDIA_ELEMENT_ATTR
+    - GLOBAL_ATTR
 
-b: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element>
+bdo:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-base: HTMLBaseElement
-
-bdi: HTMLElement
-
-bdo: HTMLElement
-
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-blockquote-element>
 blockquote:
   $type: HTMLQuoteElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_QUOTE_ELEMENT_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-body-element>
 body:
-  $extend:
-    - SHARED_WINDOW_EVENT
   $type: HTMLBodyElement
+  $extend:
+    - GLOBAL_ATTR
+    - SHARED_WINDOW_EVENT
 
-br: HTMLBRElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element>
+br:
+  $type: HTMLBRElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element>
 button:
   $type: HTMLButtonElement
-  autofocus:
-    type: <boolean>
-    prop: autofocus
+  $extend:
+    - GLOBAL_ATTR
+  # TODO: remove 'autofocus' from MDN
   disabled:
     type: <boolean>
     prop: disabled
-  form:
-    type: <id>
-    prop: form
+  form: <id>
   formaction:
     type: <url>
     prop: formAction
@@ -328,89 +392,148 @@ button:
     type: <Target>
     prop: formTarget
   name:
-    type: <string>
+    type: <name>
+    prop: name
+  # Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-type>
   type:
     # TODO: remove `menu` from MDN
-    type: [submit, reset, button]
+    type:
+      - submit
+      - reset
+      - button
     prop: type
   value:
     type: <string>
     prop: value
 
+# Spec: <https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element>
 canvas:
   $type: HTMLCanvasElement
+  $extend:
+    - GLOBAL_ATTR
   on:webglcontextcreationerror: WebGLContextEvent
   on:webglcontextlost: WebGLContextEvent
   on:webglcontextrestored: WebGLContextEvent
-  height:
-    type: <integer>
-    prop: height
   width:
     type: <integer>
     prop: width
+  height:
+    type: <integer>
+    prop: height
 
-caption: HTMLTableCaptionElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-caption-element>
+caption:
+  $type: HTMLTableCaptionElement
+  $extend:
+    - GLOBAL_ATTR
 
-cite: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element>
+cite:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-code: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element>
+code:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-col-element>
 col:
   $type: HTMLTableColElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_TABLE_COL_ELEMENT_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-colgroup-element>
 colgroup:
   $type: HTMLTableColElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_TABLE_COL_ELEMENT_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-data-element>
 data:
   $type: HTMLDataElement
+  $extend:
+    - GLOBAL_ATTR
   value:
     type: <string>
     prop: value
 
-datalist: HTMLDataListElement
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element>
+datalist:
+  $type: HTMLDataListElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-dd-element>
 dd:
   $type: HTMLElement
-  nowrap: [no, yes]
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/edits.html#the-del-element>
 del:
   $type: HTMLModElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_MOD_ELEMENT_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element>
 details:
   $type: HTMLDetailsElement
+  $extend:
+    - GLOBAL_ATTR
   open:
     type: <boolean>
     prop: open
 
-dfn: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-dfn-element>
+dfn:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element>
 dialog:
   $type: HTMLDialogElement
+  $extend:
+    - GLOBAL_ATTR
   open:
     type: <boolean>
     prop: open
 
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element>
 div:
   $type: HTMLDivElement
-  align: [center, justify, left, right]
+  $extend:
+    - GLOBAL_ATTR
 
-dl: HTMLDlistElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element>
+dl:
+  $type: HTMLDListElement
+  $extend:
+    - GLOBAL_ATTR
 
-dt: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-dt-element>
+dt:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-em: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element>
+em:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-embed-element>
 embed:
   $type: HTMLEmbedElement
-  height:
-    type: <integer>
-    prop: height
+  $extend:
+    - GLOBAL_ATTR
   src:
     type: <url>
     prop: src
@@ -419,170 +542,233 @@ embed:
     prop: type
   width:
     type: <integer>
-    prop: width
+    prop:
+      name: width
+      type: <string>
+  height:
+    type: <integer>
+    prop:
+      name: height
+      type: <string>
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element>
 fieldset:
   $type: HTMLFieldSetElement
+  $extend:
+    - GLOBAL_ATTR
   disabled:
     type: <boolean>
     prop: disabled
   form: <id>
   name:
-    type: <string>
+    type: <name>
     prop: name
 
-figcaption: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-figcaption-element>
+figcaption:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-figure: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-figure-element>
+figure:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-footer: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-footer-element>
+footer:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/forms.html#the-form-element>
 form:
   $type: HTMLFormELement
+  $extend:
+    - GLOBAL_ATTR
   accept-charset:
     type: <string>
     prop: acceptCharset
-  autocomplete:
-    type: [off, on]
-    prop: autocomplete
-  name:
-    type: <string>
-    prop: name
-  rel:
-    type: list<Rel>
-    prop: rel
   action:
     type: <url>
     prop: action
+  # Spec: <https://html.spec.whatwg.org/multipage/forms.html#attr-form-autocomplete>
+  autocomplete:
+    type:
+      - on
+      - off
+    prop: autocomplete
   enctype:
     type: <FormEnctype>
     prop: enctype
   method:
     type: <FormMethod>
     prop: method
+  name:
+    type: <name>
+    prop: name
   novalidate:
     type: <boolean>
     prop: noValidate
   target:
     type: <Target>
     prop: target
+  rel:
+    type: list<Rel>
+    prop: rel
 
-h1: HTMLHeadingElement
-h2: HTMLHeadingElement
-h3: HTMLHeadingElement
-h4: HTMLHeadingElement
-h5: HTMLHeadingElement
-h6: HTMLHeadingElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements>
+h1:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
+h2:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
+h3:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
+h4:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
+h5:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
+h6:
+  $type: HTMLHeadingElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-head-element>
 head:
   $type: HTMLHeadElement
-  profile:
-    type: <url>
-    deprecated: true
+  $extend:
+    - GLOBAL_ATTR
 
-header: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-header-element>
+header:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-hgroup: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element>
+hgroup:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element>
 hr:
   $type: HTMLHRElement
-  align:
-    type: [bottom, left, right, top]
-    deprecated: true
-  color:
-    type: <string>
-    deprecated: true
-  noshade:
-    type: <boolean>
-    deprecated: true
-  size:
-    type: <integer>
-    deprecated: true
-  width:
-    type: <integer>
-    deprecated: true
+  $extend:
+    - GLOBAL_ATTR
 
-html: HTMLHtmlElement
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-html-element>
+html:
+  $type: HTMLHtmlElement
+  $extend:
+    - GLOBAL_ATTR
 
-i: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element>
+i:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element>
 iframe:
   $type: HTMLIFrameElement
+  $extend:
+    - GLOBAL_ATTR
+  src:
+    type: <url>
+    prop: src
+  srcdoc:
+    type: <string>
+    prop: srcdoc
+  name:
+    type: <name>
+    prop: name
+  sandbox: list<Sandbox>
   allow:
     type: <string>
     prop: allow
   allowfullscreen:
     type: <boolean>
-    prop: allowfullscreen
+    prop: allowFullscreen
+  width:
+    type: <integer>
+    prop:
+      name: width
+      type: <string>
   height:
     type: <integer>
-    prop: height
-  loading:
-    type: <Loading>
-    prop: loading
-  name:
-    type: <string>
-    prop: name
+    prop:
+      name: height
+      type: <string>
   referrerpolicy:
     type: <ReferrerPolicy>
     prop: referrerPolicy
-  sandbox:
-    type: <Sandbox>
-    prop: sandbox
-  src:
-    type: <url>
-    prop: src
-  srcdoc:
-    type: <url>
-    prop: srcdoc
-  width:
-    type: <integer>
-    prop: width
+  loading:
+    type: <Loading>
+    prop: loading
 
+# Spec: <https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element>
 img:
   $type: HTMLImageElement
+  $extend:
+    - GLOBAL_ATTR
   alt:
     type: <string>
     prop: alt
-  crossorigin:
-    type: <CrossOrigin>
-    prop: crossOrigin
-  decoding:
-    type: [auto, sync, async]
-    prop: decoding
-  elementtiming:
-    type: <string>
-    prop: elementTiming
-  height:
-    type: <integer>
-    prop: height
-  ismap:
-    type: <boolean>
-    prop: isMap
-  loading:
-    type: <Loading>
-    prop: loading
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
-  sizes:
-    type: <string>
-    prop: sizes
   src:
     type: <url>
     prop: src
   srcset:
     type: <string>
     prop: srcset
+  sizes:
+    type: <string>
+    prop: sizes
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
   usemap:
     type: <url>
     prop: useMap
+  ismap:
+    type: <boolean>
+    prop: isMap
   width:
     type: <integer>
     prop: width
+  height:
+    type: <integer>
+    prop: height
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  # Spec: <https://html.spec.whatwg.org/multipage/images.html#image-decoding-hint>
+  decoding:
+    type:
+      - sync
+      - async
+      - auto
+    prop: decoding
+  loading:
+    type: <Loading>
+    prop: loading
 
+# Spec: <https://html.spec.whatwg.org/multipage/input.html#the-input-element>
 input:
   $type: HTMLInputElement
+  $extend:
+    - GLOBAL_ATTR
   accept:
     type: <string>
     prop: accept
@@ -590,12 +776,11 @@ input:
     type: <string>
     prop: alt
   autocomplete:
-    type: <Autocomplete>
+    type: list<Autocomplete>
     prop: autocomplete
-  capture:
-    type: <string>
   checked:
     type: <boolean>
+    # CEReaction: defaultChecked
     prop: checked
   dirname:
     type: <string>
@@ -609,7 +794,7 @@ input:
     prop: formAction
   formenctype:
     type: <FormEnctype>
-    prop: formEncType
+    prop: formEnctype
   formmethod:
     type: <FormMethod>
     prop: formMethod
@@ -639,7 +824,7 @@ input:
     type: <boolean>
     prop: multiple
   name:
-    type: <string>
+    type: <name>
     prop: name
   pattern:
     type: <string>
@@ -667,157 +852,256 @@ input:
     prop: type
   value:
     type: <string>
+    # CEReaction: defaultValue
     prop: value
   width:
     type: <integer>
     prop: width
 
+# Spec: <https://html.spec.whatwg.org/multipage/edits.html#the-ins-element>
 ins:
   $type: HTMLModElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_MOD_ELEMENT_ATTR
 
-kbd: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-kbd-element>
+kbd:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/forms.html#the-label-element>
 label:
   $type: HTMLLabelElement
+  $extend:
+    - GLOBAL_ATTR
   for:
-    type: id
+    type: <id>
     prop: htmlFor
 
-legend: HTMLLegendElement
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-legend-element>
+legend:
+  $type: HTMLLegendElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element>
 li:
   $type: HTMLLIElement
+  $extend:
+    - GLOBAL_ATTR
   value:
     type: <integer>
     prop: value
 
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-link-element>
 link:
   $type: HTMLLinkElement
-  as:
-    type: <LinkAs>
-    prop: as
-  crossorigin:
-    type: <CrossOrigin>
-    prop: crossOrigin
-  disabled:
-    type: <boolean>
-    prop: disabled
+  $extend:
+    - GLOBAL_ATTR
   href:
     type: <url>
     prop: href
-  hreflang:
-    type: <lang>
-    prop: hrefLang
-  imagesizes:
-    type: <string>
-    prop: imageSizes
-  imagesrcset:
-    type: <string>
-    prop: imageSrcset
-  integrity:
-    type: <string>
-    prop: integrity
-  media:
-    type: <string>
-    prop: media
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
   rel:
     type: <Rel>
     prop: rel
-  type:
+  media:
     type: <string>
+    prop: media
+  integrity:
+    type: <string>
+    prop: integrity
+  hreflang:
+    type: <lang>
+    prop: hrefLang
+  type:
+    type: <mime>
     prop: title
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
+  imagesrcset:
+    type: <string>
+    prop: imageSrcset
+  imagesizes:
+    type: <string>
+    prop: imageSizes
+  # Spec: <https://fetch.spec.whatwg.org/#concept-potential-destination>
+  as:
+    type:
+      - fetch
+      - audio
+      - audioworklet
+      - document
+      - embed
+      - font
+      - frame
+      - iframe
+      - image
+      - manifest
+      - object
+      - paintworklet
+      - report
+      - script
+      - serviceworker
+      - sharedworker
+      - style
+      - track
+      - video
+      - webidentity
+      - worker
+      - xslt
+    prop: as
   blocking: list<Blocking>
+  disabled:
+    type: <boolean>
+    prop: disabled
 
-main: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element>
+main:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/image-maps.html#the-map-element>
 map:
   $type: HTMLMapElement
-  name: <string>
+  $extend:
+    - GLOBAL_ATTR
+  name:
+    type: <name>
+    prop: name
 
-mark: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-mark-element>
+mark:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-menu: HTMLMenuElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-menu-element>
+menu:
+  $type: HTMLMenuElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element>
 meta:
   $type: HTMLMetaElement
-  charset:
-    type: <string>
-    prop: charset
-  content:
-    type: <string>
-    prop: content
-  http-equiv:
-    type: <HttpEquiv>
-    prop: HttpEquiv
+  $extend:
+    - GLOBAL_ATTR
   name:
     type: <MetaName>
     prop: name
+  http-equiv:
+    type:
+      - content-language
+      - content-type
+      - default-style
+      - refresh
+      - set-cookie
+      - x-ua-compatible
+      - content-security-policy
+    prop: HttpEquiv
+  content:
+    type: <string>
+    prop: content
+  charset: <string>
+  media:
+    type: <string>
+    prop: media
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-meter-element>
 meter:
   $type: HTMLMeterElement
-  high:
-    type: <number>
-    prop: high
-  low:
-    type: <number>
-    prop: low
-  max:
-    type: <number>
-    prop: max
-  min:
-    type: <number>
-    prop: min
-  optimum:
-    type: <number>
-    prop: optimum
+  $extend:
+    - GLOBAL_ATTR
   value:
     type: <number>
     prop: value
+  min:
+    type: <number>
+    prop: min
+  max:
+    type: <number>
+    prop: max
+  low:
+    type: <number>
+    prop: low
+  high:
+    type: <number>
+    prop: high
+  optimum:
+    type: <number>
+    prop: optimum
 
-nav: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-nav-element>
+nav:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-noscript: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/scripting.html#the-noscript-element>
+noscript:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-object-element>
 object:
   $type: HTMLObjectElement
+  $extend:
+    - GLOBAL_ATTR
   data:
     type: <url>
     prop: data
-  form:
-    type: <id>
-    prop: form
-  height:
-    type: <integer>
-    prop: height
-  name:
-    type: <string>
-    prop: name
   type:
     type: <mime>
     prop: type
+  name:
+    type: <name>
+    prop: name
+  form: <id>
   width:
     type: <integer>
-    prop: width
+    prop:
+      name: width
+      type: <string>
+  height:
+    type: <integer>
+    prop:
+      name: height
+      type: <string>
 
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-ol-element>
 ol:
   $type: HTMLOListElement
+  $extend:
+    - GLOBAL_ATTR
   reversed:
     type: <boolean>
     prop: reversed
   start:
     type: <integer>
     prop: start
+  # Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#attr-ol-type>
   type:
-    type: ["1", a, A, i, I]
+    type:
+      - "1"
+      - a
+      - A
+      - i
+      - I
     prop: type
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-optgroup-element>
 optgroup:
   $type: HTMLOptGroupElement
+  $extend:
+    - GLOBAL_ATTR
   disabled:
     type: <boolean>
     prop: disabled
@@ -825,8 +1109,11 @@ optgroup:
     type: <string>
     prop: label
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-option-element>
 option:
   $type: HTMLOptionElement
+  $extend:
+    - GLOBAL_ATTR
   disabled:
     type: <boolean>
     prop: disabled
@@ -835,85 +1122,138 @@ option:
     prop: label
   selected:
     type: <boolean>
+    # CEReaction: defaultSelected
     prop: selected
   value:
     type: <string>
     prop: value
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-output-element>
 output:
   $type: HTMLOutputElement
-  for:
-    type: <id>
-    prop: htmlFor
+  $extend:
+    - GLOBAL_ATTR
+  for: list<id>
   form: <id>
   name:
-    type: <string>
+    type: <name>
     prop: name
 
-p: HTMLParagraphElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element>
+p:
+  $type: HTMLParagraphElement
+  $extend:
+    - GLOBAL_ATTR
 
-picture: HTMLPictureElement
+# Spec: <https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element>
+picture:
+  $type: HTMLPictureElement
+  $extend:
+    - GLOBAL_ATTR
 
-pre: HTMLPreElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element>
+pre:
+  $type: HTMLPreElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-progress-element>
 progress:
   $type: HTMLProgressElement
-  max:
-    type: <number>
-    prop: max
+  $extend:
+    - GLOBAL_ATTR
   value:
     type: <number>
     prop: value
+  max:
+    type: <number>
+    prop: max
 
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-q-element>
 q:
   $type: HTMLQuoteElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_QUOTE_ELEMENT_ATTR
 
-rp: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rp-element>
+rp:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-rt: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rt-element>
+rt:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-ruby: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-ruby-element>
+ruby:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-s: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-s-element>
+s:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-samp: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-samp-element>
+samp:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/scripting.html#the-script-element>
 script:
   $type: HTMLScriptElement
-  async:
-    type: <boolean>
-    prop: async
-  crossorigin:
-    type: <CrossOrigin>
-    prop: crossOrigin
-  defer:
-    type: <boolean>
-    prop: defer
-  integrity:
-    type: <string>
-    prop: integrity
-  nomodule:
-    type: <boolean>
-    prop: noModule
-  referrerpolicy:
-    type: <ReferrerPolicy>
-    prop: referrerPolicy
+  $extend:
+    - GLOBAL_ATTR
   src:
     type: <url>
     prop: src
+  # Spec: <https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type>
   type:
-    type: [module, importmap]
+    type:
+      - module
+      - importmap
+      - <mime>
     prop: type
+  nomodule:
+    type: <boolean>
+    prop: noModule
+  async:
+    type: <boolean>
+    prop: async
+  defer:
+    type: <boolean>
+    prop: defer
+  crossorigin:
+    type: <CrossOrigin>
+    prop: crossOrigin
+  integrity:
+    type: <string>
+    prop: integrity
+  referrerpolicy:
+    type: <ReferrerPolicy>
+    prop: referrerPolicy
   blocking: list<Blocking>
 
-section: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-section-element>
+section:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-select-element>
 select:
   $type: HTMLSelectElement
+  $extend:
+    - GLOBAL_ATTR
   autocomplete:
-    type: <Autocomplete>
+    type: list<Autocomplete>
     prop: autocomplete
   disabled:
     type: <boolean>
@@ -923,7 +1263,7 @@ select:
     type: <boolean>
     prop: multiple
   name:
-    type: <string>
+    type: <name>
     prop: name
   required:
     type: <boolean>
@@ -932,22 +1272,29 @@ select:
     type: <integer>
     prop: size
 
+# Spec: <https://html.spec.whatwg.org/multipage/scripting.html#the-slot-element>
 slot:
   $type: HTMLSlotElement
+  $extend:
+    - GLOBAL_ATTR
   name:
-    type: <string>
+    type: <name>
     prop: name
 
-small: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-small-element>
+small:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element>
 source:
   $type: HTMLSourceElement
-  height:
-    type: <integer>
-    prop: height
-  meida:
-    type: <string>
-    prop: media
+  $extend:
+    - GLOBAL_ATTR
+  type:
+    type: <mime>
+    prop: type
   src:
     type: <url>
     prop: src
@@ -957,45 +1304,88 @@ source:
   sizes:
     type: <string>
     prop: sizes
-  type:
-    type: <mime>
-    prop: type
+  meida:
+    type: <string>
+    prop: media
   width:
     type: <integer>
     prop: width
+  height:
+    type: <integer>
+    prop: height
 
-span: HTMLSpanElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element>
+span:
+  $type: HTMLSpanElement
+  $extend:
+    - GLOBAL_ATTR
 
-strong: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element>
+strong:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-style-element>
 style:
   $type: HTMLStyleElement
+  $extend:
+    - GLOBAL_ATTR
   media:
     type: <string>
     prop: media
   blocking: list<Blocking>
 
-sub: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements>
+sub:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-summary: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/interactive-elements.html#the-summary-element>
+summary:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-sup: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements>
+sup:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-table: HTMLTableElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-table-element>
+table:
+  $type: HTMLTableElement
+  $extend:
+    - GLOBAL_ATTR
 
-tbody: HTMLTableSectionElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-tbody-element>
+tbody:
+  $type: HTMLTableSectionElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-td-element>
 td:
   $type: HTMLTableCellElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_TABLE_CELL_ELEMENT_ATTR
 
-template: HTMLTemplateElement
+# Spec: <https://html.spec.whatwg.org/multipage/scripting.html#the-template-element>
+template:
+  $type: HTMLTemplateElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element>
 textarea:
   $type: HTMLTextAreaElement
+  $extend:
+    - GLOBAL_ATTR
   autocomplete:
-    type: <Autocomplete>
+    type: list<Autocomplete>
     prop: autocomplete
   cols:
     type: <integer>
@@ -1014,7 +1404,7 @@ textarea:
     type: <integer>
     prop: minLength
   name:
-    type: <string>
+    type: <name>
     prop: name
   placeholder:
     type: <string>
@@ -1028,76 +1418,134 @@ textarea:
   rows:
     type: <integer>
     prop: rows
+  # Spec:
+  # - <https://html.spec.whatwg.org/multipage/form-elements.html#attr-textarea-wrap>
+  # - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-wrap>
   wrap:
-    type: [off, hard, soft]
+    type:
+      - soft
+      - hard
+      - off
     prop: wrap
 
-tfoot: HTMLTableSectionElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-tfoot-element>
+tfoot:
+  $type: HTMLTableSectionElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-th-element>
 th:
   $type: HTMLTableCellElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_TABLE_CELL_ELEMENT_ATTR
+  scope:
+    type:
+      - row
+      - col
+      - rowgroup
+      - colgroup
+      - auto
+    prop: scope
   abbr:
     type: <string>
     prop: abbr
-  scope:
-    type: [row, col, rowgroup, colgroup]
-    prop: scope
 
-thead: HTMLTableSectionElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-thead-element>
+thead:
+  $type: HTMLTableSectionElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element>
 time:
   $type: HTMLTimeElement
+  $extend:
+    - GLOBAL_ATTR
   datetime:
     type: <datetime>
     prop: dateTime
 
-title: HTMLTitleElement
+# Spec: <https://html.spec.whatwg.org/multipage/semantics.html#the-title-element>
+title:
+  $type: HTMLTitleElement
+  $extend:
+    - GLOBAL_ATTR
 
-tr: HTMLTableRowElement
+# Spec: <https://html.spec.whatwg.org/multipage/tables.html#the-tr-element>
+tr:
+  $type: HTMLTableRowElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://html.spec.whatwg.org/multipage/media.html#the-track-element>
 track:
   $type: HTMLTrackElement
-  default:
-    type: <boolean>
-    prop: default
+  $extend:
+    - GLOBAL_ATTR
+  # Spec: <https://html.spec.whatwg.org/multipage/media.html#attr-track-kind>
   kind:
-    type: [subtitles, captions, descriptions, chapters, metadata]
+    type:
+      - subtitles
+      - captions
+      - descriptions
+      - chapters
+      - metadata
     prop: kind
-  label:
-    type: <string>
-    prop: label
   src:
     type: <url>
     prop: src
   srclang:
     type: <lang>
     prop: srclang
+  label:
+    type: <string>
+    prop: label
+  default:
+    type: <boolean>
+    prop: default
 
-u: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-u-element>
+u:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
-ul: HTMLUListElement
+# Spec: <https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element>
+ul:
+  $type: HTMLUListElement
+  $extend:
+    - GLOBAL_ATTR
 
-var: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-var-element>
+var:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR
 
 video:
   $type: HTMLVideoElement
   $extend:
+    - GLOBAL_ATTR
     - _HTML_MEDIA_ELEMENT_ATTR
   on:enterpictureinpicture: PictureInPictureEvent
   on:leavepictureinpicture: PictureInPictureEvent
-  height:
-    type: <integer>
-    prop: height
-  playsinline:
-    type: <boolean>
-    prop: playsInline
   poster:
     type: <url>
     prop: poster
+  playsinline:
+    type: <boolean>
+    prop: playsInline
   width:
     type: <integer>
     prop: width
+  height:
+    type: <integer>
+    prop: height
 
-wbr: HTMLElement
+# Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-wbr-element>
+wbr:
+  $type: HTMLElement
+  $extend:
+    - GLOBAL_ATTR

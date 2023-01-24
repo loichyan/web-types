@@ -578,7 +578,6 @@ SHARED_WINDOW_EVENT:
     bubbles: false
     cancelable: false
 
-# TODO: check
 DOCUMENT_EVENT:
   $type: Document
   $extend:

@@ -1,11 +1,8 @@
 # Shared type definitions and presets for HTML and SVG elements.
 
-$extend:
-  - aria.yaml
-  - event.yaml
-
 # HTML types
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill-detail-tokens>
 <Autocomplete>:
   link: mdn:Web/HTML/Attributes/autocomplete
   content:
@@ -18,21 +15,20 @@ $extend:
     - family-name
     - honorific-suffix
     - nickname
-    - email
+    - organization-title
     - username
     - new-password
     - current-password
     - one-time-code
-    - organization-title
     - organization
     - street-address
     - address-line1
     - address-line2
     - address-line3
-    - address-level1
-    - address-level2
-    - address-level3
     - address-level4
+    - address-level3
+    - address-level2
+    - address-level1
     - country
     - country-name
     - postal-code
@@ -54,6 +50,8 @@ $extend:
     - bday-month
     - bday-year
     - sex
+    - url
+    - photo
     - tel
     - tel-country-code
     - tel-national
@@ -62,149 +60,140 @@ $extend:
     - tel-local-prefix
     - tel-local-suffix
     - tel-extension
+    - email
     - impp
-    - url
-    - photo
 
+# Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#blocking-attribute>
 <Blocking>:
   - render
 
+# Spec:
+# - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attr-controlslist>
+# - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-controlslist>
 <Controls>:
   - nodownload
   - nofullscreen
   - noremoteplayback
 
+# Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#cors-settings-attribute>
 <CrossOrigin>:
   - anonymous
   - use-credentials
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype>
 <FormEnctype>:
   - application/x-www-form-urlencoded
   - multipart/form-data
   - text/plain
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method>
 <FormMethod>:
-  - dialog
   - get
   - post
+  - dialog
 
-<HttpEquiv>:
-  - content-security-policy
-  - content-type
-  - default-style
-  - x-ua-compatible
-  - refresh
-
+# Spec: <https://html.spec.whatwg.org/multipage/input.html#attr-input-type>
 <InputType>:
   link: mdn:Web/HTML/Element/input#input_types
   default:
     link: mdn:Web/HTML/Element/input/%S
   content:
-    - button
-    - checkbox
-    - color
-    - date
-    - datetime-local
-    - email
-    - file
     - hidden
-    - image
-    - month
-    - number
-    - password
-    - radio
-    - range
-    - reset
-    - search
-    - submit
-    - tel
     - text
-    - time
+    - search
+    - tel
     - url
+    - email
+    - password
+    - date
+    - month
     - week
+    - time
+    - datetime-local
+    - number
+    - range
+    - color
+    - checkbox
+    - radio
+    - file
+    - submit
+    - image
+    - reset
+    - button
 
-<LinkAs>:
-  - audio
-  - document
-  - embed
-  - fetch
-  - font
-  - image
-  - object
-  - script
-  - style
-  - track
-  - video
-  - worker
-
+# Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attribute>
 <Loading>:
-  - eager
   - lazy
+  - eager
 
+# Spec:
+# - <https://html.spec.whatwg.org/multipage/semantics.html#standard-metadata-names>
+# - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name>
 <MetaName>:
   link: mdn:Web/HTML/Element/meta/name
   content:
+    # Standard metadata names
     - application-name
     - author
     - description
     - generator
     - keywords
     - referrer
-    - time-color
+    - theme-color
     - color-scheme
     - viewport
+    # Other metadata names
     - creator
     - googlebot
     - publisher
     - robots
 
+# Spec: <https://w3c.github.io/webappsec-referrer-policy/#referrer-policies>
 <ReferrerPolicy>:
+  - <empty>
   - no-referrer
   - no-referrer-when-downgrade
-  - origin
-  - origin-when-cross-origin
   - same-origin
+  - origin
   - strict-origin
+  - origin-when-cross-origin
   - strict-origin-when-cross-origin
   - unsafe-url
 
+# Spec: <https://html.spec.whatwg.org/multipage/links.html#linkTypes>
 <Rel>:
   link: mdn:Web/HTML/Link_types
   default:
     link: mdn:Web/HTML/Link_types/%S
   content:
     - alternate
-    - archives
+    - canonical
     - author
     - bookmark
-    - canonical
     - dns-prefetch
     - external
-    - first
     - help
     - icon
-    - last
-    - license
     - manifest
-    - me
     - modulepreload
+    - license
     - next
     - nofollow
     - noopener
     - noreferrer
+    - opener
     - pingback
+    - preconnect
     - prefetch
     - preload
     - prerender
     - prev
     - search
-    - shortlink
-    - sidebar
     - stylesheet
     - tag
 
+# Spec: <https://html.spec.whatwg.org/multipage/iframe-embed-object.html#attr-iframe-sandbox>
 <Sandbox>:
-  - allow-downloads-without-user-activation
   - allow-downloads
   - allow-forms
   - allow-modals
@@ -215,16 +204,17 @@ $extend:
   - allow-presentation
   - allow-same-origin
   - allow-scripts
-  - allow-storage-access-by-user-activation
   - allow-top-navigation
   - allow-top-navigation-by-user-activation
+  - allow-top-navigation-to-custom-protocols
 
+# Spec: <https://html.spec.whatwg.org/multipage/document-sequences.html#navigable-target-names>
 <Target>:
-  - <url>
-  - _self
   - _blank
+  - _self
   - _parent
   - _top
+  - <name>
 
 # SVG types
 

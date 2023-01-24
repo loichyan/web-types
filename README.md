@@ -8,7 +8,7 @@ A collection of types for web development.
 - [ ] Check the specification of each entry.
   - [x] ARIA attributes
   - [x] Global events
-  - [ ] HTML elements
+  - [x] HTML elements
   - [ ] SVG elements
 - [ ] Explicitly extend other presets.
 - [ ] Restrict usage of `list<*>`.
