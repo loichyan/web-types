@@ -9,9 +9,10 @@ A collection of types for web development.
   - [x] ARIA attributes
   - [x] Global events
   - [x] HTML elements
-  - [ ] SVG elements
-- [ ] Explicitly extend other presets.
-- [ ] Restrict usage of `list<*>`.
+  - [x] SVG elements
+  - [ ] Builtin types
+- [x] Explicitly extend other presets.
+- [x] Restrict usage of `list<*>`.
 - [ ] More builtin types.
 - [ ] Add MathML elements.
 - [x] Add a list of all builtin types.

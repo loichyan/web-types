@@ -4,7 +4,6 @@
 $extend:
   - aria.yaml
   - event.yaml
-  - shared.yaml
 
 $default:
   link: mdn:Web/HTML/Element/%S

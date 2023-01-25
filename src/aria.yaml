@@ -1,142 +1,9 @@
 # ARIA attributes
+# Spec: <https://w3c.github.io/aria/>
 
-<Booleanish>:
-  link: https://w3c.github.io/aria/#valuetype_true-false
-  content:
-    - true
-    - false
+$extend:
+  - shared.yaml
 
-<UndefinedBooleanish>:
-  link: https://w3c.github.io/aria#valuetype_true-false-undefined
-  content:
-    - true
-    - false
-    - undefined
-
-<Tristate>:
-  link: https://w3c.github.io/aria#valuetype_tristate
-  content:
-    - true
-    - false
-    - mixed
-    - undefined
-
-# ARIA roles
-# Spec: <https://w3c.github.io/aria/#role_definitions>
-<Role>:
-  link: mdn:Web/Accessibility/ARIA/Roles
-  default:
-    link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
-  content:
-    - alert
-    - alertdialog
-    - application
-    - article
-    - associationlist
-    - associationlistitemkey
-    - associationlistitemvalue
-    - banner
-    - blockquote
-    - button
-    - caption
-    - cell
-    - checkbox
-    - code
-    - columnheader
-    - combobox
-    - command
-    - comment
-    - complementary
-    - composite
-    - contentinfo
-    - definition
-    - deletion
-    - dialog
-    - directory
-    - document
-    - emphasis
-    - feed
-    - figure
-    - form
-    - generic
-    - grid
-    - gridcell
-    - group
-    - heading
-    - image
-    - img
-    - input
-    - insertion
-    - landmark
-    - link
-    - list
-    - listbox
-    - listitem
-    - log
-    - main
-    - mark
-    - marquee
-    - math
-    - menu
-    - menubar
-    - menuitem
-    - menuitemcheckbox
-    - menuitemradio
-    - meter
-    - navigation
-    - none
-    - note
-    - option
-    - paragraph
-    - presentation
-    - progressbar
-    - radio
-    - radiogroup
-    - range
-    - region
-    - roletype
-    - row
-    - rowgroup
-    - rowheader
-    - scrollbar
-    - search
-    - searchbox
-    - section
-    - sectionhead
-    - select
-    - separator
-    - slider
-    - spinbutton
-    - status
-    - strong
-    - structure
-    - subscript
-    - suggestion
-    - superscript
-    - switch
-    - tab
-    - table
-    - tablist
-    - tabpanel
-    - term
-    - textbox
-    - time
-    - timer
-    - toolbar
-    - tooltip
-    - tree
-    - treegrid
-    - treeitem
-    - widget
-    - window
-
-<AriaRelevant>:
-  - additions
-  - all
-  - removals
-  - text
-
-# ARIA attributes
 # Spec:
 # - <https://w3c.github.io/aria/#state_prop_def>
 # - <https://w3c.github.io/aria/#idl-interface>
@@ -180,13 +47,13 @@ ARIA_ATTR:
   aria-controls: list<id>
   aria-current:
     type:
+      - true
+      - false
       - page
       - step
       - location
       - date
       - time
-      - true
-      - false
     prop: ariaCurrent
   aria-describedby: list<id>
   aria-description:
@@ -203,8 +70,8 @@ ARIA_ATTR:
   aria-flowto: list<id>
   aria-haspopup:
     type:
-      - false
       - true
+      - false
       - menu
       - listbox
       - tree
@@ -216,10 +83,10 @@ ARIA_ATTR:
     prop: ariaHidden
   aria-invalid:
     type:
-      - grammar
-      - false
-      - spelling
       - true
+      - false
+      - grammar
+      - spelling
     prop: ariaInvalid
   aria-keyshortcuts:
     type: <string>

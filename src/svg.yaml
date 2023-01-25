@@ -4,7 +4,6 @@
 $extend:
   - aria.yaml
   - event.yaml
-  - shared.yaml
 
 $default:
   link: mdn:Web/SVG/Element/%s
@@ -52,16 +51,10 @@ _SVG_PRESENTATION_ATTR:
     - top
     - center
     - bottom
-    - <length>
-    - <percentage>
+    - <LengthPercentage>
   clip-path:
     - inherit
-    - none
-    - fill-box
-    - stroke-box
-    - view-box
-    - <url>
-    - <string>
+    - <ClipPath>
   clip-rule:
     - inherit
     - nonzero
@@ -69,8 +62,12 @@ _SVG_PRESENTATION_ATTR:
   color:
     - inherit
     - <color>
-  color-interpolation: <ColorInterpolation>
-  color-interpolation-filters: <ColorInterpolation>
+  color-interpolation:
+    - inherit
+    - <ColorInterpolation>
+  color-interpolation-filters:
+    - inherit
+    - <ColorInterpolation>
   color-rendering:
     - inherit
     - auto
@@ -78,43 +75,7 @@ _SVG_PRESENTATION_ATTR:
     - optimizeQuality
   cursor:
     - inherit
-    - auto
-    - default
-    - none
-    - context-menu
-    - help
-    - pointer
-    - progress
-    - wait
-    - cell
-    - crosshair
-    - text
-    - vertical-text
-    - alias
-    - copy
-    - move
-    - no-drop
-    - not-allowed
-    - grab
-    - grabbing
-    - e-resize
-    - n-resize
-    - ne-resize
-    - nw-resize
-    - s-resize
-    - se-resize
-    - sw-resize
-    - w-resize
-    - ew-resize
-    - ns-resize
-    - nesw-resize
-    - nwse-resize
-    - col-resize
-    - row-resize
-    - all-scroll
-    - zoom-in
-    - zoom-out
-    - <string>
+    - <Cursor>
   direction:
     - inherit
     - ltr
@@ -147,10 +108,12 @@ _SVG_PRESENTATION_ATTR:
     - mathematical
     - hanging
     - text-top
+  fill:
+    - inherit
+    - <Paint>
   fill-opacity:
     - inherit
-    - <number>
-    - <percentage>
+    - <AlphaValue>
   fill-rule:
     - inherit
     - nonzero
@@ -158,17 +121,16 @@ _SVG_PRESENTATION_ATTR:
   filter:
     - inherit
     - none
-    - <string>
+    - <FilterValueList>
   flood-color:
     - inherit
     - <color>
   flood-opacity:
     - inherit
-    - <number>
-    - <percentage>
+    - <AlphaValue>
   font-family:
     - inherit
-    - <string>
+    - <FontFamilyList>
   font-size:
     - inherit
     - xx-small
@@ -180,8 +142,7 @@ _SVG_PRESENTATION_ATTR:
     - xx-large
     - larger
     - smaller
-    - <length>
-    - <percentage>
+    - <LengthPercentage>
   font-size-adjust:
     - inherit
     - none
@@ -204,9 +165,7 @@ _SVG_PRESENTATION_ATTR:
     - oblique
   font-variant:
     - inherit
-    - none
-    - normal
-    - <string>
+    - <FontVariant>
   font-weight:
     - inherit
     - normal
@@ -248,11 +207,10 @@ _SVG_PRESENTATION_ATTR:
     - <url>
   mask:
     - inherit
-    - <string>
+    - <MaskLayerList>
   opacity:
     - inherit
-    - <number>
-    - <percentage>
+    - <AlphaValue>
   overflow:
     - inherit
     - auto
@@ -287,8 +245,7 @@ _SVG_PRESENTATION_ATTR:
     - <string>
   stop-opacity:
     - inherit
-    - <number>
-    - <percentage>
+    - <AlphaValue>
   stroke:
     - inherit
     - none
@@ -301,8 +258,7 @@ _SVG_PRESENTATION_ATTR:
     - <string>
   stroke-dashoffset:
     - inherit
-    - <length>
-    - <percentage>
+    - <LengthPercentage>
   stroke-linecap:
     - inherit
     - butt
@@ -320,12 +276,10 @@ _SVG_PRESENTATION_ATTR:
     - <number>
   stroke-opacity:
     - inherit
-    - <number>
-    - <percentage>
+    - <AlphaValue>
   stroke-width:
     - inherit
-    - <length>
-    - <percentage>
+    - <LengthPercentage>
   text-anchor:
     - inherit
     - start
@@ -395,12 +349,14 @@ GLOBAL_ATTR:
     - _SVG_CONDITIONAL_PROCESSING_ATTR
     - _SVG_PRESENTATION_ATTR
 
-_SVG_ANIMATION_EVENT:
+# Spec: <https://svgwg.org/specs/animations/#TermAnimationEventAttribute>
+_ANIMATION_EVENT:
   $link: mdn:Web/SVG/Attribute/Events#animation_event_attributes
   on:begin: Event
   on:end: Event
   on:repeat: Event
 
+# Spec: <https://svgwg.org/specs/animations/#AdditionAttributes>
 _ANIMATION_ADDITION_ATTR:
   $link: mdn:Web/SVG/Attribute#animation_addition_attributes
   $default:
@@ -412,18 +368,21 @@ _ANIMATION_ADDITION_ATTR:
     - none
     - sum
 
-_ANIMATION_ATTRIBUTE_TARGET_ATTR:
-  $link: mdn:Web/SVG/Attribute#animation_attribute_target_attributes
-  $default:
-    link: mdn:Web/SVG/Attribute/%s
-  attributeName: <name>
-
+# Spec: <https://svgwg.org/specs/animations/#TargetElement>
 _ANIMATION_TARGET_ELEMENT_ATTR:
   $link: mdn:Web/SVG/Attribute#animation_target_element_attributes
   $default:
     link: mdn:Web/SVG/Attribute/%s
   href: <url>
 
+# Spec: <https://svgwg.org/specs/animations/#TargetAttributes>
+_ANIMATION_ATTRIBUTE_TARGET_ATTR:
+  $link: mdn:Web/SVG/Attribute#animation_attribute_target_attributes
+  $default:
+    link: mdn:Web/SVG/Attribute/%s
+  attributeName: <name>
+
+# Spec: <https://svgwg.org/specs/animations/#TimingAttributes>
 _ANIMATION_TIMING_ATTR:
   $link: mdn:Web/SVG/Attribute#animation_timing_attributes
   $default:
@@ -432,22 +391,29 @@ _ANIMATION_TIMING_ATTR:
   dur:
     - media
     - indefinite
-    - <string>
+    - <clock>
   end: <string>
-  fill: <string>
-  max: <string>
-  min: <string>
+  min:
+    - media
+    - <clock>
+  max:
+    - media
+    - <clock>
+  restart:
+    - always
+    - whenNotActive
+    - never
   repeatCount:
     - indefinite
     - <number>
   repeatDur:
     - indefinite
-    - <string>
-  restart:
-    - always
-    - whenNotActive
-    - never
+    - <clock>
+  fill:
+    - freeze
+    - remove
 
+# Spec: <https://svgwg.org/specs/animations/#ValueAttributes>
 _ANIMATION_VALUE_ATTR:
   $link: mdn:Web/SVG/Attribute#animation_value_attributes
   $default:
@@ -457,8 +423,8 @@ _ANIMATION_VALUE_ATTR:
     - linear
     - paced
     - spline
-  values: <string>
-  keyTimes: <string>
+  values: list<string;>
+  keyTimes: list<number;>
   keySplines: <string>
   from: <string>
   to: <string>
@@ -469,39 +435,85 @@ _ANIMATION_ATTR:
     - _ANIMATION_EVENT
     - _ANIMATION_ADDITION_ATTR
     - _ANIMATION_TARGET_ELEMENT_ATTR
+    - _ANIMATION_ATTRIBUTE_TARGET_ATTR
     - _ANIMATION_TIMING_ATTR
     - _ANIMATION_VALUE_ATTR
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#filter-primitive-attributes>
+_FILTER_PRIMITIVE_ATTR:
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <LengthPercentage>
+  height: <LengthPercentage>
+  result: <name>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#transfer-function-element-attributes>
+_TRANSFER_FUNCTION_ELEMENT_ATTR:
+  type:
+    - identity
+    - table
+    - discrete
+    - linear
+    - gamma
+  tableValues: list<number>
+  slope: <number>
+  intercept: <number>
+  amplitude: <number>
+  exponent: <number>
+  offset: <number>
+
+_SVG_TEXT_ELEMENT_ATTR:
+  x: list<LengthPercentageOrNum>
+  y: list<LengthPercentageOrNum>
+  dx: list<LengthPercentageOrNum>
+  dy: list<LengthPercentageOrNum>
+  rotate: list<number>
+  lengthAdjust: <LengthAdjust>
+  textLength: <LengthPercentageOrNum>
+
+# TODO: check DOM interfaces
+
+# Spec: <https://www.w3.org/TR/SVG2/linking.html#AElement>
 a:
   $type: SVGAElement
+  $extend:
+    - GLOBAL_ATTR
   href: <url>
   target: <Target>
-  download: <url>
+  download: <string>
   ping: list<url>
   rel: <Rel>
   hreflang: <lang>
   type: <mime>
   referrerpolicy: <RefererrPolicy>
 
+# Spec: <https://svgwg.org/specs/animations/#AnimateElement>
 animate:
   $type: SVGAnimateElement
   $extend:
+    - GLOBAL_ATTR
     - _ANIMATION_ATTR
 
+# Spec: <https://svgwg.org/specs/animations/#AnimateMotionElement>
 animateMotion:
   $type: SVGAnimateMotionElement
   $extend:
+    - GLOBAL_ATTR
     - _ANIMATION_ATTR
-  keyPoints: <string>
-  path: <string>
+  path: <svg_path>
+  keyPoints: list<number;>
   rotate:
     - auto
     - auto-reverse
     - <number>
+  origin:
+    - default
 
+# Spec: <https://svgwg.org/specs/animations/#AnimateTransformElement>
 animateTransform:
   $type: SVGAnimateTransformElement
   $extend:
+    - GLOBAL_ATTR
     - _ANIMATION_ATTR
   type:
     - translate
@@ -510,35 +522,57 @@ animateTransform:
     - skewX
     - skewY
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#CircleElement>
 circle:
   $type: SVGCircleElement
-  cx: <string>
-  cy: <string>
-  r: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  cx: <LengthPercentage>
+  cy: <LengthPercentage>
+  r: <LengthPercentage>
 
+# Spec: <https://drafts.fxtf.org/css-masking-1/#ClipPathElement>
 clipPath:
   $type: SVGClipPathElement
+  $extend:
+    - GLOBAL_ATTR
+  externalResourcesRequired: <Booleanish>
   clipPathUnits: <Units>
 
-defs: SVGDefsElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#DefsElement>
+defs:
+  $type: SVGDefsElement
+  $extend:
+    - GLOBAL_ATTR
 
-desc: SVGDescElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#DescElement>
+desc:
+  $type: SVGDescElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#EllipseElement>
 ellipse:
   $type: SVGEllipseElement
-  cx: <string>
-  cy: <string>
+  $extend:
+    - GLOBAL_ATTR
+  pathLength: <number>
+  cx: <LengthPercentage>
+  cy: <LengthPercentage>
   rx:
     - auto
-    - <string>
+    - <LengthPercentage>
   ry:
     - auto
-    - <string>
-  pathLength: <number>
+    - <LengthPercentage>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feBlendElement>
 feBlend:
   $type: SVGFEBlendElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   in2: <In>
   mode:
@@ -559,35 +593,58 @@ feBlend:
     - color
     - luminosity
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feColorMatrixElement>
 feColorMatrix:
   $type: SVGFEColorMatrixElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   type:
     - matrix
     - saturate
     - hueRotate
     - luminanceToAlpha
-  values: <string>
+  values: list<number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feComponentTransferElement>
 feComponentTransfer:
   $type: SVGFEComponentTransferElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feCompositeElement>
 feComposite:
   $type: SVGCompositeElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   in2: <In>
-  operator: <Operator>
+  operator:
+    - over
+    - in
+    - out
+    - atop
+    - xor
+    - lighter
+    - arithmetic
   k1: <number>
   k2: <number>
   k3: <number>
   k4: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feConvolveMatrixElement>
 feConvolveMatrix:
   $type: SVGFEConvolveMatrixElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
-  order: <string>
-  kernelMatrix: <string>
+  order: <NumOptNum>
+  kernelMatrix: list<number>
   divisor: <number>
   bias: <number>
   targetX: <integer>
@@ -596,343 +653,504 @@ feConvolveMatrix:
     - none
     - duplicate
     - wrap
-  preserveAlpha:
-    - false
-    - true
+  preserveAlpha: <Booleanish>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feDiffuseLightingElement>
 feDiffuseLighting:
   $type: SVGFEDiffuseLightingElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   sufaceScale: <number>
   diffuseConstant: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feDisplacementMapElement>
 feDisplacementMap:
   $type: SVGFEDisplacementMapElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   in2: <In>
   scale: <number>
-  xChannelSelector:
-    - R
-    - G
-    - B
-    - A
-  yChannelSelector:
-    - R
-    - G
-    - B
-    - A
+  xChannelSelector: <ChannelSelector>
+  yChannelSelector: <ChannelSelector>
 
-feDropShadow: SVGFEDropShadowElement
+# Spec: <https://drafts.fxtf.org/filter-effects/#feDropShadowElement>
+feDropShadow:
+  $type: SVGFEDropShadowElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
+  in: <In>
+  stdDeviation: <NumOptNum>
+  dx: <number>
+  dy: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feDistantLightElement>
 feDistantLight:
   $type: SVGFEDistanLightElement
+  $extend:
+    - GLOBAL_ATTR
   azimuth: <number>
   elevation: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feFloodElement>
 feFlood:
   $type: SVGFloodElement
-  flood-color: <string>
-  flood-opacity: <string>
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
 
-feFuncA: SVGFEFuncAElement
-feFuncB: SVGFEFuncBElement
-feFuncG: SVGFEFuncGElement
-feFuncR: SVGFEFuncRElement
+# Spec: <https://drafts.fxtf.org/filter-effects/#feFuncRElement>
+feFuncA:
+  $type: SVGFEFuncAElement
+  $extend:
+    - GLOBAL_ATTR
+    - _TRANSFER_FUNCTION_ELEMENT_ATTR
+feFuncB:
+  $type: SVGFEFuncBElement
+  $extend:
+    - GLOBAL_ATTR
+    - _TRANSFER_FUNCTION_ELEMENT_ATTR
+feFuncG:
+  $type: SVGFEFuncGElement
+  $extend:
+    - GLOBAL_ATTR
+    - _TRANSFER_FUNCTION_ELEMENT_ATTR
+feFuncR:
+  $type: SVGFEFuncRElement
+  $extend:
+    - GLOBAL_ATTR
+    - _TRANSFER_FUNCTION_ELEMENT_ATTR
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feGaussianBlurElement>
 feGaussianBlur:
   $type: SVGFEGaussianBlurElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
-  stdDeviation: <string>
+  stdDeviation: <NumOptNum>
   edgeMode:
+    - none
     - duplicate
     - wrap
-    - none
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feImageElement>
 feImage:
   $type: SVGFEImageElement
-  preserveAspectRatio: <string>
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
+  externalResourcesRequired: <Booleanish>
+  preserveAspectRatio: <PreserveAspectRatio>
+  href: <url>
+  crossOrigin: <CrossOrigin>
 
-feMerge: SVGFEMergeElement
+# Spec: <https://drafts.fxtf.org/filter-effects/#feMergeElement>
+feMerge:
+  $type: SVGFEMergeElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feMergeNodeElement>
 feMergeNode:
   $type: SVGFEMergeNodeElement
+  $extend:
+    - GLOBAL_ATTR
   in: <In>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feMorphologyElement>
 feMorphology:
   $type: SVGFEMorphologyElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
-  operator: <Operator>
-  radius: <string>
+  operator:
+    - erode
+    - dilate
+  radius: <NumOptNum>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feOffsetElement>
 feOffset:
   $type: SVGFEOffsetElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   dx: <number>
   dy: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#fePointLightElement>
 fePointLight:
   $type: SVGPointLightElement
-  x: <string>
-  y: <string>
-  z: <string>
+  $extend:
+    - GLOBAL_ATTR
+  x: <number>
+  y: <number>
+  z: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feSpecularLightingElement>
 feSpecularLighting:
   $type: SVGFESpecularLightingElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
   surfaceScale: <number>
   specularConstant: <number>
   specularExponent: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feSpotLightElement>
 feSpotLight:
   $type: SVGSpotLightElement
-  x: <string>
-  y: <string>
-  z: <string>
+  $extend:
+    - GLOBAL_ATTR
+  x: <number>
+  y: <number>
+  z: <number>
   pointsAtX: <number>
   pointsAtY: <number>
   pointsAtZ: <number>
   specularExponent: <number>
+  limitingConeAngle: <number>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feTileElement>
 feTile:
   $type: SVGFETileElement
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
   in: <In>
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#feTurbulenceElement>
 feTurbulence:
   $type: SVGFETurbulenceElement
-  baseFrequency: <string>
+  $extend:
+    - GLOBAL_ATTR
+    - _FILTER_PRIMITIVE_ATTR
+  baseFrequency: <NumOptNum>
   numOctaves: <integer>
   seed: <number>
   stichTiles:
-    - noStitch
     - stitch
+    - noStitch
   type:
     - fractaNoise
     - turbulence
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#FilterElement>
 filter:
   $type: SVGFilterElement
-  x: <string>
-  y: <string>
-  width: <string>
-  height: <string>
+  $extend:
+    - GLOBAL_ATTR
+  externalResourcesRequired: <Booleanish>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <LengthPercentage>
+  height: <LengthPercentage>
   filterUnits: <Units>
   primitiveUnits: <Units>
 
-foreignObject: SVGForeignObjectElement
+# Spec: <https://www.w3.org/TR/SVG2/embedded.html#ForeignObjectElement>
+foreignObject:
+  $type: SVGForeignObjectElement
+  $extend:
+    - GLOBAL_ATTR
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
 
-g: SVGGElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#GElement>
+g:
+  $type: SVGGElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/embedded.html#ImageElement>
 image:
   $type: SVGImageElement
-  x: <string>
-  y: <string>
-  width: <string>
-  height: <string>
+  $extend:
+    - GLOBAL_ATTR
+  preserveAspectRatio: <PreserveAspectRatio>
   href: <url>
-  preserveAspectRatio: <string>
   crossOrigin: <CrossOrigin>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#LineElement>
 line:
   $type: SVGLineElement
-  x1: <string>
-  x2: <string>
-  y1: <string>
-  y2: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  x1: <LengthPercentageOrNum>
+  x2: <LengthPercentageOrNum>
+  y1: <LengthPercentageOrNum>
+  y2: <LengthPercentageOrNum>
 
+# Spec: <https://www.w3.org/TR/SVG2/pservers.html#LinearGradientElement>
 linearGradient:
   $type: SVGLinearGradientElement
+  $extend:
+    - GLOBAL_ATTR
+  x1: <length>
+  x2: <length>
+  y1: <length>
+  y2: <length>
   gradientUnits: <Units>
   gradientTransform: <string>
   spreadMethod: <SpreadMethod>
   href: <url>
-  x1: <string>
-  x2: <string>
-  y1: <string>
-  y2: <string>
 
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#MarkerElement>
 marker:
   $type: SVGMarkerElement
-  markerHeight: <string>
+  $extend:
+    - GLOBAL_ATTR
+  viewBox: <ViewBox>
+  preserveAspectRatio: <PreserveAspectRatio>
+  refX: <RefX>
+  refY: <RefY>
   markerUnits: <Units>
-  markerWidth: <string>
+  markerWidth: <LengthPercentageOrNum>
+  markerHeight: <LengthPercentageOrNum>
   orient:
     - auto
     - auto-start-reverse
-    - <string>
-  preserveAspectRatio: <string>
-  refX:
-    - left
-    - center
-    - right
-    - <string>
-  refY:
-    - top
-    - center
-    - bottom
-    - <string>
-  viewBox: <string>
+    - <angle>
+    - <number>
 
+# Spec: <https://drafts.fxtf.org/css-masking-1/#MaskElement>
 mask:
   $type: SVGMaskElement
-  height: <string>
-  maskContentUnits: <Units>
+  $extend:
+    - GLOBAL_ATTR
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <LengthPercentage>
+  height: <LengthPercentage>
   maskUnits: <Units>
-  x: <string>
-  y: <string>
-  width: <string>
+  maskContentUnits: <Units>
 
-metadata: SVGMetadataElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#MetadataElement>
+metadata:
+  $type: SVGMetadataElement
+  $extend:
+    - GLOBAL_ATTR
 
-mpath: SVGMPathElement
+# Spec: <https://svgwg.org/specs/animations/#MPathElement>
+mpath:
+  $type: SVGMPathElement
+  $extend:
+    - GLOBAL_ATTR
+  href: <url>
 
+# Spec: <https://www.w3.org/TR/SVG2/paths.html#PathElement>
 path:
   $type: SVGPathElement
-  d: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  d:
+    - none
+    - <string>
 
+# Spec: <https://www.w3.org/TR/SVG2/pservers.html#PatternElement>
 pattern:
   $type: SVGPatternElement
-  height: <string>
-  href: <url>
+  $extend:
+    - GLOBAL_ATTR
+  viewBox: <ViewBox>
+  preserveAspectRatio: <PreserveAspectRatio>
+  x: <length>
+  y: <length>
+  width: <length>
+  height: <length>
+  patternUnits: <Units>
   patternContentUnits: <Units>
   patternTransform: <string>
-  patternUnits: <Units>
-  preserveAspectRatio: <string>
-  viewBox: <string>
-  width: <string>
-  x: <string>
-  y: <string>
+  href: <url>
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#PolygonElement>
 polygon:
   $type: SVGPolygonElement
-  points: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  points: list<Point>
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#PolylineElement>
 polyline:
   $type: SVGPolylineElement
-  points: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  points: list<Point>
 
+# Spec: <https://www.w3.org/TR/SVG2/pservers.html#RadialGradientElement>
 radialGradient:
   $type: SVGRadiaGradientElement
-  cx: <string>
-  cy: <string>
-  fr: <string>
+  $extend:
+    - GLOBAL_ATTR
+  cx: <length>
+  cy: <length>
+  r: <length>
   fx: <string>
   fy: <string>
+  fr: <string>
   gradientUnits: <Units>
   gradientTransform: <string>
-  href: <url>
-  r: <string>
   spreadMethod: <SpreadMethod>
+  href: <url>
 
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#RectElement>
 rect:
   $type: SVGRectElement
-  x: <string>
-  y: <string>
-  width: <string>
-  height: <string>
-  rx: <string>
-  ry: <string>
+  $extend:
+    - GLOBAL_ATTR
   pathLength: <number>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
+  rx:
+    - auto
+    - <LengthPercentage>
+  ry:
+    - auto
+    - <LengthPercentage>
 
+# Spec: <https://www.w3.org/TR/SVG2/interact.html#ScriptElement>
 script:
   $type: SVGScriptElement
-  crossOrigin: <CrossOrigin>
+  $extend:
+    - GLOBAL_ATTR
+  type: <mime>
   href: <url>
-  type: <string>
+  crossOrigin: <CrossOrigin>
 
+# Spec: <https://svgwg.org/specs/animations/#SetElement>
 set:
   $type: SVGSetElement
+  $extend:
+    - GLOBAL_ATTR
   to: <string>
 
+# Spec: <https://www.w3.org/TR/SVG2/pservers.html#StopElement>
 stop:
   $type: SVGStopElement
-  offset: <string>
-  stop-color: <string>
-  stop-opacity: <string>
+  $extend:
+    - GLOBAL_ATTR
+  offset:
+    - <number>
+    - <percentage>
 
+# Spec: <https://www.w3.org/TR/SVG2/styling.html#StyleElement>
 style:
   $type: SVGStyleElement
-  type: <string>
+  $extend:
+    - GLOBAL_ATTR
+  type: <mime>
   media: <string>
   title: <string>
 
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#SVGElement>
 svg:
   $type: SVGSVGElement
-  baseProfile: <string>
-  contentScriptType: <string>
-  contentStyleType: <string>
-  height: <string>
-  preserveAspectRatio: <string>
-  version: <number>
-  viewBox: <string>
-  width: <string>
-  x: <string>
-  y: <string>
+  $extend:
+    - GLOBAL_ATTR
+  viewBox: <ViewBox>
+  preserveAspectRatio: <PreserveAspectRatio>
+  zoomAndPan: <ZoomAndPan>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
 
-switch: SVGSwitchElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#SwitchElement>
+switch:
+  $type: SVGSwitchElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#SymbolElement>
 symbol:
   $type: SVGSymbolElement
-  height: <string>
-  preserveAspectRatio: <string>
-  refX: <string>
-  refY: <string>
-  viewBox: <string>
-  width: <string>
-  x: <string>
-  y: <string>
+  $extend:
+    - GLOBAL_ATTR
+  viewBox: <ViewBox>
+  preserveAspectRatio: <PreserveAspectRatio>
+  refX: <RefX>
+  refY: <RefY>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
 
+# Spec: <https://www.w3.org/TR/SVG2/text.html#TextElement>
 text:
   $type: SVGTextElement
-  x: <string>
-  y: <string>
-  dx: <string>
-  dy: <string>
-  rotate: <string>
-  lengthAdjust: <LengthAdjust>
-  textLength: <string>
+  $extend:
+    - GLOBAL_ATTR
+    - _SVG_TEXT_ELEMENT_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/text.html#TextPathElement>
 textPath:
   $type: SVGTextPathElement
-  href: <url>
+  $extend:
+    - GLOBAL_ATTR
   lengthAdjust: <LengthAdjust>
+  textLength: <LengthPercentageOrNum>
+  href: <url>
+  path: <svg_path>
+  startOffset: <LengthPercentageOrNum>
   method:
     - align
     - stretch
-  path: <string>
-  side:
-    - left
-    - right
   spacing:
     - auto
     - exact
-  startOffset: <string>
-  textLength: <string>
+  side:
+    - left
+    - right
 
-title: SVGTitleElement
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#TitleElement>
+title:
+  $type: SVGTitleElement
+  $extend:
+    - GLOBAL_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/text.html#TextElement>
 tspan:
   $type: SVGTSpanElement
-  x: <string>
-  y: <string>
-  dx: <string>
-  dy: <string>
-  rotate: <string>
-  lengthAdjust: <LengthAdjust>
-  textLength: <string>
+  $extend:
+    - GLOBAL_ATTR
+    - _SVG_TEXT_ELEMENT_ATTR
 
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#UseElement>
 use:
   $type: SVGUseElement
-  x: <string>
-  y: <string>
+  $extend:
+    - GLOBAL_ATTR
   href: <url>
-  width: <string>
-  height: <string>
+  x: <LengthPercentage>
+  y: <LengthPercentage>
+  width: <WidthHeight>
+  height: <WidthHeight>
 
+# Spec: <https://www.w3.org/TR/SVG2/linking.html#ViewElement>
 view:
   $type: SVGViewElement
-  viewBox: <string>
-  preserveAspectRatio: <string>
+  $extend:
+    - GLOBAL_ATTR
+  viewBox: <ViewBox>
+  preserveAspectRatio: <PreserveAspectRatio>
+  zoomAndPan: <ZoomAndPan>

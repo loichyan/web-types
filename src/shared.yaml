@@ -1,4 +1,139 @@
-# Shared type definitions and presets for HTML and SVG elements.
+# Shared type definitions.
+
+# == ARIA types == #
+
+<AriaRelevant>:
+  - additions
+  - all
+  - removals
+  - text
+
+# Spec: <https://w3c.github.io/aria/#valuetype_true-false>
+<Booleanish>:
+  - true
+  - false
+
+# ARIA roles
+# Spec: <https://w3c.github.io/aria/#role_definitions>
+<Role>:
+  link: mdn:Web/Accessibility/ARIA/Roles
+  default:
+    link: mdn:Web/Accessibility/ARIA/Roles#aria_%s_role
+  content:
+    - alert
+    - alertdialog
+    - application
+    - article
+    - associationlist
+    - associationlistitemkey
+    - associationlistitemvalue
+    - banner
+    - blockquote
+    - button
+    - caption
+    - cell
+    - checkbox
+    - code
+    - columnheader
+    - combobox
+    - command
+    - comment
+    - complementary
+    - composite
+    - contentinfo
+    - definition
+    - deletion
+    - dialog
+    - directory
+    - document
+    - emphasis
+    - feed
+    - figure
+    - form
+    - generic
+    - grid
+    - gridcell
+    - group
+    - heading
+    - image
+    - img
+    - input
+    - insertion
+    - landmark
+    - link
+    - list
+    - listbox
+    - listitem
+    - log
+    - main
+    - mark
+    - marquee
+    - math
+    - menu
+    - menubar
+    - menuitem
+    - menuitemcheckbox
+    - menuitemradio
+    - meter
+    - navigation
+    - none
+    - note
+    - option
+    - paragraph
+    - presentation
+    - progressbar
+    - radio
+    - radiogroup
+    - range
+    - region
+    - roletype
+    - row
+    - rowgroup
+    - rowheader
+    - scrollbar
+    - search
+    - searchbox
+    - section
+    - sectionhead
+    - select
+    - separator
+    - slider
+    - spinbutton
+    - status
+    - strong
+    - structure
+    - subscript
+    - suggestion
+    - superscript
+    - switch
+    - tab
+    - table
+    - tablist
+    - tabpanel
+    - term
+    - textbox
+    - time
+    - timer
+    - toolbar
+    - tooltip
+    - tree
+    - treegrid
+    - treeitem
+    - widget
+    - window
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#feImageElement>
+<Tristate>:
+  - true
+  - false
+  - mixed
+  - undefined
+
+# Spec: <https://w3c.github.io/aria#valuetype_true-false-undefined>
+<UndefinedBooleanish>:
+  - true
+  - false
+  - undefined
 
 # == HTML types == #
 
@@ -218,13 +353,64 @@
 
 # == SVG types == #
 
+# Spec: <https://www.w3.org/TR/css-color/#typedef-alpha-value>
+<AlphaValue>:
+  - <number>
+  - <percentage>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#element-attrdef-fedisplacementmap-xchannelselector>
+<ChannelSelector>:
+  - R
+  - G
+  - B
+  - A
+
+# Spec: <https://drafts.fxtf.org/css-masking-1/#the-clip-path>
+<GeometryBox>:
+  - fill-box
+  - stroke-box
+  - view-box
+<GeometryBoxBasicShape>: tuple<GeometryBox basic_shape>
+<ClipPath>:
+  - none
+  - <url>
+  - <GeometryBoxBasicShape>
+
 # Spec: <https://www.w3.org/TR/SVG2/painting.html#ColorInterpolationProperty>
 <ColorInterpolation>:
-  - inherit
   - auto
   - sRGB
   - linearRGB
 
+# Spec: <https://drafts.fxtf.org/filter-effects/#typedef-filter-value-list>
+<FilterValue>:
+  - <filter_function>
+  - <url>
+<FilterValueList>: list<FilterValue>
+
+# Spec: <https://www.w3.org/TR/css-fonts-3/#font-family-prop>
+<FontFamilyList>: list<font_family,>
+
+# Spec: <https://www.w3.org/TR/css-fonts-3/#font-variant-ligatures-prop>
+<CommonLigValues>:
+  - common-ligatures
+  - no-common-ligatures
+<DiscretionaryLigValues>:
+  - discretionary-ligatures
+  - no-discretionary-ligatures
+<HistoricalLigValues>:
+  - historical-ligatures
+  - no-historical-ligatures
+<ContextualAltValues>:
+  - contextual
+  - no-contextual
+<FontVariantTuple>: tuple<CommonLigValues DiscretionaryLigValues HistoricalLigValues ContextualAltValues>
+<FontVariant>:
+  - normal
+  - none
+  - <FontVariantTuple>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#element-attrdef-filter-primitive-in>
 <In>:
   - SourceGraphic
   - SourceAlpha
@@ -232,26 +418,126 @@
   - BackgroundAlpha
   - FillPaint
   - StrokePaint
-  - <string>
+  - <name>
 
-<Operator>:
-  - over
-  - in
-  - out
-  - atop
-  - xor
-  - lighter
-  - arithmetic
+<LengthAdjust>:
+  - spacing
+  - spacingAndGlyphs
 
-<Units>:
-  - userSpaceOnUse
-  - objectBoundingBox
+# Spec: <https://www.w3.org/TR/css-values/#typedef-length-percentage>
+<LengthPercentage>:
+  - <length>
+  - <percentage>
+
+<LengthPercentageOrNum>:
+  - <length>
+  - <percentage>
+  - <number>
+
+# Spec: <https://drafts.fxtf.org/css-masking-1/#typedef-mask-layer>
+<MaskLayerList>: list<mask_layer,>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#typedef-number-optional-number>
+<NumOptNum>: tuple<number number?>
+
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#SpecifyingPaint>
+<ColorOrNone>:
+  - none
+  - <color>
+<UrlOptColor>: tuple<url ColorOrNone?>
+<Paint>:
+  - none
+  - context-fill
+  - context-stroke
+  - <color>
+  - <UrlOptColor>
+
+# Spec: <https://www.w3.org/TR/css-ui-3/#cursor>
+<CursorUrlCoord>: tuple<number number>
+<CursorUrl>: tuple<url CursorUrlCoord>
+<CursorUrlList>: list<CursorUrl>
+<CursorEnum>:
+  - auto
+  - default
+  - none
+  - context-menu
+  - help
+  - pointer
+  - progress
+  - wait
+  - cell
+  - crosshair
+  - text
+  - vertical-text
+  - alias
+  - copy
+  - move
+  - no-drop
+  - not-allowed
+  - grab
+  - grabbing
+  - e-resize
+  - n-resize
+  - ne-resize
+  - nw-resize
+  - s-resize
+  - se-resize
+  - sw-resize
+  - w-resize
+  - ew-resize
+  - ns-resize
+  - nesw-resize
+  - nwse-resize
+  - col-resize
+  - row-resize
+  - all-scroll
+  - zoom-in
+  - zoom-out
+<Cursor>: tuple<CursorUrlList CursorEnum>
+
+<Point>: tuple<number number>
+
+# Spec: <https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute>
+<Align>:
+  - none
+  - xMinYMin
+  - xMidYMin
+  - xMaxYMin
+  - xMinYMid
+  - xMidYMid
+  - xMaxYMid
+  - xMinYMax
+  - xMidYMax
+  - xMaxYMax
+<MeetOrSlice>:
+  - meet
+  - slice
+<PreserveAspectRatio>: tuple<Align MeetOrSlice?>
+
+<RefX>:
+  - left
+  - center
+  - right
+  - <LengthPercentageOrNum>
+
+<RefY>:
+  - top
+  - center
+  - bottom
+  - <LengthPercentageOrNum>
 
 <SpreadMethod>:
   - pad
   - reflect
   - repeat
 
-<LengthAdjust>:
-  - spacing
-  - spacingAndGlyphs
+<Units>:
+  - userSpaceOnUse
+  - objectBoundingBox
+
+<ViewBox>: tuple<number number number number>
+
+<WidthHeight>:
+  - inherit
+  - auto
+  - <LengthPercentage>

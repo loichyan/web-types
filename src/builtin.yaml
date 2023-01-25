@@ -25,11 +25,17 @@
 - list<T>
 
 # A comma-separated list of <T>.
-# TODO: more comma/semicolon-separated list attributes
+# TODO: more comma/semicolon-separated attributes
 - list<T,>
 
 # A semicolon-separated list of <T>.
 - list<T;>
+
+# <T1> followed by a optional <T2>.
+- tuple<T1 T2?>
+
+# A space-separated tuple, 'Tn?' indicates an optional type.
+- tuple<T1 T2 ... Tn>
 
 # A character.
 - <char>
@@ -70,6 +76,14 @@
 
 # == Types used in SVG elements == #
 
+# An angle value.
+# See: <https://www.w3.org/TR/2012/WD-css3-values-20120308/#angles>
+- <angle>
+
+# A basic shape function.
+# See: <https://drafts.csswg.org/css-shapes-1/#basic-shape-functions>
+- <basic_shape>
+
 # A clock value.
 # See: <https://svgwg.org/specs/animations/#ClockValueSyntax>
 - <clock>
@@ -78,10 +92,25 @@
 # See: <https://drafts.csswg.org/css-color-4/#typedef-color>
 - <color>
 
+# A filter function.
+# See: <https://drafts.fxtf.org/filter-effects/#typedef-filter-function>
+- <filter_function>
+
+# A font family.
+# See: <https://www.w3.org/TR/css-fonts-3/#font-family-prop>
+- <font_family>
+
 # A CSS length.
 # See: <https://www.w3.org/TR/css-values-4/#length-value>
 - <length>
 
+# See: <https://drafts.fxtf.org/css-masking-1/#typedef-mask-layer>
+- <mask_layer>
+
 # A number immediately followed by a '%'.
 # See: <https://www.w3.org/TR/css-values-4/#percentage-value>
 - <percentage>
+
+# A SVG path.
+# See: <https://svgwg.org/svg2-draft/paths.html#PathDataBNF>
+- <svg_path>
