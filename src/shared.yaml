@@ -1,6 +1,6 @@
 # Shared type definitions and presets for HTML and SVG elements.
 
-# HTML types
+# == HTML types == #
 
 # Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill-detail-tokens>
 <Autocomplete>:
@@ -216,8 +216,9 @@
   - _top
   - <name>
 
-# SVG types
+# == SVG types == #
 
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#ColorInterpolationProperty>
 <ColorInterpolation>:
   - inherit
   - auto

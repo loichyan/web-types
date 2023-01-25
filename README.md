@@ -13,6 +13,7 @@ A collection of types for web development.
 - [ ] Explicitly extend other presets.
 - [ ] Restrict usage of `list<*>`.
 - [ ] More builtin types.
+- [ ] Add MathML elements.
 - [x] Add a list of all builtin types.
 - [x] Remove deprecated, experimental and non-standard entries.
 - [x] Add note for the preset naming convention.

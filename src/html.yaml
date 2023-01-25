@@ -1,4 +1,5 @@
 # HTML elements
+# Spec: <https://html.spec.whatwg.org/>
 
 $extend:
   - aria.yaml
@@ -148,10 +149,10 @@ _HTML_ELEMENT_ATTR:
 GLOBAL_ATTR:
   $link: mdn:Web/HTML/Global_attributes
   $extend:
-    - _ELEMENT_ATTR
-    - _HTML_ELEMENT_ATTR
     - ARIA_ATTR
     - GLOBAL_EVENT
+    - _ELEMENT_ATTR
+    - _HTML_ELEMENT_ATTR
 
 # Spec: <https://html.spec.whatwg.org/multipage/media.html#media-elements>
 _HTML_MEDIA_ELEMENT_ATTR:
@@ -179,7 +180,7 @@ _HTML_MEDIA_ELEMENT_ATTR:
     prop: loop
   muted:
     type: <boolean>
-    # CEReaction: defaultMuted
+    # NOTE: CEReaction is 'defaultMuted'
     prop: muted
   controls:
     type: <boolean>
@@ -780,7 +781,7 @@ input:
     prop: autocomplete
   checked:
     type: <boolean>
-    # CEReaction: defaultChecked
+    # NOTE: CEReaction is 'defaultChecked'
     prop: checked
   dirname:
     type: <string>
@@ -852,7 +853,7 @@ input:
     prop: type
   value:
     type: <string>
-    # CEReaction: defaultValue
+    # NOTE: CEReaction is 'defaultValue'
     prop: value
   width:
     type: <integer>
@@ -1122,7 +1123,7 @@ option:
     prop: label
   selected:
     type: <boolean>
-    # CEReaction: defaultSelected
+    # NOTE: CEReaction is 'defaultSelected'
     prop: selected
   value:
     type: <string>

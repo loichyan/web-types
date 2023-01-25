@@ -1,6 +1,9 @@
 # SVG elements
+# Spec: <https://www.w3.org/TR/SVG2/>
 
 $extend:
+  - aria.yaml
+  - event.yaml
   - shared.yaml
 
 $default:
@@ -8,61 +11,56 @@ $default:
   default:
     link: mdn:Web/SVG/Attribute/%%S
 
+# Spec: <https://www.w3.org/TR/SVG11/intro.html#TermCoreAttributes>
 _SVG_CORE_ATTR:
   $link: mdn:Web/SVG/Attribute/Core
   $default:
     link: mdn:Web/SVG/Attribute/Core#%s
   id: <id>
-  lang: <lang>
   tabindex: <integer>
-  xml:base: <string>
-  xml:lang: <lang>
-  xml:space: [default, preserve]
-
-_SVG_STYLING_ATTR:
-  $link: mdn:Web/SVG/Attribute/Styling
-  $default:
-    link: mdn:Web/SVG/Attribute/Styling#%s
-  class: list<id>
+  lang: <lang>
+  class: list<name>
   style: <string>
 
+# Spec: <https://www.w3.org/TR/SVG2/struct.html#TermConditionalProcessingAttribute>
 _SVG_CONDITIONAL_PROCESSING_ATTR:
   $link: mdn:Web/SVG/Attribute/Conditional_Processing
   $default:
     link: mdn:Web/SVG/Attribute/Conditional_Processing#%s
-  requiredExtensions:
-  requiredFeatures:
-  systemLanguage: <lang>
+  requiredExtensions: list<url>
+  systemLanguage: list<lang,>
 
+# Spec: <https://www.w3.org/TR/SVG2/styling.html#TermPresentationAttribute>
 _SVG_PRESENTATION_ATTR:
   $link: mdn:Web/SVG/Attribute/Presentation
   $default:
     link: mdn:Web/SVG/Attribute/Presentation#%s
-  # TODO: d, transform
   alignment-baseline:
     - inherit
-    - auto
     - baseline
-    - before-edge
-    - text-before-edge
+    - text-bottom
+    - alphabetic
+    - ideographic
     - middle
     - central
-    - after-edge
-    - text-after-edge
-    - ideographic
-    - alphabetic
-    - hanging
     - mathematical
+    - text-top
   baseline-shift:
     - inherit
-    - auto
-    - baseline
-    - super
     - sub
-    - <string>
+    - super
+    - top
+    - center
+    - bottom
+    - <length>
+    - <percentage>
   clip-path:
     - inherit
     - none
+    - fill-box
+    - stroke-box
+    - view-box
+    - <url>
     - <string>
   clip-rule:
     - inherit
@@ -70,9 +68,14 @@ _SVG_PRESENTATION_ATTR:
     - evenodd
   color:
     - inherit
-    - <string>
+    - <color>
   color-interpolation: <ColorInterpolation>
   color-interpolation-filters: <ColorInterpolation>
+  color-rendering:
+    - inherit
+    - auto
+    - optimizeSpeed
+    - optimizeQuality
   cursor:
     - inherit
     - auto
@@ -111,12 +114,30 @@ _SVG_PRESENTATION_ATTR:
     - all-scroll
     - zoom-in
     - zoom-out
+    - <string>
   direction:
     - inherit
     - ltr
     - rtl
-  display: <string>
+  display:
+    - inherit
+    - none
+    - inline
+    - block
+    - list-item
+    - inline-block
+    - table
+    - inline-table
+    - table-row-group
+    - table-header-group
+    - table-footer-group
+    - table-row
+    - table-column-group
+    - table-column
+    - table-cell
+    - table-caption
   dominant-baseline:
+    - inherit
     - auto
     - text-bottom
     - alphabetic
@@ -126,8 +147,10 @@ _SVG_PRESENTATION_ATTR:
     - mathematical
     - hanging
     - text-top
-  fill: <string>
-  fill-opacity: <string>
+  fill-opacity:
+    - inherit
+    - <number>
+    - <percentage>
   fill-rule:
     - inherit
     - nonzero
@@ -136,25 +159,60 @@ _SVG_PRESENTATION_ATTR:
     - inherit
     - none
     - <string>
-  flood-color: <string>
-  flood-opacity: <string>
-  font-family: <string>
-  font-size: <string>
+  flood-color:
+    - inherit
+    - <color>
+  flood-opacity:
+    - inherit
+    - <number>
+    - <percentage>
+  font-family:
+    - inherit
+    - <string>
+  font-size:
+    - inherit
+    - xx-small
+    - x-small
+    - small
+    - medium
+    - large
+    - x-large
+    - xx-large
+    - larger
+    - smaller
+    - <length>
+    - <percentage>
   font-size-adjust:
     - inherit
     - none
     - <number>
-  font-stretch: <string>
+  font-stretch:
+    - inherit
+    - ultra-condensed
+    - extra-condensed
+    - condensed
+    - semi-condensed
+    - normal
+    - semi-expanded
+    - expanded
+    - extra-expanded
+    - ultra-expanded
   font-style:
+    - inherit
     - normal
     - italic
     - oblique
-  font-variant: <string>
+  font-variant:
+    - inherit
+    - none
+    - normal
+    - <string>
   font-weight:
+    - inherit
     - normal
     - bold
-    - lighter
     - bolder
+    - lighter
     - "100"
     - "200"
     - "300"
@@ -170,27 +228,31 @@ _SVG_PRESENTATION_ATTR:
     - optimizeQuality
     - optimizeSpeed
   letter-spacing:
+    - inherit
     - normal
+    - <length>
+  lighting-color:
     - inherit
-    - <string>
-  lighting-color: <string>
+    - <color>
   marker-end:
-    - none
     - inherit
-    - <string>
+    - none
+    - <url>
   marker-mid:
-    - none
     - inherit
-    - <string>
+    - none
+    - <url>
   marker-start:
+    - inherit
     - none
+    - <url>
+  mask:
     - inherit
     - <string>
-  mask: <string>
-  mask-type:
-    - luminance
-    - alpha
-  opacity: <string>
+  opacity:
+    - inherit
+    - <number>
+    - <percentage>
   overflow:
     - inherit
     - auto
@@ -200,10 +262,10 @@ _SVG_PRESENTATION_ATTR:
   paint-order:
     - inherit
     - normal
-    - fill
-    - stroke
-    - markers
+    - <string>
   pointer-events:
+    - inherit
+    - none
     - bounding-box
     - visiblePainted
     - visibleFill
@@ -213,7 +275,6 @@ _SVG_PRESENTATION_ATTR:
     - fill
     - stroke
     - all
-    - none
   shape-rendering:
     - inherit
     - auto
@@ -222,28 +283,49 @@ _SVG_PRESENTATION_ATTR:
     - geometricPrecision
   stop-color:
     - inherit
+    - currentColor
     - <string>
   stop-opacity:
     - inherit
+    - <number>
+    - <percentage>
+  stroke:
+    - inherit
+    - none
+    - context-fill
+    - context-stroke
     - <string>
-  stroke: <string>
   stroke-dasharray:
+    - inherit
     - none
     - <string>
-  stroke-dashoffset: <string>
+  stroke-dashoffset:
+    - inherit
+    - <length>
+    - <percentage>
   stroke-linecap:
+    - inherit
     - butt
     - round
     - square
   stroke-linejoin:
-    - arcs
-    - bevel
+    - inherit
     - miter
     - miter-clip
     - round
-  stroke-miterlimit: <number>
-  stroke-opacity: <string>
-  stroke-width: <string>
+    - bevel
+    - arcs
+  stroke-miterlimit:
+    - inherit
+    - <number>
+  stroke-opacity:
+    - inherit
+    - <number>
+    - <percentage>
+  stroke-width:
+    - inherit
+    - <length>
+    - <percentage>
   text-anchor:
     - inherit
     - start
@@ -251,18 +333,23 @@ _SVG_PRESENTATION_ATTR:
     - end
   text-decoration:
     - inherit
-    - none
-    - underline
-    - overline
-    - line-through
-    - blink
+    - <string>
+  text-overflow:
+    - inherit
+    - clip
+    - ellipsis
+    - <string>
   text-rendering:
     - inherit
     - auto
     - optimizeSpeed
     - optimizeLegibility
     - geometricPrecision
-  transofrm-origin: <string>
+  # NOTE: This attribute is not supported by the 'pattern', 'linearGradient'
+  # and 'radialGradient' elements.
+  transform:
+    - inherit
+    - <string>
   unicode-bidi:
     - normal
     - embed
@@ -272,14 +359,15 @@ _SVG_PRESENTATION_ATTR:
     - plaintext
   vector-effect:
     - inherit
-    - default
-    - non-scaling-stroke
+    - none
+    - <string>
   visibility:
     - inherit
     - visible
     - hidden
     - collapse
   white-space:
+    - inherit
     - normal
     - pre
     - nowrap
@@ -288,24 +376,22 @@ _SVG_PRESENTATION_ATTR:
     - pre-line
   word-spacing:
     - inherit
-    - <string>
+    - normal
+    - <length>
   writing-mode:
     - inherit
-    - lr-tb
-    - rl-tb
-    - tb-rl
     - lr
+    - lr-tb
     - rl
+    - rl-tb
     - rb
+    - tb-rl
 
-_SVG_GRAPHICAL_EVENT:
-  $link: mdn:Web/SVG/Attribute/Events#graphical_event_attributes
-  on:activate: Event
-
-SVG_GLOBAL_ATTR:
+GLOBAL_ATTR:
   $extend:
+    - ARIA_ATTR
+    - GLOBAL_EVENT
     - _SVG_CORE_ATTR
-    - _SVG_STYLING_ATTR
     - _SVG_CONDITIONAL_PROCESSING_ATTR
     - _SVG_PRESENTATION_ATTR
 

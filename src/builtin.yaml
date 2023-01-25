@@ -24,6 +24,13 @@
 # A space-separated list of <T>.
 - list<T>
 
+# A comma-separated list of <T>.
+# TODO: more comma/semicolon-separated list attributes
+- list<T,>
+
+# A semicolon-separated list of <T>.
+- list<T;>
+
 # A character.
 - <char>
 
@@ -60,3 +67,21 @@
 # An URL.
 # See: <https://developer.mozilla.org/en-US/docs/Web/API/URL>
 - <url>
+
+# == Types used in SVG elements == #
+
+# A clock value.
+# See: <https://svgwg.org/specs/animations/#ClockValueSyntax>
+- <clock>
+
+# A CSS color.
+# See: <https://drafts.csswg.org/css-color-4/#typedef-color>
+- <color>
+
+# A CSS length.
+# See: <https://www.w3.org/TR/css-values-4/#length-value>
+- <length>
+
+# A number immediately followed by a '%'.
+# See: <https://www.w3.org/TR/css-values-4/#percentage-value>
+- <percentage>
