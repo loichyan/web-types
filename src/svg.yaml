@@ -10,6 +10,110 @@ $default:
   default:
     link: mdn:Web/SVG/Attribute/%%S
 
+<AlphaValue>:
+  - inherit
+  - <number>
+  - <percentage>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#element-attrdef-fedisplacementmap-xchannelselector>
+<ChannelSelector>:
+  - R
+  - G
+  - B
+  - A
+
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#ColorInterpolationProperty>
+<ColorInterpolation>:
+  - inherit
+  - auto
+  - sRGB
+  - linearRGB
+
+<ControlPoint>: <(number number number number)>
+
+<CSSHeight>:
+  - inherit
+  - auto
+  - <LengthPercentage>
+
+<CSSWidth>:
+  - inherit
+  - auto
+  - <LengthPercentage>
+
+# Spec: <https://drafts.fxtf.org/filter-effects/#element-attrdef-filter-primitive-in>
+<In>:
+  - SourceGraphic
+  - SourceAlpha
+  - BackgroundImage
+  - BackgroundAlpha
+  - FillPaint
+  - StrokePaint
+  - <name>
+
+# Spec: <https://www.w3.org/TR/SVG2/text.html#TextElementLengthAdjustAttribute>
+<LengthAdjust>:
+  - spacing
+  - spacingAndGlyphs
+
+<LengthPercentage>:
+  - <length>
+  - <percentage>
+
+<LengthPercentageOrNum>:
+  - <length>
+  - <percentage>
+  - <number>
+
+<OptNumber>: <?number>
+<NumOptNum>: <(number OptNumber)>
+
+<Point>: <(number number)>
+
+# Spec: <https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute>
+<PreserveAspectRatioAlign>:
+  - none
+  - xMinYMin
+  - xMidYMin
+  - xMaxYMin
+  - xMinYMid
+  - xMidYMid
+  - xMaxYMid
+  - xMinYMax
+  - xMidYMax
+  - xMaxYMax
+<MeetOrSlice>:
+  - meet
+  - slice
+<OptMeetOrSlice>: <?MeetOrSlice>
+<PreserveAspectRatio>: <(PreserveAspectRatioAlign OptMeetOrSlice)>
+
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#MarkerElementRefXAttribute>
+<RefX>:
+  - left
+  - center
+  - right
+  - <LengthPercentageOrNum>
+
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#MarkerElementRefYAttribute>
+<RefY>:
+  - top
+  - center
+  - bottom
+  - <LengthPercentageOrNum>
+
+# Spec: <https://www.w3.org/TR/SVG2/pservers.html#RadialGradientElementSpreadMethodAttribute>
+<SpreadMethod>:
+  - pad
+  - reflect
+  - repeat
+
+<Units>:
+  - userSpaceOnUse
+  - objectBoundingBox
+
+<ViewBox>: <(number number number number)>
+
 # Spec: <https://www.w3.org/TR/SVG11/intro.html#TermCoreAttributes>
 _SVG_CORE_ATTR:
   $link: mdn:Web/SVG/Attribute/Core
@@ -18,7 +122,7 @@ _SVG_CORE_ATTR:
   id: <id>
   tabindex: <integer>
   lang: <lang>
-  class: list<name>
+  class: <[name]>
   style: <string>
 
 # Spec: <https://www.w3.org/TR/SVG2/struct.html#TermConditionalProcessingAttribute>
@@ -26,8 +130,8 @@ _SVG_CONDITIONAL_PROCESSING_ATTR:
   $link: mdn:Web/SVG/Attribute/Conditional_Processing
   $default:
     link: mdn:Web/SVG/Attribute/Conditional_Processing#%s
-  requiredExtensions: list<url>
-  systemLanguage: list<lang,>
+  requiredExtensions: <[url]>
+  systemLanguage: <[,lang]>
 
 # Spec: <https://www.w3.org/TR/SVG2/styling.html#TermPresentationAttribute>
 _SVG_PRESENTATION_ATTR:
@@ -54,7 +158,7 @@ _SVG_PRESENTATION_ATTR:
     - <LengthPercentage>
   clip-path:
     - inherit
-    - <ClipPath>
+    - <string>
   clip-rule:
     - inherit
     - nonzero
@@ -62,12 +166,8 @@ _SVG_PRESENTATION_ATTR:
   color:
     - inherit
     - <color>
-  color-interpolation:
-    - inherit
-    - <ColorInterpolation>
-  color-interpolation-filters:
-    - inherit
-    - <ColorInterpolation>
+  color-interpolation: <ColorInterpolation>
+  color-interpolation-filters: <ColorInterpolation>
   color-rendering:
     - inherit
     - auto
@@ -75,7 +175,43 @@ _SVG_PRESENTATION_ATTR:
     - optimizeQuality
   cursor:
     - inherit
-    - <Cursor>
+    - auto
+    - default
+    - none
+    - context-menu
+    - help
+    - pointer
+    - progress
+    - wait
+    - cell
+    - crosshair
+    - text
+    - vertical-text
+    - alias
+    - copy
+    - move
+    - no-drop
+    - not-allowed
+    - grab
+    - grabbing
+    - e-resize
+    - n-resize
+    - ne-resize
+    - nw-resize
+    - s-resize
+    - se-resize
+    - sw-resize
+    - w-resize
+    - ew-resize
+    - ns-resize
+    - nesw-resize
+    - nwse-resize
+    - col-resize
+    - row-resize
+    - all-scroll
+    - zoom-in
+    - zoom-out
+    - <string>
   direction:
     - inherit
     - ltr
@@ -110,10 +246,8 @@ _SVG_PRESENTATION_ATTR:
     - text-top
   fill:
     - inherit
-    - <Paint>
-  fill-opacity:
-    - inherit
-    - <AlphaValue>
+    - <string>
+  fill-opacity: <AlphaValue>
   fill-rule:
     - inherit
     - nonzero
@@ -121,16 +255,14 @@ _SVG_PRESENTATION_ATTR:
   filter:
     - inherit
     - none
-    - <FilterValueList>
+    - <string>
   flood-color:
     - inherit
     - <color>
-  flood-opacity:
-    - inherit
-    - <AlphaValue>
+  flood-opacity: <AlphaValue>
   font-family:
     - inherit
-    - <FontFamilyList>
+    - <string>
   font-size:
     - inherit
     - xx-small
@@ -165,7 +297,7 @@ _SVG_PRESENTATION_ATTR:
     - oblique
   font-variant:
     - inherit
-    - <FontVariant>
+    - <string>
   font-weight:
     - inherit
     - normal
@@ -207,10 +339,8 @@ _SVG_PRESENTATION_ATTR:
     - <url>
   mask:
     - inherit
-    - <MaskLayerList>
-  opacity:
-    - inherit
-    - <AlphaValue>
+    - <string>
+  opacity: <AlphaValue>
   overflow:
     - inherit
     - auto
@@ -243,9 +373,7 @@ _SVG_PRESENTATION_ATTR:
     - inherit
     - currentColor
     - <string>
-  stop-opacity:
-    - inherit
-    - <AlphaValue>
+  stop-opacity: <AlphaValue>
   stroke:
     - inherit
     - none
@@ -255,7 +383,7 @@ _SVG_PRESENTATION_ATTR:
   stroke-dasharray:
     - inherit
     - none
-    - <string>
+    - <[LengthPercentageOrNum]>
   stroke-dashoffset:
     - inherit
     - <LengthPercentage>
@@ -274,9 +402,7 @@ _SVG_PRESENTATION_ATTR:
   stroke-miterlimit:
     - inherit
     - <number>
-  stroke-opacity:
-    - inherit
-    - <AlphaValue>
+  stroke-opacity: <AlphaValue>
   stroke-width:
     - inherit
     - <LengthPercentage>
@@ -287,11 +413,6 @@ _SVG_PRESENTATION_ATTR:
     - end
   text-decoration:
     - inherit
-    - <string>
-  text-overflow:
-    - inherit
-    - clip
-    - ellipsis
     - <string>
   text-rendering:
     - inherit
@@ -423,9 +544,9 @@ _ANIMATION_VALUE_ATTR:
     - linear
     - paced
     - spline
-  values: list<string;>
-  keyTimes: list<number;>
-  keySplines: <string>
+  values: <[;string]>
+  keyTimes: <[;number]>
+  keySplines: <[ControlPoint]>
   from: <string>
   to: <string>
   by: <string>
@@ -455,7 +576,7 @@ _TRANSFER_FUNCTION_ELEMENT_ATTR:
     - discrete
     - linear
     - gamma
-  tableValues: list<number>
+  tableValues: <[number]>
   slope: <number>
   intercept: <number>
   amplitude: <number>
@@ -463,11 +584,11 @@ _TRANSFER_FUNCTION_ELEMENT_ATTR:
   offset: <number>
 
 _SVG_TEXT_ELEMENT_ATTR:
-  x: list<LengthPercentageOrNum>
-  y: list<LengthPercentageOrNum>
-  dx: list<LengthPercentageOrNum>
-  dy: list<LengthPercentageOrNum>
-  rotate: list<number>
+  x: <[LengthPercentageOrNum]>
+  y: <[LengthPercentageOrNum]>
+  dx: <[LengthPercentageOrNum]>
+  dy: <[LengthPercentageOrNum]>
+  rotate: <[number]>
   lengthAdjust: <LengthAdjust>
   textLength: <LengthPercentageOrNum>
 
@@ -481,7 +602,7 @@ a:
   href: <url>
   target: <Target>
   download: <string>
-  ping: list<url>
+  ping: <[url]>
   rel: <Rel>
   hreflang: <lang>
   type: <mime>
@@ -501,7 +622,7 @@ animateMotion:
     - GLOBAL_ATTR
     - _ANIMATION_ATTR
   path: <svg_path>
-  keyPoints: list<number;>
+  keyPoints: <[;number]>
   rotate:
     - auto
     - auto-reverse
@@ -605,7 +726,7 @@ feColorMatrix:
     - saturate
     - hueRotate
     - luminanceToAlpha
-  values: list<number>
+  values: <[number]>
 
 # Spec: <https://drafts.fxtf.org/filter-effects/#feComponentTransferElement>
 feComponentTransfer:
@@ -644,7 +765,7 @@ feConvolveMatrix:
     - _FILTER_PRIMITIVE_ATTR
   in: <In>
   order: <NumOptNum>
-  kernelMatrix: list<number>
+  kernelMatrix: <[number]>
   divisor: <number>
   bias: <number>
   targetX: <integer>
@@ -863,8 +984,8 @@ foreignObject:
     - GLOBAL_ATTR
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
 
 # Spec: <https://www.w3.org/TR/SVG2/struct.html#GElement>
 g:
@@ -877,13 +998,13 @@ image:
   $type: SVGImageElement
   $extend:
     - GLOBAL_ATTR
-  preserveAspectRatio: <PreserveAspectRatio>
+  preserveAspectRatio: <string>
   href: <url>
   crossOrigin: <CrossOrigin>
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
 
 # Spec: <https://www.w3.org/TR/SVG2/shapes.html#LineElement>
 line:
@@ -985,7 +1106,7 @@ polygon:
   $extend:
     - GLOBAL_ATTR
   pathLength: <number>
-  points: list<Point>
+  points: <[Point]>
 
 # Spec: <https://www.w3.org/TR/SVG2/shapes.html#PolylineElement>
 polyline:
@@ -993,7 +1114,7 @@ polyline:
   $extend:
     - GLOBAL_ATTR
   pathLength: <number>
-  points: list<Point>
+  points: <[Point]>
 
 # Spec: <https://www.w3.org/TR/SVG2/pservers.html#RadialGradientElement>
 radialGradient:
@@ -1019,8 +1140,8 @@ rect:
   pathLength: <number>
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
   rx:
     - auto
     - <LengthPercentage>
@@ -1072,8 +1193,8 @@ svg:
   zoomAndPan: <ZoomAndPan>
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
 
 # Spec: <https://www.w3.org/TR/SVG2/struct.html#SwitchElement>
 switch:
@@ -1092,8 +1213,8 @@ symbol:
   refY: <RefY>
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
 
 # Spec: <https://www.w3.org/TR/SVG2/text.html#TextElement>
 text:
@@ -1143,8 +1264,8 @@ use:
   href: <url>
   x: <LengthPercentage>
   y: <LengthPercentage>
-  width: <WidthHeight>
-  height: <WidthHeight>
+  width: <CSSWidth>
+  height: <CSSHeight>
 
 # Spec: <https://www.w3.org/TR/SVG2/linking.html#ViewElement>
 view:

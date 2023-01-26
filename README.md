@@ -14,6 +14,7 @@ A collection of types for web development.
 - [x] Explicitly extend other presets.
 - [x] Restrict usage of `list<*>`.
 - [ ] More builtin types.
+- [ ] Simplify attribute types.
 - [ ] Add MathML elements.
 - [x] Add a list of all builtin types.
 - [x] Remove deprecated, experimental and non-standard entries.

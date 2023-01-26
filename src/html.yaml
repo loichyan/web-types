@@ -14,26 +14,138 @@ $default:
   on:default:
     link: mdn:Web/API/%T/%%S_event
 
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill-detail-tokens>
+<Autocomplete>:
+  - off
+  - on
+  - name
+  - honorific-prefix
+  - given-name
+  - additional-name
+  - family-name
+  - honorific-suffix
+  - nickname
+  - organization-title
+  - username
+  - new-password
+  - current-password
+  - one-time-code
+  - organization
+  - street-address
+  - address-line1
+  - address-line2
+  - address-line3
+  - address-level4
+  - address-level3
+  - address-level2
+  - address-level1
+  - country
+  - country-name
+  - postal-code
+  - cc-name
+  - cc-given-name
+  - cc-additional-name
+  - cc-family-name
+  - cc-number
+  - cc-exp
+  - cc-exp-month
+  - cc-exp-year
+  - cc-csc
+  - cc-type
+  - transaction-currency
+  - transaction-amount
+  - language
+  - bday
+  - bday-day
+  - bday-month
+  - bday-year
+  - sex
+  - url
+  - photo
+  - tel
+  - tel-country-code
+  - tel-national
+  - tel-area-code
+  - tel-local
+  - tel-local-prefix
+  - tel-local-suffix
+  - tel-extension
+  - email
+  - impp
+
+# Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#blocking-attribute>
+<Blocking>: render
+<BlockingList>: <[Blocking]>
+
+# Spec:
+# - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attr-controlslist>
+# - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-controlslist>
+<Controls>:
+  - nodownload
+  - nofullscreen
+  - noremoteplayback
+<ControlsList>: <[Controls]>
+
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype>
+<FormEnctype>:
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain
+
+# Spec: <https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method>
+<FormMethod>:
+  - get
+  - post
+  - dialog
+
+# Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attribute>
+<Loading>:
+  - lazy
+  - eager
+
+# Spec: <https://html.spec.whatwg.org/multipage/iframe-embed-object.html#attr-iframe-sandbox>
+<Sandbox>:
+  - allow-downloads
+  - allow-forms
+  - allow-modals
+  - allow-orientation-lock
+  - allow-pointer-lock
+  - allow-popups
+  - allow-popups-to-escape-sandbox
+  - allow-presentation
+  - allow-same-origin
+  - allow-scripts
+  - allow-top-navigation
+  - allow-top-navigation-by-user-activation
+  - allow-top-navigation-to-custom-protocols
+<SandboxList>: <[Sandbox]>
+
+# Spec: <https://html.spec.whatwg.org/multipage/images.html#srcset-attribute>
+<Srcset>: <[,string]>
+
+# Spec: <https://html.spec.whatwg.org/multipage/images.html#sizes-attribute>
+<Sizes>: <string>
+
 _ELEMENT_ATTR:
   $default:
     link: mdn:Web/HTML/Global_attributes#%s
     prop:
       link: mdn:Web/API/Element/%S
   # DOM defined attributes.
-  # Spec: https://dom.spec.whatwg.org/#interface-element
+  # Spec: <https://dom.spec.whatwg.org/#interface-element>
   class:
-    type: list<name>
+    type: <[name]>
     prop: className
   id:
     type: <id>
     prop: id
   slot:
-    type: <string>
+    type: <name>
     prop: slot
   # CSS shadow parts attribute.
-  # Spec: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/exportparts
+  # Spec: <https://w3c.github.io/csswg-drafts/css-shadow-parts/#element-attrdef-html-global-exportparts>
   exportparts: <string>
-  part: list<name>
+  part: <[name]>
 
 # Standard HTML attributes
 # Spec: <https://html.spec.whatwg.org/multipage/dom.html#global-attributes>
@@ -43,7 +155,7 @@ _HTML_ELEMENT_ATTR:
     prop:
       link: mdn:Web/API/HTMLElement/%S
   accesskey:
-    type: list<char>
+    type: <[char]>
     prop: accessKey
   autocapitalize:
     type:
@@ -111,10 +223,10 @@ _HTML_ELEMENT_ATTR:
     prop: inputMode
   is: <name>
   itemid: <url>
-  itemprop: list<name>
-  itemref: list<id>
+  itemprop: <[name]>
+  itemref: <[id]>
   itemscope: <boolean>
-  itemtype: list<url>
+  itemtype: <[url]>
   lang:
     type: <lang>
     prop: lang
@@ -185,7 +297,7 @@ _HTML_MEDIA_ELEMENT_ATTR:
     type: <boolean>
     prop: controls
   # Spec: <https://wicg.github.io/controls-list/explainer.html>
-  controlslist: list<Controls>
+  controlslist: <ControlsList>
 
 _HTML_MOD_ELEMENT_ATTR:
   cite:
@@ -208,7 +320,7 @@ _HTML_TABLE_CELL_ELEMENT_ATTR:
     type: <integer>
     prop: rowSpan
   headers:
-    type: list<id>
+    type: <[id]>
     prop: headers
 
 _HTML_TABLE_COL_ELEMENT_ATTR:
@@ -231,10 +343,10 @@ a:
     type: <string>
     prop: download
   ping:
-    type: list<url>
+    type: <[url]>
     prop: ping
   rel:
-    type: list<Rel>
+    type: <[Rel]>
     prop: rel
   hreflang:
     type: <lang>
@@ -267,7 +379,7 @@ area:
     type: <string>
     prop: alt
   coords:
-    type: <string>
+    type: <[,number]>
     prop: coords
   # Spec: <https://html.spec.whatwg.org/multipage/image-maps.html#attr-area-shape>
   shape:
@@ -287,10 +399,10 @@ area:
     type: <string>
     prop: download
   ping:
-    type: list<url>
+    type: <[url]>
     prop: ping
   rel:
-    type: list<Rel>
+    type: <[Rel]>
     prop: rel
   referrerpolicy:
     type: <ReferrerPolicy>
@@ -615,7 +727,7 @@ form:
     type: <Target>
     prop: target
   rel:
-    type: list<Rel>
+    type: <[Rel]>
     prop: rel
 
 # Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements>
@@ -694,7 +806,7 @@ iframe:
   name:
     type: <name>
     prop: name
-  sandbox: list<Sandbox>
+  sandbox: <SandboxList>
   allow:
     type: <string>
     prop: allow
@@ -730,10 +842,10 @@ img:
     type: <url>
     prop: src
   srcset:
-    type: <string>
+    type: <Srcset>
     prop: srcset
   sizes:
-    type: <string>
+    type: <Sizes>
     prop: sizes
   crossorigin:
     type: <CrossOrigin>
@@ -776,7 +888,7 @@ input:
     type: <string>
     prop: alt
   autocomplete:
-    type: list<Autocomplete>
+    type: <[Autocomplete]>
     prop: autocomplete
   checked:
     type: <boolean>
@@ -848,7 +960,30 @@ input:
     type: <string>
     prop: step
   type:
-    type: <InputType>
+    # Spec: <https://html.spec.whatwg.org/multipage/input.html#attr-input-type>
+    type:
+      - hidden
+      - text
+      - search
+      - tel
+      - url
+      - email
+      - password
+      - date
+      - month
+      - week
+      - time
+      - datetime-local
+      - number
+      - range
+      - color
+      - checkbox
+      - radio
+      - file
+      - submit
+      - image
+      - reset
+      - button
     prop: type
   value:
     type: <string>
@@ -925,10 +1060,10 @@ link:
     type: <ReferrerPolicy>
     prop: referrerPolicy
   imagesrcset:
-    type: <string>
+    type: <Srcset>
     prop: imageSrcset
   imagesizes:
-    type: <string>
+    type: <Sizes>
     prop: imageSizes
   # Spec: <https://fetch.spec.whatwg.org/#concept-potential-destination>
   as:
@@ -956,7 +1091,7 @@ link:
       - worker
       - xslt
     prop: as
-  blocking: list<Blocking>
+  blocking: <BlockingList>
   disabled:
     type: <boolean>
     prop: disabled
@@ -994,7 +1129,25 @@ meta:
   $extend:
     - GLOBAL_ATTR
   name:
-    type: <MetaName>
+    # Spec:
+    # - <https://html.spec.whatwg.org/multipage/semantics.html#standard-metadata-names>
+    # - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name>
+    type:
+      # Standard metadata names
+      - application-name
+      - author
+      - description
+      - generator
+      - keywords
+      - referrer
+      - theme-color
+      - color-scheme
+      - viewport
+      # Other metadata names
+      - creator
+      - googlebot
+      - publisher
+      - robots
     prop: name
   http-equiv:
     type:
@@ -1133,7 +1286,7 @@ output:
   $type: HTMLOutputElement
   $extend:
     - GLOBAL_ATTR
-  for: list<id>
+  for: <[id]>
   form: <id>
   name:
     type: <name>
@@ -1239,7 +1392,7 @@ script:
   referrerpolicy:
     type: <ReferrerPolicy>
     prop: referrerPolicy
-  blocking: list<Blocking>
+  blocking: <BlockingList>
 
 # Spec: <https://html.spec.whatwg.org/multipage/sections.html#the-section-element>
 section:
@@ -1253,7 +1406,7 @@ select:
   $extend:
     - GLOBAL_ATTR
   autocomplete:
-    type: list<Autocomplete>
+    type: <[Autocomplete]>
     prop: autocomplete
   disabled:
     type: <boolean>
@@ -1299,10 +1452,10 @@ source:
     type: <url>
     prop: src
   srcset:
-    type: <string>
+    type: <Srcset>
     prop: srcset
   sizes:
-    type: <string>
+    type: <Sizes>
     prop: sizes
   meida:
     type: <string>
@@ -1334,7 +1487,7 @@ style:
   media:
     type: <string>
     prop: media
-  blocking: list<Blocking>
+  blocking: <BlockingList>
 
 # Spec: <https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements>
 sub:
@@ -1385,7 +1538,7 @@ textarea:
   $extend:
     - GLOBAL_ATTR
   autocomplete:
-    type: list<Autocomplete>
+    type: <[Autocomplete]>
     prop: autocomplete
   cols:
     type: <integer>
