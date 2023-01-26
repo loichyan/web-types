@@ -5,16 +5,16 @@ A collection of types for web development.
 ## 📝 Todo
 
 - [x] Specify whether an event bubbles.
-- [ ] Check the specification of each entry.
+- [x] Check the specification of each entry.
   - [x] ARIA attributes
   - [x] Global events
   - [x] HTML elements
   - [x] SVG elements
-  - [ ] Builtin types
+  - [x] Builtin types
 - [x] Explicitly extend other presets.
 - [x] Restrict usage of `list<*>`.
-- [ ] More builtin types.
-- [ ] Simplify attribute types.
+- [x] More builtin types.
+- [x] Simplify attribute types.
 - [ ] Add MathML elements.
 - [x] Add a list of all builtin types.
 - [x] Remove deprecated, experimental and non-standard entries.

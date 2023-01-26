@@ -10,11 +10,6 @@ $default:
   default:
     link: mdn:Web/SVG/Attribute/%%S
 
-<AlphaValue>:
-  - inherit
-  - <number>
-  - <percentage>
-
 # Spec: <https://drafts.fxtf.org/filter-effects/#element-attrdef-fedisplacementmap-xchannelselector>
 <ChannelSelector>:
   - R
@@ -29,13 +24,15 @@ $default:
   - sRGB
   - linearRGB
 
+# Spec: <https://svgwg.org/specs/animations/#KeySplinesAttribute>
 <ControlPoint>: <(number number number number)>
+<ControlPointList>: <[;ControlPoint]>
 
+# Spec: <https://www.w3.org/TR/SVG2/geometry.html#Sizing>
 <CSSHeight>:
   - inherit
   - auto
   - <LengthPercentage>
-
 <CSSWidth>:
   - inherit
   - auto
@@ -68,7 +65,15 @@ $default:
 <OptNumber>: <?number>
 <NumOptNum>: <(number OptNumber)>
 
+# Spec: <https://svgwg.org/svg2-draft/render.html#ObjectAndGroupOpacityProperties>
+<Opacity>:
+  - inherit
+  - <number>
+  - <percentage>
+
+# Spec: <https://www.w3.org/TR/SVG2/shapes.html#DataTypePoints>
 <Point>: <(number number)>
+<PointList>: <[Point]>
 
 # Spec: <https://www.w3.org/TR/SVG2/coords.html#PreserveAspectRatioAttribute>
 <PreserveAspectRatioAlign>:
@@ -108,10 +113,12 @@ $default:
   - reflect
   - repeat
 
+# Spec: <https://www.w3.org/TR/SVG2/painting.html#MarkerUnitsAttribute>
 <Units>:
   - userSpaceOnUse
   - objectBoundingBox
 
+# Spec: <https://www.w3.org/TR/SVG2/coords.html#ViewBoxAttribute>
 <ViewBox>: <(number number number number)>
 
 # Spec: <https://www.w3.org/TR/SVG11/intro.html#TermCoreAttributes>
@@ -247,7 +254,7 @@ _SVG_PRESENTATION_ATTR:
   fill:
     - inherit
     - <string>
-  fill-opacity: <AlphaValue>
+  fill-opacity: <Opacity>
   fill-rule:
     - inherit
     - nonzero
@@ -259,7 +266,7 @@ _SVG_PRESENTATION_ATTR:
   flood-color:
     - inherit
     - <color>
-  flood-opacity: <AlphaValue>
+  flood-opacity: <Opacity>
   font-family:
     - inherit
     - <string>
@@ -340,7 +347,7 @@ _SVG_PRESENTATION_ATTR:
   mask:
     - inherit
     - <string>
-  opacity: <AlphaValue>
+  opacity: <Opacity>
   overflow:
     - inherit
     - auto
@@ -373,7 +380,7 @@ _SVG_PRESENTATION_ATTR:
     - inherit
     - currentColor
     - <string>
-  stop-opacity: <AlphaValue>
+  stop-opacity: <Opacity>
   stroke:
     - inherit
     - none
@@ -402,7 +409,7 @@ _SVG_PRESENTATION_ATTR:
   stroke-miterlimit:
     - inherit
     - <number>
-  stroke-opacity: <AlphaValue>
+  stroke-opacity: <Opacity>
   stroke-width:
     - inherit
     - <LengthPercentage>
@@ -467,6 +474,8 @@ GLOBAL_ATTR:
     - ARIA_ATTR
     - GLOBAL_EVENT
     - _SVG_CORE_ATTR
+    # NOTE: conditional processing attributes and presentation attributes are
+    # not supported in some elements.
     - _SVG_CONDITIONAL_PROCESSING_ATTR
     - _SVG_PRESENTATION_ATTR
 
@@ -546,7 +555,7 @@ _ANIMATION_VALUE_ATTR:
     - spline
   values: <[;string]>
   keyTimes: <[;number]>
-  keySplines: <[ControlPoint]>
+  keySplines: <ControlPointList>
   from: <string>
   to: <string>
   by: <string>
@@ -591,8 +600,6 @@ _SVG_TEXT_ELEMENT_ATTR:
   rotate: <[number]>
   lengthAdjust: <LengthAdjust>
   textLength: <LengthPercentageOrNum>
-
-# TODO: check DOM interfaces
 
 # Spec: <https://www.w3.org/TR/SVG2/linking.html#AElement>
 a:
@@ -1106,7 +1113,7 @@ polygon:
   $extend:
     - GLOBAL_ATTR
   pathLength: <number>
-  points: <[Point]>
+  points: <PointList>
 
 # Spec: <https://www.w3.org/TR/SVG2/shapes.html#PolylineElement>
 polyline:
@@ -1114,7 +1121,7 @@ polyline:
   $extend:
     - GLOBAL_ATTR
   pathLength: <number>
-  points: <[Point]>
+  points: <PointList>
 
 # Spec: <https://www.w3.org/TR/SVG2/pservers.html#RadialGradientElement>
 radialGradient:

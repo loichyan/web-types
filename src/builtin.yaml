@@ -5,7 +5,7 @@
 
 # A boolean value.
 # If an attribute is `<boolean>`, it should be treated as a boolean attribute.
-# See: <https//html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes>
+# Spec: <https//html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes>
 - <boolean>
 
 # A long integer value.
@@ -27,8 +27,6 @@
 # A space-separated list of <T>.
 - <[T]>
 
-# TODO: more comma/semicolon-separated attributes
-
 # A comma-separated list of <T>.
 - <[,T]>
 
@@ -42,7 +40,7 @@
 - <char>
 
 # A date string with optional time.
-# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#date_strings>
+# Spec: <https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#date_strings>
 - <datetime>
 
 # An empty string.
@@ -51,52 +49,46 @@
 - <empty>
 
 # The ID of an element, it's suggested to the same format of `<name>`.
-# See: <https//developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id>
+# Spec: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id>
 - <id>
 
 # A language identifier.
-# See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>
+# Spec: <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>
 - <lang>
 
 # A MIME type.
-# See: <https://developer.mozilla.org/en-US/docs/Glossary/MIME_type>
+# Spec: <https://developer.mozilla.org/en-US/docs/Glossary/MIME_type>
 - <mime>
 
 # A string of ASCII letters, digits, '_' and '-', starts with a letter.
 # Generally, this type is used as a token of `DOMTokenList`.
-# See: <https//developer.mozilla.org/en-US/docs/Web/API/DOMTokenList>
+# Spec: <https//developer.mozilla.org/en-US/docs/Web/API/DOMTokenList>
 - <name>
 
 # A name prefixed by a '#' reference to an element.
-# See: <https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-hash-name-reference>
+# Spec: <https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-hash-name-reference>
 - <hash_name>
 
 # An URL.
-# See: <https://developer.mozilla.org/en-US/docs/Web/API/URL>
+# Spec: <https://developer.mozilla.org/en-US/docs/Web/API/URL>
 - <url>
 
 # == Types used in SVG elements == #
 
-# An angle value.
-# See: <https://www.w3.org/TR/2012/WD-css3-values-20120308/#angles>
+# Spec: <https://www.w3.org/TR/2012/WD-css3-values-20120308/#angles>
 - <angle>
 
-# A clock value.
-# See: <https://svgwg.org/specs/animations/#ClockValueSyntax>
+# Spec: <https://svgwg.org/specs/animations/#ClockValueSyntax>
 - <clock>
 
-# A CSS color.
-# See: <https://drafts.csswg.org/css-color-4/#typedef-color>
+# Spec: <https://drafts.csswg.org/css-color-4/#typedef-color>
 - <color>
 
-# A CSS length.
-# See: <https://www.w3.org/TR/css-values-4/#length-value>
+# Spec: <https://www.w3.org/TR/css-values-4/#length-value>
 - <length>
 
-# A number immediately followed by a '%'.
-# See: <https://www.w3.org/TR/css-values-4/#percentage-value>
+# Spec: <https://www.w3.org/TR/css-values-4/#percentage-value>
 - <percentage>
 
-# A SVG path.
-# See: <https://svgwg.org/svg2-draft/paths.html#PathDataBNF>
+# Spec: <https://svgwg.org/svg2-draft/paths.html#PathDataBNF>
 - <svg_path>

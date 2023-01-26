@@ -231,7 +231,7 @@ _HTML_ELEMENT_ATTR:
     type: <lang>
     prop: lang
   # No CEReaction
-  # See: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#nonce-does-not-update-dom>
+  # Spec: <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#nonce-does-not-update-dom>
   nonce: <string>
   spellcheck:
     type:
